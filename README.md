@@ -2,6 +2,8 @@
 
 Agent skills for mobile core signalling troubleshooting. Offline, no dependencies beyond `python3`, and every answer names the RFC or 3GPP/ITU-T spec it comes from.
 
+![telcode looking up a Diameter code, searching across tables, decoding TBCD, and Claude Code answering an S6a question with the skill](docs/demo.gif)
+
 | Skill | What it does |
 |---|---|
 | [`telcode`](skills/telcode/SKILL.md) | Diameter, GSM MAP, SCCP, Q.850 and SIP code lookup, IMSI split, TBCD decoding |
@@ -104,6 +106,7 @@ python3 -m unittest discover -s tests
 uvx ruff check . && uvx ruff format --check .
 uvx mypy
 python3 tools/update_data.py    # refresh the IANA and 3GPP tables
+python3 tools/record_demo.py    # re-record docs/demo.gif, needs agg and claude on PATH
 ```
 
 ## License
