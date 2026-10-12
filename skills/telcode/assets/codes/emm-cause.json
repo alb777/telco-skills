@@ -1,0 +1,214 @@
+{
+  "family": "emm-cause",
+  "title": "EMM cause (4G NAS mobility management: attach, TAU and service, incl. LTE-M and NB-IoT)",
+  "source": "3GPP TS 24.301 V20.1.0, table 9.9.3.9.1",
+  "url": "https://www.3gpp.org/dynareport/24301.htm",
+  "codes": [
+    {
+      "code": 2,
+      "name": "IMSI unknown in HSS",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 3,
+      "name": "Illegal UE",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 5,
+      "name": "IMEI not accepted",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 6,
+      "name": "Illegal ME",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 7,
+      "name": "EPS services not allowed",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 8,
+      "name": "EPS services and non-EPS services not allowed",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 9,
+      "name": "UE identity cannot be derived by the network",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 10,
+      "name": "Implicitly detached",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 11,
+      "name": "PLMN not allowed",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 12,
+      "name": "Tracking Area not allowed",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 13,
+      "name": "Roaming not allowed in this tracking area",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 14,
+      "name": "EPS services not allowed in this PLMN",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 15,
+      "name": "No Suitable Cells In tracking area",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 16,
+      "name": "MSC temporarily not reachable",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 17,
+      "name": "Network failure",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 18,
+      "name": "CS domain not available",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 19,
+      "name": "ESM failure",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 20,
+      "name": "MAC failure",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 21,
+      "name": "Synch failure",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 22,
+      "name": "Congestion",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 23,
+      "name": "UE security capabilities mismatch",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 24,
+      "name": "Security mode rejected, unspecified",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 25,
+      "name": "Not authorized for this CSG",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 26,
+      "name": "Non-EPS authentication unacceptable",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 31,
+      "name": "Redirection to 5GCN required",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 35,
+      "name": "Requested service option not authorized in this PLMN",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 36,
+      "name": "IAB-node operation not authorized",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 39,
+      "name": "CS service temporarily not available",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 40,
+      "name": "No EPS bearer context activated",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 42,
+      "name": "Severe network failure",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 78,
+      "name": "PLMN not allowed to operate at the present UE location",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 80,
+      "name": "Disaster roaming for the determined PLMN with disaster condition not allowed",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 83,
+      "name": "Procedure cannot be completed due to unavailable feeder link while MME is operating in S&F mode",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 95,
+      "name": "Semantically incorrect message",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 96,
+      "name": "Invalid mandatory information",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 97,
+      "name": "Message type non-existent or not implemented",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 98,
+      "name": "Message type not compatible with the protocol state",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 99,
+      "name": "Information element non-existent or not implemented",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 100,
+      "name": "Conditional IE error",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 101,
+      "name": "Message not compatible with the protocol state",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 111,
+      "name": "Protocol error, unspecified",
+      "ref": "3GPP TS 24.301"
+    }
+  ],
+  "ranges": []
+}

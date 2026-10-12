@@ -1,0 +1,197 @@
+{
+  "family": "pfcp-cause",
+  "title": "PFCP cause (N4, Sxa, Sxb, Sxc)",
+  "source": "3GPP TS 29.244 V20.1.0, table 8.2.1-1",
+  "url": "https://www.3gpp.org/dynareport/29244.htm",
+  "codes": [
+    {
+      "code": 1,
+      "name": "Request accepted (success)",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 2,
+      "name": "More Usage Report to send",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 3,
+      "name": "Request partially accepted",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 64,
+      "name": "Request rejected (reason not specified)",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 65,
+      "name": "Session context not found",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 66,
+      "name": "Mandatory IE missing",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 67,
+      "name": "Conditional IE missing",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 68,
+      "name": "Invalid length",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 69,
+      "name": "Mandatory IE incorrect",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 70,
+      "name": "Invalid Forwarding Policy",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 71,
+      "name": "Invalid F-TEID allocation option",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 72,
+      "name": "No established PFCP Association",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 73,
+      "name": "Rule creation/modification Failure",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 74,
+      "name": "PFCP entity in congestion",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 75,
+      "name": "No resources available",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 76,
+      "name": "Service not supported",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 77,
+      "name": "System failure",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 78,
+      "name": "Redirection Requested",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 79,
+      "name": "All dynamic addresses are occupied",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 80,
+      "name": "Unknown Pre-defined Rule",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 81,
+      "name": "Unknown Application ID",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 82,
+      "name": "L2TP tunnel Establishment failure",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 83,
+      "name": "L2TP session Establishment failure",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 84,
+      "name": "L2TP tunnel release",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 85,
+      "name": "L2TP session release",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 86,
+      "name": "PFCP session restoration failure due to requested resource not available",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 87,
+      "name": "L2TP tunnel Establishment failure – Tunnel Auth Failure",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 88,
+      "name": "L2TP Session Establishment failure – Session Auth Failure",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 89,
+      "name": "L2TP tunnel Establishment failure – LNS not reachable",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 90,
+      "name": "PFD Contents Syntax Error",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 91,
+      "name": "PFD Contents Semantics Error",
+      "ref": "3GPP TS 29.244"
+    },
+    {
+      "code": 92,
+      "name": "PFD Application Id Unknown",
+      "ref": "3GPP TS 29.244"
+    }
+  ],
+  "ranges": [
+    {
+      "from": 0,
+      "to": 0,
+      "name": "Reserved"
+    },
+    {
+      "from": 1,
+      "to": 63,
+      "name": "Acceptance in a response",
+      "class": true
+    },
+    {
+      "from": 4,
+      "to": 63,
+      "name": "Spare"
+    },
+    {
+      "from": 64,
+      "to": 255,
+      "name": "Rejection in a response",
+      "class": true
+    },
+    {
+      "from": 93,
+      "to": 255,
+      "name": "Spare for future use in a response message"
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "family": "5gmm-cause",
+  "title": "5GMM cause (5G NAS mobility management: registration, service and deregistration)",
+  "source": "3GPP TS 24.501 V20.1.0, table 9.11.3.2.1",
+  "url": "https://www.3gpp.org/dynareport/24501.htm",
+  "codes": [
+    {
+      "code": 3,
+      "name": "Illegal UE",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 5,
+      "name": "PEI not accepted",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 6,
+      "name": "Illegal ME",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 7,
+      "name": "5GS services not allowed",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 9,
+      "name": "UE identity cannot be derived by the network",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 10,
+      "name": "Implicitly de-registered",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 11,
+      "name": "PLMN not allowed",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 12,
+      "name": "Tracking area not allowed",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 13,
+      "name": "Roaming not allowed in this tracking area",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 15,
+      "name": "No suitable cells in tracking area",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 20,
+      "name": "MAC failure",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 21,
+      "name": "Synch failure",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 22,
+      "name": "Congestion",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 23,
+      "name": "UE security capabilities mismatch",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 24,
+      "name": "Security mode rejected, unspecified",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 26,
+      "name": "Non-5G authentication unacceptable",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 27,
+      "name": "N1 mode not allowed",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 28,
+      "name": "Restricted service area",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 31,
+      "name": "Redirection to EPC required",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 36,
+      "name": "IAB-node operation not authorized",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 43,
+      "name": "LADN not available",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 62,
+      "name": "No network slices available",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 65,
+      "name": "Maximum number of PDU sessions reached",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 67,
+      "name": "Insufficient resources for specific slice and DNN",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 69,
+      "name": "Insufficient resources for specific slice",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 71,
+      "name": "ngKSI already in use",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 72,
+      "name": "Non-3GPP access to 5GCN not allowed",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 73,
+      "name": "Serving network not authorized",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 74,
+      "name": "Temporarily not authorized for this SNPN",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 75,
+      "name": "Permanently not authorized for this SNPN",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 76,
+      "name": "Not authorized for this CAG or authorized for CAG cells only",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 77,
+      "name": "Wireline access area not allowed",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 78,
+      "name": "PLMN not allowed to operate at the present UE location",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 79,
+      "name": "UAS services not allowed",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 80,
+      "name": "Disaster roaming for the determined PLMN with disaster condition not allowed",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 81,
+      "name": "Selected N3IWF is not compatible with the allowed NSSAI",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 82,
+      "name": "Selected TNGF is not compatible with the allowed NSSAI",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 90,
+      "name": "Payload was not forwarded",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 91,
+      "name": "DNN not supported or not subscribed in the slice",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 92,
+      "name": "Insufficient user-plane resources for the PDU session",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 93,
+      "name": "Onboarding services terminated",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 94,
+      "name": "User plane positioning not authorized",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 95,
+      "name": "Semantically incorrect message",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 96,
+      "name": "Invalid mandatory information",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 97,
+      "name": "Message type non-existent or not implemented",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 98,
+      "name": "Message type not compatible with the protocol state",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 99,
+      "name": "Information element non-existent or not implemented",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 100,
+      "name": "Conditional IE error",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 101,
+      "name": "Message not compatible with the protocol state",
+      "ref": "3GPP TS 24.501"
+    },
+    {
+      "code": 111,
+      "name": "Protocol error, unspecified",
+      "ref": "3GPP TS 24.501"
+    }
+  ],
+  "ranges": []
+}

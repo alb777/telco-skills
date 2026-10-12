@@ -1,0 +1,250 @@
+{
+  "family": "esm-cause",
+  "title": "ESM cause (4G NAS session management: PDN connectivity and bearers)",
+  "source": "3GPP TS 24.301 V20.1.0, table 9.9.4.4.1",
+  "url": "https://www.3gpp.org/dynareport/24301.htm",
+  "codes": [
+    {
+      "code": 8,
+      "name": "Operator Determined Barring",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 26,
+      "name": "Insufficient resources",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 27,
+      "name": "Missing or unknown APN",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 28,
+      "name": "Unknown PDN type",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 29,
+      "name": "User authentication or authorization failed",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 30,
+      "name": "Request rejected by Serving GW or PDN GW",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 31,
+      "name": "Request rejected, unspecified",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 32,
+      "name": "Service option not supported",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 33,
+      "name": "Requested service option not subscribed",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 34,
+      "name": "Service option temporarily out of order",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 35,
+      "name": "PTI already in use",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 36,
+      "name": "Regular deactivation",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 37,
+      "name": "EPS QoS not accepted",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 38,
+      "name": "Network failure",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 39,
+      "name": "Reactivation requested",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 41,
+      "name": "Semantic error in the TFT operation",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 42,
+      "name": "Syntactical error in the TFT operation",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 43,
+      "name": "Invalid EPS bearer identity",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 44,
+      "name": "Semantic errors in packet filter(s)",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 45,
+      "name": "Syntactical errors in packet filter(s)",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 47,
+      "name": "PTI mismatch",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 49,
+      "name": "Last PDN disconnection not allowed",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 50,
+      "name": "PDN type IPv4 only allowed",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 51,
+      "name": "PDN type IPv6 only allowed",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 52,
+      "name": "Single address bearers only allowed",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 53,
+      "name": "ESM information not received",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 54,
+      "name": "PDN connection does not exist",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 55,
+      "name": "Multiple PDN connections for a given APN not allowed",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 56,
+      "name": "Collision with network initiated request",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 57,
+      "name": "PDN type IPv4v6 only allowed",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 58,
+      "name": "PDN type non IP only allowed",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 59,
+      "name": "Unsupported QCI value",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 60,
+      "name": "Bearer handling not supported",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 61,
+      "name": "PDN type Ethernet only allowed",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 65,
+      "name": "Maximum number of EPS bearers reached",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 66,
+      "name": "Requested APN not supported in current RAT and PLMN combination",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 81,
+      "name": "Invalid PTI value",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 95,
+      "name": "Semantically incorrect message",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 96,
+      "name": "Invalid mandatory information",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 97,
+      "name": "Message type non-existent or not implemented",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 98,
+      "name": "Message type not compatible with the protocol state",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 99,
+      "name": "Information element non-existent or not implemented",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 100,
+      "name": "Conditional IE error",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 101,
+      "name": "Message not compatible with the protocol state",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 111,
+      "name": "Protocol error, unspecified",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 112,
+      "name": "APN restriction value incompatible with active EPS bearer context",
+      "ref": "3GPP TS 24.301"
+    },
+    {
+      "code": 113,
+      "name": "Multiple accesses to a PDN connection not allowed",
+      "ref": "3GPP TS 24.301"
+    }
+  ],
+  "ranges": [
+    {
+      "from": 46,
+      "to": 46,
+      "name": "Unused, allocated in earlier versions"
+    }
+  ]
+}

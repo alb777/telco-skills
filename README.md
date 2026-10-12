@@ -6,7 +6,7 @@ Agent skills for mobile core signalling troubleshooting. Offline, no dependencie
 
 | Skill | What it does |
 |---|---|
-| [`telcode`](skills/telcode/SKILL.md) | Diameter, GSM MAP, SCCP, Q.850 and SIP code lookup, IMSI split, TBCD decoding |
+| [`telcode`](skills/telcode/SKILL.md) | Diameter, 5G/4G NAS, GTPv2-C, PFCP, GSM MAP, SCCP, Q.850 and SIP code lookup, S6a to NAS reject mapping, IMSI split, TBCD decoding |
 
 ## Why
 
@@ -49,8 +49,9 @@ $ telcode 5001
     DIAMETER_ERROR_USER_UNKNOWN
     class: Permanent Failure | ref: 3GPP TS 29.229
     note: Defined for Cx (TS 29.229) and reused by S6a/S6d (TS 29.272), Sh and others: the HSS does
-          not know the user. On S6a ULR or AIR it usually means the IMSI is not provisioned. Not the
-          same as base Result-Code 5001 (DIAMETER_AVP_UNSUPPORTED).
+          not know the user. On S6a ULR or AIR it usually means the IMSI is not provisioned, and the
+          UE sees EMM #8 (TS 29.272 Annex A). Not the same as base Result-Code 5001
+          (DIAMETER_AVP_UNSUPPORTED).
 More than one table uses 5001: the protocol or AVP it came from decides which one applies. Use
 --table to narrow it down.
 
@@ -59,6 +60,16 @@ $ telcode 5430 --table diameter-exp
   Diameter Experimental-Result-Code (AVP 298), 3GPP, Vendor-Id 10415
     (not assigned)
     class: Permanent Failure | Reserved for 3GPP TS 29.272
+
+$ telcode 15 --table emm
+15
+  EMM cause (4G NAS mobility management: attach, TAU and service, incl. LTE-M and NB-IoT)
+    No Suitable Cells In tracking area
+    ref: 3GPP TS 24.301
+    note: The UE adds the tracking area to its forbidden list for roaming and looks for another
+          tracking area in the same PLMN. Usual S6a causes behind it: 5420 without Error-Diagnostic,
+          5421, 5004 with ODB_ALL_APN, 3002 or 3003, or the HSS being unreachable (TS 29.272 Annex
+          A).
 
 $ telcode search absent
 Diameter Experimental-Result-Code (AVP 298), 3GPP, Vendor-Id 10415
@@ -90,14 +101,20 @@ $ telcode tbcd 62 02 11 32 54 76 98 f0
 |---|---|---|
 | Diameter Result-Code | 72 | IANA AAA Parameters registry |
 | Diameter Experimental-Result-Code, 3GPP | 149 | 3GPP TS 29.230 V19.3.0, tables 8.1.2 to 8.1.4 |
+| 5GMM cause | 50 | 3GPP TS 24.501 V20.1.0, table 9.11.3.2.1 |
+| 5GSM cause | 46 | 3GPP TS 24.501 V20.1.0, table 9.11.4.2.1 |
+| EMM cause | 41 | 3GPP TS 24.301 V20.1.0, table 9.9.3.9.1 |
+| ESM cause | 47 | 3GPP TS 24.301 V20.1.0, table 9.9.4.4.1 |
+| GTPv2-C cause | 82 | 3GPP TS 29.274 V20.0.0, table 8.4-1 |
+| PFCP cause | 32 | 3GPP TS 29.244 V20.1.0, table 8.2.1-1 |
 | GSM MAP errors | 56 | 3GPP TS 29.002 V19.1.0, ASN.1 module MAP-Errors |
 | SCCP return cause | 15 | ITU-T Q.713 (03/2001), clause 3.12 |
 | Q.850 cause | 72 | ITU-T Q.850 (10/2018) with Amendment 1 (04/2019) |
 | SIP response | 75 | IANA SIP Parameters registry |
 
-`tools/update_data.py` regenerates the IANA and 3GPP tables straight from the registries and the 3GPP spec archive. The two ITU-T tables are small, stable and only published as PDF, so they are maintained by hand. Names are kept as the sources spell them, typos included. The tables were cross-checked against Wireshark's dissectors when they were built.
+`tools/update_data.py` regenerates the IANA and 3GPP tables straight from the registries and the 3GPP spec archive. The two ITU-T tables are small, stable and only published as PDF, so they are maintained by hand. Names are kept as the sources spell them, typos included. The tables were cross-checked against Wireshark's dissectors when they were built. The notes on S6a errors and EMM causes follow the mapping in TS 29.272 Annex A, so a device side reject can be traced back to the HSS answer behind it.
 
-Not covered yet: AVP codes, command codes and application ids, MAP operation codes, TCAP Reject problem codes, GTP and NAS causes, vendor specific Experimental-Result codes, and MCC/MNC to country or operator names.
+Not covered yet: 5G SBA ProblemDetails causes, NGAP and S1AP causes, GTPv1 causes, AVP codes, command codes and application ids, MAP operation codes, TCAP Reject problem codes, vendor specific Experimental-Result codes, and MCC/MNC to country or operator names.
 
 ## Development
 

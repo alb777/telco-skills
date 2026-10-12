@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """telcode: offline lookup for mobile core signalling codes.
 
-Looks up Diameter Result-Code and 3GPP Experimental-Result-Code values, GSM MAP
-errors, SCCP return causes, Q.850 cause values and SIP response codes. Also
-splits IMSIs and decodes TBCD. Standard library only, Python 3.10+.
+Looks up Diameter Result-Code and 3GPP Experimental-Result-Code values, 5G and
+4G NAS causes (5GMM, 5GSM, EMM, ESM), GTPv2-C and PFCP causes, GSM MAP errors,
+SCCP return causes, Q.850 cause values and SIP response codes. Also splits IMSIs
+and decodes TBCD. Standard library only, Python 3.10+.
 """
 
 from __future__ import annotations
@@ -22,6 +23,12 @@ COMMANDS = ("code", "search", "imsi", "tbcd", "tables")
 TABLE_ORDER = (
     "diameter-result",
     "diameter-experimental-3gpp",
+    "5gmm-cause",
+    "5gsm-cause",
+    "emm-cause",
+    "esm-cause",
+    "gtpv2c-cause",
+    "pfcp-cause",
     "map-error",
     "sccp-return-cause",
     "q850-cause",
@@ -311,7 +318,11 @@ def build_parser() -> argparse.ArgumentParser:
         "code", parents=[common], help="look up a code (the default when the first argument is a number)"
     )
     p.add_argument("code", help="decimal, or hex with a 0x prefix")
-    p.add_argument("-t", "--table", help="only tables whose name starts with this: diameter, map, sccp, q850, sip")
+    p.add_argument(
+        "-t",
+        "--table",
+        help="only tables whose name starts with this: diameter, 5gmm, 5gsm, emm, esm, gtp, pfcp, map, sccp, q850, sip",
+    )
     p.set_defaults(handler=cmd_code)
     p = sub.add_parser("search", parents=[common], help="find codes by name or specification")
     p.add_argument("words", nargs="+")

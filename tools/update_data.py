@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Regenerate telcode's machine-readable tables from the official sources.
 
-Downloads the IANA registries and the latest 3GPP TS 29.230 / TS 29.002
-releases, parses them with the standard library only and rewrites the JSON
-files under skills/telcode/assets/codes/. The ITU-T tables (Q.850, Q.713) are small,
-stable and published as PDF, so they are maintained by hand next to these.
+Downloads the IANA registries and the latest releases of the 3GPP specs the
+tables come from, parses them with the standard library only and rewrites the
+JSON files under skills/telcode/assets/codes/. The ITU-T tables (Q.850, Q.713)
+are small, stable and published as PDF, so they are maintained by hand next to
+these.
 
 Usage: python3 tools/update_data.py
 """
@@ -25,7 +26,7 @@ CODES = Path(__file__).resolve().parent.parent / "skills" / "telcode" / "assets"
 
 IANA_AAA = "https://www.iana.org/assignments/aaa-parameters/aaa-parameters.xml"
 IANA_SIP = "https://www.iana.org/assignments/sip-parameters/sip-parameters.xml"
-TGPP_ARCHIVE = "https://www.3gpp.org/ftp/Specs/archive/29_series/{spec}/"
+TGPP_ARCHIVE = "https://www.3gpp.org/ftp/Specs/archive/{series}_series/{spec}/"
 
 IANA_NS = "{http://www.iana.org/assignments}"
 W_NS = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
@@ -147,31 +148,57 @@ def sip_response() -> None:
 # 3GPP
 
 
-def latest_3gpp_docx(spec: str) -> tuple[ET.Element, str]:
-    """Return the document body of the newest published version of a 3GPP spec, and its version."""
-    listing = fetch(TGPP_ARCHIVE.format(spec=spec)).decode("utf-8", "replace")
+def latest_3gpp_docs(spec: str) -> tuple[list[ET.Element], str]:
+    """Return the document bodies of the newest published version of a 3GPP spec, and its version.
+
+    Large specs such as TS 24.501 ship as several .docx files in one archive.
+    """
+    url = TGPP_ARCHIVE.format(series=spec.split(".")[0], spec=spec)
+    listing = fetch(url).decode("utf-8", "replace")
     prefix = spec.replace(".", "")
     versions = set(re.findall(rf"{prefix}-([0-9a-z]{{3}})\.zip", listing))
     if not versions:
         raise SystemExit(f"no versions of TS {spec} found in the 3GPP archive listing")
     # Version digits are base 36: 'j30' is 19.3.0.
     newest = max(versions, key=lambda v: [int(c, 36) for c in v])
-    archive = zipfile.ZipFile(io.BytesIO(fetch(TGPP_ARCHIVE.format(spec=spec) + f"{prefix}-{newest}.zip")))
-    docx_name = next(n for n in archive.namelist() if n.endswith(".docx"))
-    docx = zipfile.ZipFile(io.BytesIO(archive.read(docx_name)))
-    body = ET.fromstring(docx.read("word/document.xml")).find(f"{W_NS}body")
-    if body is None:
-        raise SystemExit(f"TS {spec}: no document body in {docx_name}")
+    archive = zipfile.ZipFile(io.BytesIO(fetch(url + f"{prefix}-{newest}.zip")))
+    bodies = []
+    for name in sorted(n for n in archive.namelist() if n.endswith(".docx")):
+        docx = zipfile.ZipFile(io.BytesIO(archive.read(name)))
+        body = ET.fromstring(docx.read("word/document.xml")).find(f"{W_NS}body")
+        if body is None:
+            raise SystemExit(f"TS {spec}: no document body in {name}")
+        bodies.append(body)
+    if not bodies:
+        raise SystemExit(f"TS {spec}: no .docx in {prefix}-{newest}.zip")
     version = ".".join(str(int(c, 36)) for c in newest)
-    return body, version
+    return bodies, version
 
 
 def text_of(element: ET.Element) -> str:
-    return "".join(t.text or "" for t in element.iter(f"{W_NS}t")).strip()
+    return "".join(t.text or "" for t in element.iter(f"{W_NS}t")).replace("\xa0", " ").strip()
 
 
 def cells(row: ET.Element) -> list[str]:
     return [text_of(cell) for cell in row.findall(f"{W_NS}tc")]
+
+
+def table_rows(bodies: list[ET.Element], caption: str) -> list[list[str]]:
+    """Rows of the first table whose caption starts with `caption`, one string per cell.
+
+    Paragraphs inside a cell are joined with a space, so wrapped names keep their word breaks.
+    """
+    for body in bodies:
+        last = ""
+        for element in body:
+            if element.tag == f"{W_NS}p":
+                last = text_of(element) or last
+            elif element.tag == f"{W_NS}tbl" and last.startswith(caption):
+                return [
+                    [" ".join(filter(None, (text_of(p) for p in cell.iter(f"{W_NS}p")))) for cell in row]
+                    for row in (r.findall(f"{W_NS}tc") for r in element.findall(f"{W_NS}tr"))
+                ]
+    raise SystemExit(f"table {caption!r} not found, the document layout changed")
 
 
 def spec_list(cell: str) -> str:
@@ -181,7 +208,7 @@ def spec_list(cell: str) -> str:
 
 
 def diameter_experimental_3gpp() -> None:
-    body, version = latest_3gpp_docx("29.230")
+    bodies, version = latest_3gpp_docs("29.230")
     tables = {
         "Table 8.1.2": ("Success", 2000),
         "Table 8.1.3": ("Transient Failure", 4000),
@@ -191,7 +218,7 @@ def diameter_experimental_3gpp() -> None:
     codes: list[Entry] = []
     ranges: list[Entry] = []
     caption = ""
-    for element in body:
+    for element in (e for body in bodies for e in body):
         if element.tag == f"{W_NS}p":
             caption = text_of(element) or caption
             continue
@@ -239,9 +266,9 @@ def diameter_experimental_3gpp() -> None:
 
 
 def map_error() -> None:
-    body, version = latest_3gpp_docx("29.002")
+    bodies, version = latest_3gpp_docs("29.002")
     # Paragraph text drops the <w:tab/> elements, so "CODE<tab>local:34" reads "CODElocal:34".
-    text = "\n".join(text_of(p) for p in body.iter(f"{W_NS}p"))
+    text = "\n".join(text_of(p) for body in bodies for p in body.iter(f"{W_NS}p"))
     errors = re.findall(r"^([a-z][\w-]*)\s+ERROR\s*::=\s*\{(.*?)\}\s*$", text, re.S | re.M)
     codes: list[Entry] = []
     for name, block in errors:
@@ -264,12 +291,121 @@ def map_error() -> None:
     )
 
 
+def nas_cause(family: str, title: str, spec: str, table: str, bodies: list[ET.Element], version: str) -> None:
+    """NAS cause tables list each value as eight bit cells followed by its name."""
+    codes: list[Entry] = []
+    ranges: list[Entry] = []
+    for row in table_rows(bodies, table):
+        bits, name = row[:8], " ".join(c for c in row[8:] if c)
+        if len(row) < 9 or not name or not all(b in ("0", "1") for b in bits):
+            continue
+        code = int("".join(bits), 2)
+        if name.startswith("Unused"):
+            ranges.append({"from": code, "to": code, "name": "Unused, allocated in earlier versions"})
+        else:
+            codes.append({"code": code, "name": name, "ref": f"3GPP TS {spec}"})
+    if len({c["code"] for c in codes}) != len(codes) or len(codes) < 30:
+        raise SystemExit(f"TS {spec} {table}: expected 30+ unique cause values, parsed {len(codes)}")
+    write_family(
+        family,
+        {
+            "family": family,
+            "title": title,
+            "source": f"3GPP TS {spec} V{version}, {table.lower()}",
+            "url": f"https://www.3gpp.org/dynareport/{spec.replace('.', '')}.htm",
+            "codes": codes,
+            "ranges": ranges,
+        },
+    )
+
+
+def response_cause(family: str, title: str, spec: str, table: str) -> None:
+    """GTPv2-C and PFCP cause tables: message type group, value or range, meaning."""
+    bodies, version = latest_3gpp_docs(spec)
+    codes: list[Entry] = []
+    ranges: list[Entry] = []
+    classes: list[Entry] = []
+    group = ""
+    for row in table_rows(bodies, table)[1:]:
+        if len(row) < 3:
+            continue  # the notes row under the table
+        # The message type column is merged vertically and carries "See NOTE n" remarks.
+        group = re.sub(r"\s+", " ", re.sub(r"\.?\s*See NOTE \d+\.?", "", row[0])).strip() or group
+        value = re.fullmatch(r"(\d+)(?:\s*(?:-|to)\s*(\d+))?", row[1])
+        if not value:
+            raise SystemExit(f"TS {spec} {table}: unexpected cause value {row[1]!r}")
+        low, high = int(value[1]), int(value[2] or value[1])
+        meaning = re.sub(r"\.?\s*(?:See )?\(?NOTE \d+(?: and NOTE \d+)?\)?\.?|\s*\[\d+\]|\.$", "", row[2]).strip()
+        if meaning.startswith("Shall not be used"):
+            ranges.append({"from": low, "to": high, "name": "Shall not be used, allocated in earlier versions"})
+        elif meaning.startswith(("Reserved", "Spare")):
+            ranges.append({"from": low, "to": high, "name": meaning})
+        else:
+            codes.append({"code": low, "name": meaning, "ref": f"3GPP TS {spec}"})
+        if not group:
+            continue
+        if classes and classes[-1]["name"] == group and classes[-1]["to"] + 1 == low:
+            classes[-1]["to"] = high
+        else:
+            classes.append({"from": low, "to": high, "name": group, "class": True})
+    ranges += classes
+    if len({c["code"] for c in codes}) != len(codes) or len(codes) < 25:
+        raise SystemExit(f"TS {spec} {table}: expected 25+ unique cause values, parsed {len(codes)}")
+    write_family(
+        family,
+        {
+            "family": family,
+            "title": title,
+            "source": f"3GPP TS {spec} V{version}, {table.lower()}",
+            "url": f"https://www.3gpp.org/dynareport/{spec.replace('.', '')}.htm",
+            "codes": codes,
+            "ranges": ranges,
+        },
+    )
+
+
 def main() -> int:
     CODES.mkdir(parents=True, exist_ok=True)
     diameter_result()
     diameter_experimental_3gpp()
     map_error()
     sip_response()
+    bodies, version = latest_3gpp_docs("24.501")
+    nas_cause(
+        "5gmm-cause",
+        "5GMM cause (5G NAS mobility management: registration, service and deregistration)",
+        "24.501",
+        "Table 9.11.3.2.1",
+        bodies,
+        version,
+    )
+    nas_cause(
+        "5gsm-cause",
+        "5GSM cause (5G NAS session management: PDU session establishment and modification)",
+        "24.501",
+        "Table 9.11.4.2.1",
+        bodies,
+        version,
+    )
+    bodies, version = latest_3gpp_docs("24.301")
+    nas_cause(
+        "emm-cause",
+        "EMM cause (4G NAS mobility management: attach, TAU and service, incl. LTE-M and NB-IoT)",
+        "24.301",
+        "Table 9.9.3.9.1",
+        bodies,
+        version,
+    )
+    nas_cause(
+        "esm-cause",
+        "ESM cause (4G NAS session management: PDN connectivity and bearers)",
+        "24.301",
+        "Table 9.9.4.4.1",
+        bodies,
+        version,
+    )
+    response_cause("gtpv2c-cause", "GTPv2-C cause (S11, S4, S5/S8, S10)", "29.274", "Table 8.4-1")
+    response_cause("pfcp-cause", "PFCP cause (N4, Sxa, Sxb, Sxc)", "29.244", "Table 8.2.1-1")
     return 0
 
 

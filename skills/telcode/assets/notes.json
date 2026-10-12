@@ -1,8 +1,8 @@
 {
   "diameter-result": {
     "2001": "Plain success. Not the same as 3GPP Experimental-Result-Code 2001 (DIAMETER_FIRST_REGISTRATION, Cx).",
-    "3002": "A relay or proxy could not forward the request: no peer is available for the Destination-Realm and application, or Destination-Host came without Destination-Realm. Check the agent's routing table and peer state, not the final server.",
-    "3003": "The Destination-Realm is not known to the node that answered. Usually a realm missing from an agent's routing table.",
+    "3002": "A relay or proxy could not forward the request: no peer is available for the Destination-Realm and application, or Destination-Host came without Destination-Realm. Check the agent's routing table and peer state, not the final server. On S6a the UE then sees EMM #15, #17 or #42 (TS 29.272 Annex A).",
+    "3003": "The Destination-Realm is not known to the node that answered. Usually a realm missing from an agent's routing table. On S6a the UE then sees EMM #15, #17 or #42 (TS 29.272 Annex A).",
     "3004": "The server is busy. The sender should retry on an alternate peer (RFC 6733).",
     "3005": "A relay found its own identity in Route-Record: the request is looping between agents.",
     "3010": "CEA to a CER from a peer whose identity is not configured or not allowed. The transport connection is then closed.",
@@ -11,18 +11,76 @@
     "5004": "An AVP carries a value the receiver rejects; Failed-AVP holds it. Not the same as 3GPP Experimental-Result-Code 5004 (DIAMETER_ERROR_ROAMING_NOT_ALLOWED).",
     "5005": "A mandatory AVP is missing. Failed-AVP should contain an example of the missing AVP, including its Vendor-Id.",
     "5010": "CER/CEA found no common application between the peers. Compare Auth-Application-Id, Acct-Application-Id and Vendor-Specific-Application-Id on both sides. The connection is closed right after the CEA.",
-    "5012": "Generic rejection for a reason no other code covers. Look for Error-Message, Failed-AVP and the answering node's logs.",
+    "5012": "Generic rejection for a reason no other code covers. Look for Error-Message, Failed-AVP and the answering node's logs. On S6a the UE then sees EMM #17 or #42 (TS 29.272 Annex A).",
     "5017": "CER/CEA found no common security mechanism (Inband-Security-Id), for example one side requires TLS."
   },
   "diameter-experimental-3gpp": {
     "2001": "Cx (IMS registration). Not the same as base Result-Code 2001 (DIAMETER_SUCCESS).",
     "2005": "Formerly DIAMETER_SERVER_SELECTION (Cx, TS 29.229), deprecated.",
-    "4181": "S6a/S6d AIR: the HSS could not provide authentication vectors right now. Transient: the MME or SGSN may retry later.",
-    "5001": "Defined for Cx (TS 29.229) and reused by S6a/S6d (TS 29.272), Sh and others: the HSS does not know the user. On S6a ULR or AIR it usually means the IMSI is not provisioned. Not the same as base Result-Code 5001 (DIAMETER_AVP_UNSUPPORTED).",
-    "5004": "Reused by S6a/S6d ULR: the subscriber may not roam into this PLMN or area. Error-Diagnostic may carry an operator determined barring reason. Not the same as base Result-Code 5004 (DIAMETER_INVALID_AVP_VALUE).",
-    "5420": "S6a/S6d ULR: the subscriber exists in the HSS but has no EPS subscription data (no GPRS data for an SGSN). Error-Diagnostic may say whether GPRS data is subscribed.",
-    "5421": "S6a/S6d: the RAT-Type in the request is not allowed for this subscriber.",
+    "4181": "S6a/S6d AIR: the HSS could not provide authentication vectors right now. Transient: the MME or SGSN may retry later. If the attach fails on it, the UE sees EMM #17 or #42 (TS 29.272 Annex A).",
+    "5001": "Defined for Cx (TS 29.229) and reused by S6a/S6d (TS 29.272), Sh and others: the HSS does not know the user. On S6a ULR or AIR it usually means the IMSI is not provisioned, and the UE sees EMM #8 (TS 29.272 Annex A). Not the same as base Result-Code 5001 (DIAMETER_AVP_UNSUPPORTED).",
+    "5004": "Reused by S6a/S6d ULR: the subscriber may not roam into this PLMN or area. The UE sees EMM #11 without Error-Diagnostic, #14 with ODB_HPLMN_APN or ODB_VPLMN_APN, and #15 with ODB_ALL_APN (TS 29.272 Annex A). Not the same as base Result-Code 5004 (DIAMETER_INVALID_AVP_VALUE).",
+    "5420": "S6a/S6d ULR: the subscriber exists in the HSS but has no EPS subscription data (no GPRS data for an SGSN). The UE sees EMM #15, or #7 when Error-Diagnostic is NO_GPRS_DATA_SUBSCRIBED (TS 29.272 Annex A).",
+    "5421": "S6a/S6d: the RAT-Type in the request is not allowed for this subscriber. The UE sees EMM #15, #13 or #12, as the operator chooses (TS 29.272 Annex A).",
     "5422": "S13 ME Identity Check: the EIR does not know this IMEI."
+  },
+  "5gmm-cause": {
+    "3": "The UE treats the USIM as invalid for 5GS services until it is switched off or the UICC is removed.",
+    "7": "The subscription does not allow 5GS. Like #3, the UE treats the USIM as invalid for 5GS services until it is switched off or the UICC is removed.",
+    "11": "The UE adds the PLMN to its forbidden PLMN list.",
+    "15": "The UE adds the tracking area to its forbidden list for roaming and looks for another tracking area in the same PLMN.",
+    "22": "Congestion. Usually comes with back-off timer T3346; the UE waits before retrying.",
+    "27": "The UE disables N1 mode (5G NAS) for this PLMN. Not the same as 5GSM #27, ESM #27, MAP error 27 or Q.850 cause 27.",
+    "62": "None of the requested slices (S-NSSAI) are allowed. Compare the subscribed NSSAI in the UDM with what the AMF supports.",
+    "111": "Also how the UE treats any 5GMM cause value it does not know (TS 24.501)."
+  },
+  "5gsm-cause": {
+    "26": "Insufficient resources. Often comes with a back-off timer; the UE waits before retrying.",
+    "27": "The DNN is not known or not subscribed. Compare the requested DNN with the subscription in the UDM and the SMF configuration.",
+    "29": "The external data network rejected secondary authentication or authorization (DN-AAA).",
+    "31": "Also how the UE treats any 5GSM cause value it does not know (TS 24.501).",
+    "33": "The subscription does not include what was requested, for example this DNN and S-NSSAI combination."
+  },
+  "emm-cause": {
+    "2": "Used in combined EPS/IMSI attach and TAU: the IMSI is unknown for non-EPS (CS) services, for example the VLR rejected the SGs location update. EPS service itself is not affected (TS 29.272 Annex A, table A.2).",
+    "7": "The UE treats the USIM as invalid for EPS services until it is switched off or the UICC is removed. Sent when S6a returns 5420 with Error-Diagnostic NO_GPRS_DATA_SUBSCRIBED (TS 29.272 Annex A).",
+    "8": "The UE treats the USIM as invalid for EPS and non-EPS services until it is switched off or the UICC is removed. Sent when S6a returns 5001, user unknown in the HSS (TS 29.272 Annex A).",
+    "11": "The UE adds the PLMN to its forbidden PLMN list. Sent when S6a returns 5004 without Error-Diagnostic, or when the MME's own configuration forbids roaming (TS 29.272 Annex A).",
+    "12": "The UE adds the tracking area to its forbidden list for regional provision of service. Sent for regionally restricted subscriptions, and is one option for S6a 5421 (TS 29.272 Annex A).",
+    "13": "The UE adds the tracking area to its forbidden list for roaming and performs PLMN selection. One option for S6a 5421 (TS 29.272 Annex A).",
+    "14": "Sent when S6a returns 5004 with Error-Diagnostic ODB_HPLMN_APN or ODB_VPLMN_APN, or when the HSS restricts roaming in this MME because of an unsupported feature (TS 29.272 Annex A).",
+    "15": "The UE adds the tracking area to its forbidden list for roaming and looks for another tracking area in the same PLMN. Usual S6a causes behind it: 5420 without Error-Diagnostic, 5421, 5004 with ODB_ALL_APN, 3002 or 3003, or the HSS being unreachable (TS 29.272 Annex A).",
+    "17": "The MME's mapping for S6a failures such as 5012, base Result-Code 5004 or 5001, and 4181, and by default for any other Diameter base protocol permanent error (TS 29.272 Annex A).",
+    "19": "The attach failed because the PDN connectivity request inside it failed. The ESM cause in the same message says why, often ESM #27 or #33.",
+    "22": "Congestion, for example HSS overload. Usually comes with back-off timer T3346; the UE waits before retrying (TS 29.272 Annex A, table A.2).",
+    "42": "Operator choice for S6a failures under severe conditions, such as HSS overload during attach (TS 29.272 Annex A).",
+    "111": "Also how the UE treats any EMM cause value it does not know (TS 24.301)."
+  },
+  "esm-cause": {
+    "26": "Insufficient resources. Often comes with back-off timer T3396; the UE waits before retrying the same APN.",
+    "27": "The APN is not known or not subscribed. Compare the requested APN with the APN configuration in the HSS subscription and with the PGW configuration.",
+    "30": "The SGW or PGW rejected the request. The GTPv2-C cause on S11 or S5/S8 says why.",
+    "33": "The subscription does not include the requested APN or service.",
+    "34": "Also how the UE treats any ESM cause value it does not know (TS 24.301)."
+  },
+  "gtpv2c-cause": {
+    "64": "The receiver has no session for the TEID or IMSI in the request. Typical after the peer restarted (its Recovery counter changed) or with a stale TEID.",
+    "73": "The responding node has no capacity left for the request.",
+    "78": "The PGW does not serve the requested APN.",
+    "84": "The PGW's address pool for this APN is exhausted.",
+    "92": "Authentication with an external AAA or RADIUS server failed during PDN connection setup.",
+    "94": "Also how receivers treat unknown rejection causes and the values allocated in earlier versions (TS 29.274, table 8.4-1, notes 3 and 4).",
+    "100": "The sender, usually the SGW, got no answer from the next peer, for example the PGW.",
+    "110": "A handover, TAU or RAU is in progress. Retry after it completes.",
+    "120": "GTP-C overload control: the peer is congested and the sender should back off."
+  },
+  "pfcp-cause": {
+    "1": "Also how receivers treat unknown acceptance causes (TS 29.244, table 8.2.1-1, note 1).",
+    "64": "Also how receivers treat unknown rejection causes (TS 29.244, table 8.2.1-1, note 2).",
+    "65": "The UP function has no session for the SEID in the request, for example after it restarted (its Recovery Time Stamp changed).",
+    "72": "The CP and UP functions have no PFCP association. Check association setup and heartbeats on N4 or Sx.",
+    "74": "PFCP overload control: the peer is congested and the sender should back off.",
+    "79": "The UP function's address pool is exhausted."
   },
   "map-error": {
     "1": "The HLR has no record of the IMSI or MSISDN. On UpdateLocation or SendAuthenticationInfo it usually means the SIM is not provisioned.",
@@ -30,7 +88,7 @@
     "6": "MT SMS: the subscriber is not reachable (detached, no paging response). The SMSC should keep the message and wait for the alert after the MWD is set.",
     "8": "UpdateLocation rejected: the subscriber may not roam in this PLMN (no agreement or roaming restriction).",
     "21": "The remote node or PLMN does not support this operation or feature.",
-    "27": "The subscriber is not reachable for this service (for example IMSI detached). Not the same as Q.850 cause 27 (destination out of order).",
+    "27": "The subscriber is not reachable for this service (for example IMSI detached). Not the same as Q.850 cause 27 (destination out of order) or the NAS #27 causes.",
     "32": "MT SMS delivery failed. SM-DeliveryFailureCause says why, for example memory capacity exceeded or equipment protocol error.",
     "34": "Generic failure of the remote node or a resource it depends on. The networkResource parameter, when present, names which one.",
     "35": "A parameter the receiver needs for this operation is missing. Often a MAP version or application context mismatch between the nodes.",
@@ -45,7 +103,7 @@
     "6": "Network congestion on the path to the destination."
   },
   "q850-cause": {
-    "27": "Not the same as MAP error 27 (absentSubscriber).",
+    "27": "Not the same as MAP error 27 (absentSubscriber) or the NAS #27 causes.",
     "34": "No free circuit or channel on the route, for example a full trunk group.",
     "127": "The call crossed a network or protocol boundary that could not map the real cause. Look at the logs on the other side of the interworking point."
   }

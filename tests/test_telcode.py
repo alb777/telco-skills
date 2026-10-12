@@ -2,6 +2,8 @@ import contextlib
 import importlib.util
 import io
 import json
+import re
+import shlex
 import sys
 import unittest
 from pathlib import Path
@@ -43,6 +45,21 @@ class DataIntegrity(unittest.TestCase):
                 with self.subTest(family=family, code=code):
                     self.assertIn(int(code), tables[family].codes)
 
+    def test_cross_references_in_notes_exist(self) -> None:
+        # The S6a to NAS mapping (TS 29.272 Annex A) is written into the notes on both sides.
+        notes = json.loads((telcode.ASSETS / "notes.json").read_text(encoding="utf-8"))
+        tables = {t.family: t for t in telcode.load_tables()}
+        diameter = set(tables["diameter-result"].codes) | set(tables["diameter-experimental-3gpp"].codes)
+        for family, by_code in notes.items():
+            for code, note in by_code.items():
+                with self.subTest(family=family, code=code):
+                    for emm in re.findall(r"EMM #(\d+)(?:, #(\d+))?(?:,? or #(\d+))?", note):
+                        for value in filter(None, emm):
+                            self.assertIn(int(value), tables["emm-cause"].codes)
+                    if family == "emm-cause":
+                        for value in re.findall(r"\b([345]\d{3})\b", note):
+                            self.assertIn(int(value), diameter)
+
 
 class Lookup(unittest.TestCase):
     def test_same_number_in_two_diameter_tables(self) -> None:
@@ -77,9 +94,49 @@ class Lookup(unittest.TestCase):
         self.assertIn("not found", err)
 
     def test_unknown_table_is_a_usage_error(self) -> None:
-        code, _, err = run("1", "-t", "gtp")
+        code, _, err = run("1", "-t", "ngap")
         self.assertEqual(code, 2)
         self.assertIn("no table starts with", err)
+
+    def test_nas_cause_collides_with_ss7_tables(self) -> None:
+        _, out, _ = run("27", "--json")
+        tables = {m["table"] for m in json.loads(out)["matches"]}
+        self.assertEqual(tables, {"5gmm-cause", "5gsm-cause", "esm-cause", "map-error", "q850-cause"})
+
+    def test_emm_note_names_the_s6a_root_cause(self) -> None:
+        _, out, _ = run("15", "-t", "emm", "--json")
+        match = json.loads(out)["matches"][0]
+        self.assertEqual(match["name"], "No Suitable Cells In tracking area")
+        self.assertIn("5420", match["note"])
+
+    def test_gtpv2_class_and_spare_range(self) -> None:
+        _, out, _ = run("200", "-t", "gtp", "--json")
+        match = json.loads(out)["matches"][0]
+        self.assertIsNone(match["name"])
+        self.assertEqual(match["class"], "Rejection in a Response / triggered message")
+        self.assertEqual(len(match["ranges"]), 1)
+        self.assertTrue(match["ranges"][0].startswith("Spare"))
+
+    def test_value_from_earlier_versions_is_not_a_name(self) -> None:
+        for table, code in (("gtpv2c", "71"), ("esm", "46")):
+            with self.subTest(table=table):
+                _, out, _ = run(code, "-t", table, "--json")
+                match = json.loads(out)["matches"][0]
+                self.assertIsNone(match["name"])
+                self.assertIn("earlier versions", match["ranges"][0])
+
+
+class Readme(unittest.TestCase):
+    def test_examples_match_real_output(self) -> None:
+        readme = (Path(__file__).resolve().parent.parent / "README.md").read_text(encoding="utf-8")
+        block = re.search(r"```console\n(.*?)```", readme, re.S)
+        assert block
+        examples = re.findall(r"^\$ telcode ([^\n]*)\n(.*?)(?=^\$ |\Z)", block[1], re.S | re.M)
+        self.assertGreater(len(examples), 3)
+        for args, expected in examples:
+            with self.subTest(command=args):
+                _, out, _ = run(*shlex.split(args))
+                self.assertEqual(out.rstrip(), expected.rstrip())
 
 
 class Search(unittest.TestCase):

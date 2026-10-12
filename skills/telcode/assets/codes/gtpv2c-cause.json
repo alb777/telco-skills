@@ -1,0 +1,489 @@
+{
+  "family": "gtpv2c-cause",
+  "title": "GTPv2-C cause (S11, S4, S5/S8, S10)",
+  "source": "3GPP TS 29.274 V20.0.0, table 8.4-1",
+  "url": "https://www.3gpp.org/dynareport/29274.htm",
+  "codes": [
+    {
+      "code": 2,
+      "name": "Local Detach",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 3,
+      "name": "Complete Detach",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 4,
+      "name": "RAT changed from 3GPP to Non-3GPP",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 5,
+      "name": "ISR deactivation",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 6,
+      "name": "Error Indication received from RNC/eNodeB/S4-SGSN/MME",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 7,
+      "name": "IMSI Detach Only",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 8,
+      "name": "Reactivation Requested",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 9,
+      "name": "PDN reconnection to this APN disallowed",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 10,
+      "name": "Access changed from Non-3GPP to 3GPP",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 11,
+      "name": "PDN connection inactivity timer expires",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 12,
+      "name": "PGW not responding",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 13,
+      "name": "Network Failure",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 14,
+      "name": "QoS parameter mismatch",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 15,
+      "name": "EPS to 5GS Mobility",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 16,
+      "name": "Request accepted",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 17,
+      "name": "Request accepted partially",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 18,
+      "name": "New PDN type due to network preference",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 19,
+      "name": "New PDN type due to single address bearer only",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 64,
+      "name": "Context Not Found",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 65,
+      "name": "Invalid Message Format",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 66,
+      "name": "Version not supported by next peer",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 67,
+      "name": "Invalid length",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 68,
+      "name": "Service not supported",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 69,
+      "name": "Mandatory IE incorrect",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 70,
+      "name": "Mandatory IE missing",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 72,
+      "name": "System failure",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 73,
+      "name": "No resources available",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 74,
+      "name": "Semantic error in the TFT operation",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 75,
+      "name": "Syntactic error in the TFT operation",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 76,
+      "name": "Semantic errors in packet filter(s)",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 77,
+      "name": "Syntactic errors in packet filter(s)",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 78,
+      "name": "Missing or unknown APN",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 80,
+      "name": "GRE key not found",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 81,
+      "name": "Relocation failure",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 82,
+      "name": "Denied in RAT",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 83,
+      "name": "Preferred PDN type not supported",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 84,
+      "name": "All dynamic addresses are occupied",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 85,
+      "name": "UE context without TFT already activated",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 86,
+      "name": "Protocol type not supported",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 87,
+      "name": "UE not responding",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 88,
+      "name": "UE refuses",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 89,
+      "name": "Service denied",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 90,
+      "name": "Unable to page UE",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 91,
+      "name": "No memory available",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 92,
+      "name": "User authentication failed",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 93,
+      "name": "APN access denied – no subscription",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 94,
+      "name": "Request rejected (reason not specified)",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 95,
+      "name": "P-TMSI Signature mismatch",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 96,
+      "name": "IMSI/IMEI not known",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 97,
+      "name": "Semantic error in the TAD operation",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 98,
+      "name": "Syntactic error in the TAD operation",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 100,
+      "name": "Remote peer not responding",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 101,
+      "name": "Collision with network initiated request",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 102,
+      "name": "Unable to page UE due to Suspension",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 103,
+      "name": "Conditional IE missing",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 104,
+      "name": "APN Restriction type Incompatible with currently active PDN connection",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 105,
+      "name": "Invalid overall length of the triggered response message and a piggybacked initial message",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 106,
+      "name": "Data forwarding not supported",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 107,
+      "name": "Invalid reply from remote peer",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 108,
+      "name": "Fallback to GTPv1",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 109,
+      "name": "Invalid peer",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 110,
+      "name": "Temporarily rejected due to handover/TAU/RAU procedure in progress",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 111,
+      "name": "Modifications not limited to S1-U bearers",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 112,
+      "name": "Request rejected for a PMIPv6 reason (see TS 29.275)",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 113,
+      "name": "APN Congestion",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 114,
+      "name": "Bearer handling not supported",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 115,
+      "name": "UE already re-attached",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 116,
+      "name": "Multiple PDN connections for a given APN not allowed",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 117,
+      "name": "Target access restricted for the subscriber",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 119,
+      "name": "MME/SGSN refuses due to VPLMN Policy",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 120,
+      "name": "GTP-C Entity Congestion",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 121,
+      "name": "Late Overlapping Request",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 122,
+      "name": "Timed out Request",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 123,
+      "name": "UE is temporarily not reachable due to power saving",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 124,
+      "name": "Relocation failure due to NAS message redirection",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 125,
+      "name": "UE not authorised by OCS or external AAA Server",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 126,
+      "name": "Multiple accesses to a PDN connection not allowed",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 127,
+      "name": "Request rejected due to UE capability",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 128,
+      "name": "S1-U Path Failure",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 129,
+      "name": "5GC not allowed",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 130,
+      "name": "PGW mismatch with network slice subscribed by the UE",
+      "ref": "3GPP TS 29.274"
+    },
+    {
+      "code": 131,
+      "name": "Rejection due to paging restriction",
+      "ref": "3GPP TS 29.274"
+    }
+  ],
+  "ranges": [
+    {
+      "from": 0,
+      "to": 0,
+      "name": "Reserved. Shall not be sent and if received the Cause shall be treated as an invalid IE"
+    },
+    {
+      "from": 1,
+      "to": 1,
+      "name": "Reserved"
+    },
+    {
+      "from": 1,
+      "to": 15,
+      "name": "Request / Initial message",
+      "class": true
+    },
+    {
+      "from": 16,
+      "to": 63,
+      "name": "Acceptance in a Response / triggered message",
+      "class": true
+    },
+    {
+      "from": 20,
+      "to": 63,
+      "name": "Spare. This value range shall be used by Cause values in an acceptance response/triggered message"
+    },
+    {
+      "from": 64,
+      "to": 239,
+      "name": "Rejection in a Response / triggered message",
+      "class": true
+    },
+    {
+      "from": 71,
+      "to": 71,
+      "name": "Shall not be used, allocated in earlier versions"
+    },
+    {
+      "from": 79,
+      "to": 79,
+      "name": "Shall not be used, allocated in earlier versions"
+    },
+    {
+      "from": 99,
+      "to": 99,
+      "name": "Shall not be used, allocated in earlier versions"
+    },
+    {
+      "from": 118,
+      "to": 118,
+      "name": "Shall not be used, allocated in earlier versions"
+    },
+    {
+      "from": 132,
+      "to": 239,
+      "name": "Spare. For future use in a triggered/response message"
+    },
+    {
+      "from": 240,
+      "to": 255,
+      "name": "Spare. For future use in an initial/request message"
+    },
+    {
+      "from": 240,
+      "to": 255,
+      "name": "Request / Initial message",
+      "class": true
+    }
+  ]
+}
