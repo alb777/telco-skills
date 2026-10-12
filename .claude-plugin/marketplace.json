@@ -1,6 +1,6 @@
 {
   "name": "telco-skills",
-  "description": "Agent skills for mobile core signalling troubleshooting: Diameter, SS7/SIGTRAN, SIP",
+  "description": "Agent skills for mobile core signalling troubleshooting: Diameter, 5G and 4G NAS, GTP, PFCP, SS7/SIGTRAN, SIP",
   "owner": {
     "name": "alb777"
   },
@@ -8,9 +8,24 @@
     {
       "name": "telco-skills",
       "source": "./",
-      "description": "Offline lookup of Diameter, MAP, SCCP, Q.850 and SIP codes with spec references, IMSI split and TBCD decoding",
+      "description": "Offline lookup of Diameter, 5G/4G NAS, GTPv2-C, PFCP, MAP, SCCP, Q.850 and SIP codes with spec references, S6a to NAS reject mapping, IMSI split and TBCD decoding",
       "license": "MIT",
-      "keywords": ["telecom", "diameter", "ss7", "sigtran", "map", "sccp", "sip", "3gpp"]
+      "keywords": [
+        "telecom",
+        "diameter",
+        "5g",
+        "lte",
+        "nb-iot",
+        "nas",
+        "gtp",
+        "pfcp",
+        "ss7",
+        "sigtran",
+        "map",
+        "sccp",
+        "sip",
+        "3gpp"
+      ]
     }
   ]
 }
