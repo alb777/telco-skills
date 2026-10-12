@@ -1,0 +1,418 @@
+{
+  "family": "q850-cause",
+  "title": "Q.850 cause value (ISUP, DSS1, SIP Reason header)",
+  "source": "ITU-T Q.850 (10/2018) with Amendment 1 (04/2019), Table 1",
+  "url": "https://www.itu.int/rec/T-REC-Q.850",
+  "codes": [
+    {
+      "code": 1,
+      "name": "Unallocated (unassigned) number",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 2,
+      "name": "No route to specified transit network",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 3,
+      "name": "No route to destination",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 4,
+      "name": "Send special information tone",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 5,
+      "name": "Misdialled trunk prefix",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 6,
+      "name": "Channel unacceptable",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 7,
+      "name": "Call awarded and being delivered in an established channel",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 8,
+      "name": "Pre-emption",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 9,
+      "name": "Pre-emption – circuit reserved for reuse",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 13,
+      "name": "Call completed elsewhere",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 14,
+      "name": "QoR: ported number",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 16,
+      "name": "Normal call clearing",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 17,
+      "name": "User busy",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 18,
+      "name": "No user responding",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 19,
+      "name": "No answer from user (user alerted)",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 20,
+      "name": "Subscriber absent",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 21,
+      "name": "Call rejected",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 22,
+      "name": "Number changed",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 23,
+      "name": "Redirection to new destination",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 24,
+      "name": "Call rejected due to feature at the destination",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 25,
+      "name": "Exchange routing error",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 26,
+      "name": "Non-selected user clearing",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 27,
+      "name": "Destination out of order",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 28,
+      "name": "Invalid number format (address incomplete)",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 29,
+      "name": "Facility rejected",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 30,
+      "name": "Response to STATUS ENQUIRY",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 31,
+      "name": "Normal, unspecified",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 34,
+      "name": "No circuit/channel available",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 38,
+      "name": "Network out of order",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 39,
+      "name": "Permanent frame mode connection out of service",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 40,
+      "name": "Permanent frame mode connection operational",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 41,
+      "name": "Temporary failure",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 42,
+      "name": "Switching equipment congestion",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 43,
+      "name": "Access information discarded",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 44,
+      "name": "Requested circuit/channel not available",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 46,
+      "name": "Precedence call blocked",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 47,
+      "name": "Resource unavailable, unspecified",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 49,
+      "name": "Quality of service not available",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 50,
+      "name": "Requested facility not subscribed",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 53,
+      "name": "Outgoing calls barred within CUG",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 55,
+      "name": "Incoming calls barred within CUG",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 57,
+      "name": "Bearer capability not authorized",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 58,
+      "name": "Bearer capability not presently available",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 62,
+      "name": "Inconsistency in designated outgoing access information and subscriber class",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 63,
+      "name": "Service or option not available, unspecified",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 65,
+      "name": "Bearer capability not implemented",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 66,
+      "name": "Channel type not implemented",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 69,
+      "name": "Requested facility not implemented",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 70,
+      "name": "Only restricted digital information bearer capability is available",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 79,
+      "name": "Service or option not implemented, unspecified",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 81,
+      "name": "Invalid call reference value",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 82,
+      "name": "Identified channel does not exist",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 83,
+      "name": "A suspended call exists, but this call identity does not",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 84,
+      "name": "Call identity in use",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 85,
+      "name": "No call suspended",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 86,
+      "name": "Call with the requested call identity has been cleared",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 87,
+      "name": "User not member of CUG",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 88,
+      "name": "Incompatible destination",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 90,
+      "name": "Non-existent CUG",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 91,
+      "name": "Invalid transit network selection",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 95,
+      "name": "Invalid message, unspecified",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 96,
+      "name": "Mandatory information element is missing",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 97,
+      "name": "Message type non-existent or not implemented",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 98,
+      "name": "Message not compatible with call state or message type non-existent or not implemented",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 99,
+      "name": "Information element/parameter non-existent or not implemented",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 100,
+      "name": "Invalid information element contents",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 101,
+      "name": "Message not compatible with call state",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 102,
+      "name": "Recovery on timer expiry",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 103,
+      "name": "Parameter non-existent or not implemented, passed on",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 110,
+      "name": "Message with unrecognized parameter, discarded",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 111,
+      "name": "Protocol error, unspecified",
+      "ref": "ITU-T Q.850"
+    },
+    {
+      "code": 127,
+      "name": "Interworking, unspecified",
+      "ref": "ITU-T Q.850"
+    }
+  ],
+  "ranges": [
+    {
+      "from": 0,
+      "to": 15,
+      "name": "Normal event",
+      "class": true
+    },
+    {
+      "from": 16,
+      "to": 31,
+      "name": "Normal event",
+      "class": true
+    },
+    {
+      "from": 32,
+      "to": 47,
+      "name": "Resource unavailable",
+      "class": true
+    },
+    {
+      "from": 48,
+      "to": 63,
+      "name": "Service or option not available",
+      "class": true
+    },
+    {
+      "from": 64,
+      "to": 79,
+      "name": "Service or option not implemented",
+      "class": true
+    },
+    {
+      "from": 80,
+      "to": 95,
+      "name": "Invalid message",
+      "class": true
+    },
+    {
+      "from": 96,
+      "to": 111,
+      "name": "Protocol error",
+      "class": true
+    },
+    {
+      "from": 112,
+      "to": 127,
+      "name": "Interworking",
+      "class": true
+    }
+  ]
+}

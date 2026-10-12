@@ -1,0 +1,16 @@
+{
+  "name": "telco-skills",
+  "description": "Agent skills for mobile core signalling troubleshooting: Diameter, SS7/SIGTRAN, SIP",
+  "owner": {
+    "name": "alb777"
+  },
+  "plugins": [
+    {
+      "name": "telco-skills",
+      "source": "./",
+      "description": "Offline lookup of Diameter, MAP, SCCP, Q.850 and SIP codes with spec references, IMSI split and TBCD decoding",
+      "license": "MIT",
+      "keywords": ["telecom", "diameter", "ss7", "sigtran", "map", "sccp", "sip", "3gpp"]
+    }
+  ]
+}

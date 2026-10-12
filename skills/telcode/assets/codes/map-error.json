@@ -1,0 +1,289 @@
+{
+  "family": "map-error",
+  "title": "GSM MAP error code (TCAP ReturnError, local value)",
+  "source": "3GPP TS 29.002 V19.1.0, ASN.1 module MAP-Errors",
+  "url": "https://www.3gpp.org/dynareport/29002.htm",
+  "codes": [
+    {
+      "code": 1,
+      "name": "unknownSubscriber",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 3,
+      "name": "unknownMSC",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 5,
+      "name": "unidentifiedSubscriber",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 6,
+      "name": "absentSubscriberSM",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 7,
+      "name": "unknownEquipment",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 8,
+      "name": "roamingNotAllowed",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 9,
+      "name": "illegalSubscriber",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 10,
+      "name": "bearerServiceNotProvisioned",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 11,
+      "name": "teleserviceNotProvisioned",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 12,
+      "name": "illegalEquipment",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 13,
+      "name": "callBarred",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 14,
+      "name": "forwardingViolation",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 15,
+      "name": "cug-Reject",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 16,
+      "name": "illegalSS-Operation",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 17,
+      "name": "ss-ErrorStatus",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 18,
+      "name": "ss-NotAvailable",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 19,
+      "name": "ss-SubscriptionViolation",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 20,
+      "name": "ss-Incompatibility",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 21,
+      "name": "facilityNotSupported",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 22,
+      "name": "ongoingGroupCall",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 25,
+      "name": "noHandoverNumberAvailable",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 26,
+      "name": "subsequentHandoverFailure",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 27,
+      "name": "absentSubscriber",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 28,
+      "name": "incompatibleTerminal",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 29,
+      "name": "shortTermDenial",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 30,
+      "name": "longTermDenial",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 31,
+      "name": "subscriberBusyForMT-SMS",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 32,
+      "name": "sm-DeliveryFailure",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 33,
+      "name": "messageWaitingListFull",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 34,
+      "name": "systemFailure",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 35,
+      "name": "dataMissing",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 36,
+      "name": "unexpectedDataValue",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 37,
+      "name": "pw-RegistrationFailure",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 38,
+      "name": "negativePW-Check",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 39,
+      "name": "noRoamingNumberAvailable",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 40,
+      "name": "tracingBufferFull",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 42,
+      "name": "targetCellOutsideGroupCallArea",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 43,
+      "name": "numberOfPW-AttemptsViolation",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 44,
+      "name": "numberChanged",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 45,
+      "name": "busySubscriber",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 46,
+      "name": "noSubscriberReply",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 47,
+      "name": "forwardingFailed",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 48,
+      "name": "or-NotAllowed",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 49,
+      "name": "ati-NotAllowed",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 50,
+      "name": "noGroupCallNumberAvailable",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 51,
+      "name": "resourceLimitation",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 52,
+      "name": "unauthorizedRequestingNetwork",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 53,
+      "name": "unauthorizedLCSClient",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 54,
+      "name": "positionMethodFailure",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 58,
+      "name": "unknownOrUnreachableLCSClient",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 59,
+      "name": "mm-EventNotSupported",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 60,
+      "name": "atsi-NotAllowed",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 61,
+      "name": "atm-NotAllowed",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 62,
+      "name": "informationNotAvailable",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 71,
+      "name": "unknownAlphabet",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    },
+    {
+      "code": 72,
+      "name": "ussd-Busy",
+      "ref": "3GPP TS 29.002, MAP-Errors"
+    }
+  ],
+  "ranges": []
+}

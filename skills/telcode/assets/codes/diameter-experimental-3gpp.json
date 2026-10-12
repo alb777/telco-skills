@@ -1,0 +1,958 @@
+{
+  "family": "diameter-experimental-3gpp",
+  "title": "Diameter Experimental-Result-Code (AVP 298), 3GPP, Vendor-Id 10415",
+  "source": "3GPP TS 29.230 V19.3.0, tables 8.1.2 to 8.1.4",
+  "url": "https://www.3gpp.org/dynareport/29230.htm",
+  "codes": [
+    {
+      "code": 2001,
+      "name": "DIAMETER_FIRST_REGISTRATION",
+      "ref": "3GPP TS 29.229"
+    },
+    {
+      "code": 2002,
+      "name": "DIAMETER_SUBSEQUENT_REGISTRATION",
+      "ref": "3GPP TS 29.229"
+    },
+    {
+      "code": 2003,
+      "name": "DIAMETER_UNREGISTERED_SERVICE",
+      "ref": "3GPP TS 29.229"
+    },
+    {
+      "code": 2004,
+      "name": "DIAMETER_SUCCESS_SERVER_NAME_NOT_STORED",
+      "ref": "3GPP TS 29.229"
+    },
+    {
+      "code": 2005,
+      "name": "Deprecated value",
+      "ref": "3GPP TS 29.229"
+    },
+    {
+      "code": 2021,
+      "name": "DIAMETER_PDP_CONTEXT_DELETION_INDICATION",
+      "ref": "3GPP TS 29.061"
+    },
+    {
+      "code": 2421,
+      "name": "DIAMETER_QOS_FLOW_DELETION_INDICATION",
+      "ref": "3GPP TS 29.561"
+    },
+    {
+      "code": 4100,
+      "name": "DIAMETER_USER_DATA_NOT_AVAILABLE",
+      "ref": "3GPP TS 29.329"
+    },
+    {
+      "code": 4101,
+      "name": "DIAMETER_PRIOR_UPDATE_IN_PROGRESS",
+      "ref": "3GPP TS 29.329"
+    },
+    {
+      "code": 4121,
+      "name": "DIAMETER_ERROR_OUT_OF_RESOURCES",
+      "ref": "3GPP TS 29.061"
+    },
+    {
+      "code": 4141,
+      "name": "DIAMETER_PCC_BEARER_EVENT",
+      "ref": "3GPP TS 29.212"
+    },
+    {
+      "code": 4142,
+      "name": "DIAMETER_BEARER_EVENT",
+      "ref": "3GPP TS 29.212"
+    },
+    {
+      "code": 4143,
+      "name": "DIAMETER_AN_GW_FAILED",
+      "ref": "3GPP TS 29.212"
+    },
+    {
+      "code": 4144,
+      "name": "DIAMETER_PENDING_TRANSACTION",
+      "ref": "3GPP TS 29.212"
+    },
+    {
+      "code": 4145,
+      "name": "DIAMETER_UE_STATUS_SUSPEND",
+      "ref": "3GPP TS 29.212"
+    },
+    {
+      "code": 4181,
+      "name": "DIAMETER_AUTHENTICATION_DATA_UNAVAILABLE",
+      "ref": "3GPP TS 29.272"
+    },
+    {
+      "code": 4182,
+      "name": "DIAMETER_ERROR_CAMEL_SUBSCRIPTION_PRESENT",
+      "ref": "3GPP TS 29.272"
+    },
+    {
+      "code": 4201,
+      "name": "DIAMETER_ERROR_ABSENT_USER",
+      "ref": "3GPP TS 29.173"
+    },
+    {
+      "code": 4221,
+      "name": "DIAMETER_ERROR_UNREACHABLE_USER",
+      "ref": "3GPP TS 29.172"
+    },
+    {
+      "code": 4222,
+      "name": "DIAMETER_ERROR_SUSPENDED_USER",
+      "ref": "3GPP TS 29.172"
+    },
+    {
+      "code": 4223,
+      "name": "DIAMETER_ERROR_DETACHED_USER",
+      "ref": "3GPP TS 29.172"
+    },
+    {
+      "code": 4224,
+      "name": "DIAMETER_ERROR_POSITIONING_DENIED",
+      "ref": "3GPP TS 29.172"
+    },
+    {
+      "code": 4225,
+      "name": "DIAMETER_ERROR_POSITIONING_FAILED",
+      "ref": "3GPP TS 29.172"
+    },
+    {
+      "code": 4226,
+      "name": "DIAMETER_ERROR_UNKNOWN_UNREACHABLE LCS_CLIENT",
+      "ref": "3GPP TS 29.172"
+    },
+    {
+      "code": 4241,
+      "name": "DIAMETER_ERROR_NO_AVAILABLE_POLICY_COUNTERS",
+      "ref": "3GPP TS 29.219"
+    },
+    {
+      "code": 4261,
+      "name": "REQUESTED_SERVICE_TEMPORARILY_NOT_AUTHORIZED",
+      "ref": "3GPP TS 29.214"
+    },
+    {
+      "code": 4262,
+      "name": "PCEF_FAILURE",
+      "ref": "3GPP TS 29.214"
+    },
+    {
+      "code": 5001,
+      "name": "DIAMETER_ERROR_USER_UNKNOWN",
+      "ref": "3GPP TS 29.229"
+    },
+    {
+      "code": 5002,
+      "name": "DIAMETER_ERROR_IDENTITIES_DONT_MATCH",
+      "ref": "3GPP TS 29.229"
+    },
+    {
+      "code": 5003,
+      "name": "DIAMETER_ERROR_IDENTITY_NOT_REGISTERED",
+      "ref": "3GPP TS 29.229"
+    },
+    {
+      "code": 5004,
+      "name": "DIAMETER_ERROR_ROAMING_NOT_ALLOWED",
+      "ref": "3GPP TS 29.229"
+    },
+    {
+      "code": 5005,
+      "name": "DIAMETER_ERROR_IDENTITY_ALREADY_REGISTERED",
+      "ref": "3GPP TS 29.229"
+    },
+    {
+      "code": 5006,
+      "name": "DIAMETER_ERROR_AUTH_SCHEME_NOT_SUPPORTED",
+      "ref": "3GPP TS 29.229"
+    },
+    {
+      "code": 5007,
+      "name": "DIAMETER_ERROR_IN_ASSIGNMENT_TYPE",
+      "ref": "3GPP TS 29.229"
+    },
+    {
+      "code": 5008,
+      "name": "DIAMETER_ERROR_TOO_MUCH_DATA",
+      "ref": "3GPP TS 29.229"
+    },
+    {
+      "code": 5009,
+      "name": "DIAMETER_ERROR_NOT_SUPPORTED_USER_DATA",
+      "ref": "3GPP TS 29.229"
+    },
+    {
+      "code": 5011,
+      "name": "DIAMETER_ERROR_FEATURE_UNSUPPORTED",
+      "ref": "3GPP TS 29.229"
+    },
+    {
+      "code": 5012,
+      "name": "DIAMETER_ERROR_SERVING_NODE_FEATURE_UNSUPPORTED",
+      "ref": "3GPP TS 29.229"
+    },
+    {
+      "code": 5041,
+      "name": "DIAMETER_ERROR_USER_NO_WLAN_SUBSCRIPTION",
+      "ref": "3GPP TS 29.234"
+    },
+    {
+      "code": 5042,
+      "name": "DIAMETER_ERROR_W-APN_UNUSED_BY_USER",
+      "ref": "3GPP TS 29.234"
+    },
+    {
+      "code": 5043,
+      "name": "DIAMETER_ERROR_NO_ACCESS_INDEPENDENT_SUBSCRIPTION",
+      "ref": "3GPP TS 29.234"
+    },
+    {
+      "code": 5044,
+      "name": "DIAMETER_ERROR_USER_NO_W-APN_SUBSCRIPTION",
+      "ref": "3GPP TS 29.234"
+    },
+    {
+      "code": 5045,
+      "name": "DIAMETER_ERROR_UNSUITABLE_NETWORK",
+      "ref": "3GPP TS 29.234"
+    },
+    {
+      "code": 5061,
+      "name": "INVALID_SERVICE_INFORMATION",
+      "ref": "3GPP TS 29.209, 29.211, 29.214"
+    },
+    {
+      "code": 5062,
+      "name": "FILTER_RESTRICTIONS",
+      "ref": "3GPP TS 29.209, 29.211, 29.214"
+    },
+    {
+      "code": 5063,
+      "name": "REQUESTED_SERVICE_NOT_AUTHORIZED",
+      "ref": "3GPP TS 29.209, 29.211, 29.214"
+    },
+    {
+      "code": 5064,
+      "name": "DUPLICATED_AF_SESSION",
+      "ref": "3GPP TS 29.209, 29.211, 29.214"
+    },
+    {
+      "code": 5065,
+      "name": "IP-CAN_SESSION_NOT_AVAILABLE",
+      "ref": "3GPP TS 29.209, 29.211, 29.214"
+    },
+    {
+      "code": 5066,
+      "name": "UNAUTHORIZED_NON_EMERGENCY_SESSION",
+      "ref": "3GPP TS 29.209, 29.211, 29.214"
+    },
+    {
+      "code": 5067,
+      "name": "UNAUTHORIZED_SPONSORED_DATA_CONNECTIVITY",
+      "ref": "3GPP TS 29.209, 29.211, 29.214"
+    },
+    {
+      "code": 5068,
+      "name": "TEMPORARY_NETWORK_FAILURE",
+      "ref": "3GPP TS 29.209, 29.211, 29.214"
+    },
+    {
+      "code": 5100,
+      "name": "DIAMETER_ERROR_USER_DATA_NOT_RECOGNIZED",
+      "ref": "3GPP TS 29.329"
+    },
+    {
+      "code": 5101,
+      "name": "DIAMETER_ERROR_OPERATION_NOT_ALLOWED",
+      "ref": "3GPP TS 29.329"
+    },
+    {
+      "code": 5102,
+      "name": "DIAMETER_ERROR_USER_DATA_CANNOT_BE_READ",
+      "ref": "3GPP TS 29.329"
+    },
+    {
+      "code": 5103,
+      "name": "DIAMETER_ERROR_USER_DATA_CANNOT_BE_MODIFIED",
+      "ref": "3GPP TS 29.329"
+    },
+    {
+      "code": 5104,
+      "name": "DIAMETER_ERROR_USER_DATA_CANNOT_BE_NOTIFIED",
+      "ref": "3GPP TS 29.329"
+    },
+    {
+      "code": 5105,
+      "name": "DIAMETER_ERROR_TRANSPARENT_DATA OUT_OF_SYNC",
+      "ref": "3GPP TS 29.329"
+    },
+    {
+      "code": 5106,
+      "name": "DIAMETER_ERROR_SUBS_DATA_ABSENT",
+      "ref": "3GPP TS 29.329"
+    },
+    {
+      "code": 5107,
+      "name": "DIAMETER_ERROR_NO_SUBSCRIPTION_TO_DATA",
+      "ref": "3GPP TS 29.329"
+    },
+    {
+      "code": 5108,
+      "name": "DIAMETER_ERROR_DSAI_NOT_AVAILABLE",
+      "ref": "3GPP TS 29.329"
+    },
+    {
+      "code": 5120,
+      "name": "DIAMETER_ERROR_START_INDICATION",
+      "ref": "3GPP TS 29.061"
+    },
+    {
+      "code": 5121,
+      "name": "DIAMETER_ERROR_STOP_INDICATION",
+      "ref": "3GPP TS 29.061"
+    },
+    {
+      "code": 5122,
+      "name": "DIAMETER_ERROR_UNKNOWN_MBMS_BEARER_SERVICE",
+      "ref": "3GPP TS 29.061"
+    },
+    {
+      "code": 5123,
+      "name": "DIAMETER_ERROR_SERVICE_AREA",
+      "ref": "3GPP TS 29.061"
+    },
+    {
+      "code": 5140,
+      "name": "DIAMETER_ERROR_INITIAL_PARAMETERS",
+      "ref": "3GPP TS 29.212"
+    },
+    {
+      "code": 5141,
+      "name": "DIAMETER_ERROR_TRIGGER_EVENT",
+      "ref": "3GPP TS 29.212"
+    },
+    {
+      "code": 5142,
+      "name": "DIAMETER_PCC_RULE_EVENT",
+      "ref": "3GPP TS 29.212"
+    },
+    {
+      "code": 5143,
+      "name": "DIAMETER_ERROR_BEARER_NOT_AUTHORIZED",
+      "ref": "3GPP TS 29.212"
+    },
+    {
+      "code": 5144,
+      "name": "DIAMETER_ERROR_TRAFFIC_MAPPING_INFO_REJECTED",
+      "ref": "3GPP TS 29.212"
+    },
+    {
+      "code": 5145,
+      "name": "DIAMETER_QOS_RULE_EVENT",
+      "ref": "3GPP TS 29.212"
+    },
+    {
+      "code": 5147,
+      "name": "DIAMETER_ERROR_CONFLICTING_REQUEST",
+      "ref": "3GPP TS 29.212"
+    },
+    {
+      "code": 5148,
+      "name": "DIAMETER_ADC_RULE_EVENT",
+      "ref": "3GPP TS 29.212"
+    },
+    {
+      "code": 5149,
+      "name": "DIAMETER_ERROR_NBIFOM_NOT_AUTHORIZED",
+      "ref": "3GPP TS 29.212"
+    },
+    {
+      "code": 5401,
+      "name": "DIAMETER_ERROR_IMPI_UNKNOWN",
+      "ref": "3GPP TS 29.109"
+    },
+    {
+      "code": 5402,
+      "name": "DIAMETER_ERROR_NOT_AUTHORIZED",
+      "ref": "3GPP TS 29.109"
+    },
+    {
+      "code": 5403,
+      "name": "DIAMETER_ERROR_TRANSACTION_IDENTIFIER_INVALID",
+      "ref": "3GPP TS 29.109"
+    },
+    {
+      "code": 5420,
+      "name": "DIAMETER_ERROR_UNKNOWN_EPS_SUBSCRIPTION",
+      "ref": "3GPP TS 29.272"
+    },
+    {
+      "code": 5421,
+      "name": "DIAMETER_ERROR_RAT_NOT_ALLOWED",
+      "ref": "3GPP TS 29.272"
+    },
+    {
+      "code": 5422,
+      "name": "DIAMETER_ERROR_EQUIPMENT_UNKNOWN",
+      "ref": "3GPP TS 29.272"
+    },
+    {
+      "code": 5423,
+      "name": "DIAMETER_ERROR_UNKNOWN_SERVING_NODE",
+      "ref": "3GPP TS 29.272"
+    },
+    {
+      "code": 5450,
+      "name": "DIAMETER_ERROR_USER_NO_NON_3GPP_SUBSCRIPTION",
+      "ref": "3GPP TS 29.273"
+    },
+    {
+      "code": 5451,
+      "name": "DIAMETER_ERROR_USER_NO_APN_SUBSCRIPTION",
+      "ref": "3GPP TS 29.273"
+    },
+    {
+      "code": 5452,
+      "name": "DIAMETER_ERROR_RAT_TYPE_NOT_ALLOWED",
+      "ref": "3GPP TS 29.273"
+    },
+    {
+      "code": 5453,
+      "name": "DIAMETER_ERROR_LATE_OVERLAPPING_REQUEST",
+      "ref": "3GPP TS 29.273"
+    },
+    {
+      "code": 5454,
+      "name": "DIAMETER_ERROR_TIMED_OUT_REQUEST",
+      "ref": "3GPP TS 29.273"
+    },
+    {
+      "code": 5455,
+      "name": "DIAMETER_ERROR_TRUSTED_NON_3GPP_ACCESS_NOT_ALLOWED",
+      "ref": "3GPP TS 29.273"
+    },
+    {
+      "code": 5456,
+      "name": "DIAMETER_ERROR_UNTRUSTED_NON_3GPP_ACCESS_NOT_ALLOWED",
+      "ref": "3GPP TS 29.273"
+    },
+    {
+      "code": 5470,
+      "name": "DIAMETER_ERROR_SUBSESSION",
+      "ref": "3GPP TS 29.215"
+    },
+    {
+      "code": 5471,
+      "name": "DIAMETER_ERROR_ONGOING_SESSION_ESTABLISHMENT",
+      "ref": "3GPP TS 29.215"
+    },
+    {
+      "code": 5490,
+      "name": "DIAMETER_ERROR_UNAUTHORIZED_REQUESTING_NETWORK",
+      "ref": "3GPP TS 29.173"
+    },
+    {
+      "code": 5510,
+      "name": "DIAMETER_ERROR_UNAUTHORIZED_REQUESTING_ENTITY",
+      "ref": "3GPP TS 29.336"
+    },
+    {
+      "code": 5511,
+      "name": "DIAMETER_ERROR_UNAUTHORIZED_SERVICE",
+      "ref": "3GPP TS 29.336"
+    },
+    {
+      "code": 5512,
+      "name": "DIAMETER_ERROR_REQUESTED_RANGE_IS_NOT ALLOWED",
+      "ref": "3GPP TS 29.336"
+    },
+    {
+      "code": 5513,
+      "name": "DIAMETER_ERROR_CONFIGURATION_EVENT_STORAGE_NOT_SUCCESSFUL",
+      "ref": "3GPP TS 29.336"
+    },
+    {
+      "code": 5514,
+      "name": "DIAMETER_ERROR_CONFIGURATION_EVENT_NON_EXISTANT",
+      "ref": "3GPP TS 29.336"
+    },
+    {
+      "code": 5515,
+      "name": "DIAMETER_ERROR_SCEF_REFERENCE_ID_UNKNOWN",
+      "ref": "3GPP TS 29.336"
+    },
+    {
+      "code": 5516,
+      "name": "DIAMETER_ERROR_UNAUTHORIZED_MTC_PROVIDER",
+      "ref": "3GPP TS 29.336"
+    },
+    {
+      "code": 5530,
+      "name": "DIAMETER_ERROR_INVALID_SME_ADDRESS",
+      "ref": "3GPP TS 29.337"
+    },
+    {
+      "code": 5531,
+      "name": "DIAMETER_ERROR_SC_CONGESTION",
+      "ref": "3GPP TS 29.337"
+    },
+    {
+      "code": 5532,
+      "name": "DIAMETER_ERROR_SM_PROTOCOL",
+      "ref": "3GPP TS 29.337"
+    },
+    {
+      "code": 5533,
+      "name": "DIAMETER_ERROR_TRIGGER_REPLACE_FAILURE",
+      "ref": "3GPP TS 29.337"
+    },
+    {
+      "code": 5534,
+      "name": "DIAMETER_ERROR_TRIGGER_RECALL_FAILURE",
+      "ref": "3GPP TS 29.337"
+    },
+    {
+      "code": 5535,
+      "name": "DIAMETER_ERROR_ORIGINAL_MESSAGE_NOT_PENDING",
+      "ref": "3GPP TS 29.337"
+    },
+    {
+      "code": 5550,
+      "name": "DIAMETER_ERROR_ABSENT_USER",
+      "ref": "3GPP TS 29.338"
+    },
+    {
+      "code": 5551,
+      "name": "DIAMETER_ERROR_USER_BUSY_FOR_MT_SMS",
+      "ref": "3GPP TS 29.338"
+    },
+    {
+      "code": 5552,
+      "name": "DIAMETER_ERROR_FACILITY_NOT_SUPPORTED",
+      "ref": "3GPP TS 29.338"
+    },
+    {
+      "code": 5553,
+      "name": "DIAMETER_ERROR_ILLEGAL_USER",
+      "ref": "3GPP TS 29.338"
+    },
+    {
+      "code": 5554,
+      "name": "DIAMETER_ERROR_ILLEGAL_EQUIPMENT",
+      "ref": "3GPP TS 29.338"
+    },
+    {
+      "code": 5555,
+      "name": "DIAMETER_ERROR_SM_DELIVERY_FAILURE",
+      "ref": "3GPP TS 29.338"
+    },
+    {
+      "code": 5556,
+      "name": "DIAMETER_ERROR_SERVICE_NOT_SUBSCRIBED",
+      "ref": "3GPP TS 29.338"
+    },
+    {
+      "code": 5557,
+      "name": "DIAMETER_ERROR_SERVICE_BARRED",
+      "ref": "3GPP TS 29.338"
+    },
+    {
+      "code": 5558,
+      "name": "DIAMETER_ERROR_MWD_LIST_FULL",
+      "ref": "3GPP TS 29.338"
+    },
+    {
+      "code": 5570,
+      "name": "DIAMETER_ERROR_UNKNOWN_POLICY_COUNTERS",
+      "ref": "3GPP TS 29.219"
+    },
+    {
+      "code": 5590,
+      "name": "DIAMETER_ERROR_ORIGIN_ALUID_UNKNOWN",
+      "ref": "3GPP TS 29.343"
+    },
+    {
+      "code": 5591,
+      "name": "DIAMETER_ERROR_TARGET_ALUID_UNKNOWN",
+      "ref": "3GPP TS 29.343"
+    },
+    {
+      "code": 5592,
+      "name": "DIAMETER_ERROR_PFID_UNKNOWN",
+      "ref": "3GPP TS 29.343"
+    },
+    {
+      "code": 5593,
+      "name": "DIAMETER_ERROR_APP_REGISTER_REJECT",
+      "ref": "3GPP TS 29.343"
+    },
+    {
+      "code": 5594,
+      "name": "DIAMETER_ERROR_PROSE_MAP_REQUEST_DISALLOWED",
+      "ref": "3GPP TS 29.343"
+    },
+    {
+      "code": 5595,
+      "name": "DIAMETER_ERROR_MAP_REQUEST_REJECT",
+      "ref": "3GPP TS 29.343"
+    },
+    {
+      "code": 5596,
+      "name": "DIAMETER_ERROR_REQUESTING_RPAUID_UNKNOWN",
+      "ref": "3GPP TS 29.343"
+    },
+    {
+      "code": 5597,
+      "name": "DIAMETER_ERROR_UNKNOWN_OR_INVALID_TARGET_SET",
+      "ref": "3GPP TS 29.343"
+    },
+    {
+      "code": 5598,
+      "name": "DIAMETER_ERROR_MISSING_APPLICATION_DATA",
+      "ref": "3GPP TS 29.343"
+    },
+    {
+      "code": 5599,
+      "name": "DIAMETER_ERROR_AUTHORIZATION_REJECT",
+      "ref": "3GPP TS 29.343"
+    },
+    {
+      "code": 5600,
+      "name": "DIAMETER_ERROR_DISCOVERY_NOT_PERMITTED",
+      "ref": "3GPP TS 29.343"
+    },
+    {
+      "code": 5601,
+      "name": "DIAMETER_ERROR_TARGET_RPAUID_UNKNOWN",
+      "ref": "3GPP TS 29.343"
+    },
+    {
+      "code": 5602,
+      "name": "DIAMETER_ERROR_INVALID_APPLICATION_DATA",
+      "ref": "3GPP TS 29.343"
+    },
+    {
+      "code": 5610,
+      "name": "DIAMETER_ERROR_UNKNOWN_PROSE_SUBSCRIPTION",
+      "ref": "3GPP TS 29.344"
+    },
+    {
+      "code": 5611,
+      "name": "DIAMETER_ERROR_PROSE_NOT_ALLOWED",
+      "ref": "3GPP TS 29.344"
+    },
+    {
+      "code": 5612,
+      "name": "DIAMETER_ERROR_UE_LOCATION_UNKNOWN",
+      "ref": "3GPP TS 29.344"
+    },
+    {
+      "code": 5630,
+      "name": "DIAMETER_ERROR_NO_ASSOCIATED_DISCOVERY_FILTER",
+      "ref": "3GPP TS 29.345"
+    },
+    {
+      "code": 5631,
+      "name": "DIAMETER_ERROR_ANNOUNCING_UNAUTHORIZED_IN_PLMN",
+      "ref": "3GPP TS 29.345"
+    },
+    {
+      "code": 5632,
+      "name": "DIAMETER_ERROR_INVALID_APPLICATION_CODE",
+      "ref": "3GPP TS 29.345"
+    },
+    {
+      "code": 5633,
+      "name": "DIAMETER_ERROR_PROXIMITY_UNAUTHORIZED",
+      "ref": "3GPP TS 29.345"
+    },
+    {
+      "code": 5634,
+      "name": "DIAMETER_ERROR_PROXIMITY_REJECTED",
+      "ref": "3GPP TS 29.345"
+    },
+    {
+      "code": 5635,
+      "name": "DIAMETER_ERROR_NO_PROXIMITY_REQUEST",
+      "ref": "3GPP TS 29.345"
+    },
+    {
+      "code": 5636,
+      "name": "DIAMETER_ERROR_UNAUTHORIZED_SERVICE_IN_THIS_PLMN",
+      "ref": "3GPP TS 29.345"
+    },
+    {
+      "code": 5637,
+      "name": "DIAMETER_ERROR_PROXIMITY_CANCELLED",
+      "ref": "3GPP TS 29.345"
+    },
+    {
+      "code": 5638,
+      "name": "DIAMETER_ERROR_INVALID_TARGET_PDUID",
+      "ref": "3GPP TS 29.345"
+    },
+    {
+      "code": 5639,
+      "name": "DIAMETER_ERROR_INVALID_TARGET_RPAUID",
+      "ref": "3GPP TS 29.345"
+    },
+    {
+      "code": 5640,
+      "name": "DIAMETER_ERROR_NO_ASSOCIATED_RESTRICTED_CODE",
+      "ref": "3GPP TS 29.345"
+    },
+    {
+      "code": 5641,
+      "name": "DIAMETER_ERROR_INVALID_DISCOVERY_TYPE",
+      "ref": "3GPP TS 29.345"
+    },
+    {
+      "code": 5650,
+      "name": "DIAMETER_ERROR_REQUESTED_LOCATION_NOT_SERVED",
+      "ref": "3GPP TS 29.128"
+    },
+    {
+      "code": 5651,
+      "name": "DIAMETER_ERROR_INVALID_EPS_BEARER",
+      "ref": "3GPP TS 29.128"
+    },
+    {
+      "code": 5652,
+      "name": "DIAMETER_ERROR_NIDD_CONFIGURATION_NOT_AVAILABLE",
+      "ref": "3GPP TS 29.128"
+    },
+    {
+      "code": 5653,
+      "name": "DIAMETER_ERROR_USER_TEMPORARILY_UNREACHABLE",
+      "ref": "3GPP TS 29.128"
+    },
+    {
+      "code": 5670,
+      "name": "DIAMETER_ERROR_UNKNKOWN_DATA",
+      "ref": "3GPP TS 29.283"
+    },
+    {
+      "code": 5671,
+      "name": "DIAMETER_ERROR_REQUIRED_KEY_NOT_PROVIDED",
+      "ref": "3GPP TS 29.283"
+    },
+    {
+      "code": 5690,
+      "name": "DIAMETER_ERROR_UNKNOWN_V2X_SUBSCRIPTION",
+      "ref": "3GPP TS 29.388"
+    },
+    {
+      "code": 5691,
+      "name": "DIAMETER_ERROR_V2X_NOT_ALLOWED",
+      "ref": "3GPP TS 29.388"
+    }
+  ],
+  "ranges": [
+    {
+      "from": 2000,
+      "to": 2999,
+      "name": "Success",
+      "class": true
+    },
+    {
+      "from": 2006,
+      "to": 2020,
+      "name": "Reserved for 3GPP TS 29.229"
+    },
+    {
+      "from": 2022,
+      "to": 2040,
+      "name": "Reserved for 3GPP TS 29.061"
+    },
+    {
+      "from": 2401,
+      "to": 2420,
+      "name": "Reserved for 3GPP TS 29.109"
+    },
+    {
+      "from": 2422,
+      "to": 2440,
+      "name": "Reserved for 3GPP TS 29.561"
+    },
+    {
+      "from": 4000,
+      "to": 4999,
+      "name": "Transient Failure",
+      "class": true
+    },
+    {
+      "from": 4102,
+      "to": 4120,
+      "name": "Reserved for 3GPP TS 29.329"
+    },
+    {
+      "from": 4122,
+      "to": 4140,
+      "name": "Reserved for 3GPP TS 29.061"
+    },
+    {
+      "from": 4146,
+      "to": 4160,
+      "name": "Reserved for 3GPP TS 29.212"
+    },
+    {
+      "from": 4161,
+      "to": 4180,
+      "name": "Reserved for 3GPP TS 32.299"
+    },
+    {
+      "from": 4182,
+      "to": 4200,
+      "name": "Reserved for 3GPP TS 29.272"
+    },
+    {
+      "from": 4202,
+      "to": 4220,
+      "name": "Reserved for 3GPP TS 29.173"
+    },
+    {
+      "from": 4227,
+      "to": 4240,
+      "name": "Reserved for 3GPP TS 29.172"
+    },
+    {
+      "from": 4242,
+      "to": 4260,
+      "name": "Reserved for 3GPP TS 29.219"
+    },
+    {
+      "from": 4263,
+      "to": 4280,
+      "name": "Reserved for 3GPP TS 29.214"
+    },
+    {
+      "from": 5000,
+      "to": 5999,
+      "name": "Permanent Failure",
+      "class": true
+    },
+    {
+      "from": 5010,
+      "to": 5010,
+      "name": "Unassigned"
+    },
+    {
+      "from": 5013,
+      "to": 5020,
+      "name": "Reserved for 3GPP TS 29.229"
+    },
+    {
+      "from": 5021,
+      "to": 5040,
+      "name": "Reserved for 3GPP TS 32.299"
+    },
+    {
+      "from": 5046,
+      "to": 5060,
+      "name": "Reserved for 3GPP TS 29.234"
+    },
+    {
+      "from": 5069,
+      "to": 5080,
+      "name": "Reserved for 3GPP TS 29.209, TS 29.211 and TS 29.214"
+    },
+    {
+      "from": 5109,
+      "to": 5119,
+      "name": "Reserved for 3GPP TS 29.329"
+    },
+    {
+      "from": 5124,
+      "to": 5139,
+      "name": "Reserved for 3GPP TS 29.061"
+    },
+    {
+      "from": 5146,
+      "to": 5146,
+      "name": "Reserved"
+    },
+    {
+      "from": 5150,
+      "to": 5159,
+      "name": "Reserved for 3GPP TS 29.212"
+    },
+    {
+      "from": 5404,
+      "to": 5419,
+      "name": "Reserved for 3GPP TS 29.109"
+    },
+    {
+      "from": 5424,
+      "to": 5449,
+      "name": "Reserved for 3GPP TS 29.272"
+    },
+    {
+      "from": 5455,
+      "to": 5469,
+      "name": "Reserved for 3GPP TS 29.273"
+    },
+    {
+      "from": 5472,
+      "to": 5489,
+      "name": "Reserved for 3GPP TS 29.215"
+    },
+    {
+      "from": 5491,
+      "to": 5509,
+      "name": "Reserved for 3GPP TS 29.173"
+    },
+    {
+      "from": 5517,
+      "to": 5529,
+      "name": "Reserved for 3GPP TS 29.336"
+    },
+    {
+      "from": 5536,
+      "to": 5549,
+      "name": "Reserved for 3GPP TS 29.337"
+    },
+    {
+      "from": 5559,
+      "to": 5569,
+      "name": "Reserved for 3GPP TS 29.338"
+    },
+    {
+      "from": 5571,
+      "to": 5589,
+      "name": "Reserved for 3GPP TS 29.219"
+    },
+    {
+      "from": 5603,
+      "to": 5609,
+      "name": "Reserved for 3GPP TS 29.343"
+    },
+    {
+      "from": 5613,
+      "to": 5629,
+      "name": "Reserved for 3GPP TS 29.344"
+    },
+    {
+      "from": 5642,
+      "to": 5649,
+      "name": "Reserved for 3GPP TS 29.345"
+    },
+    {
+      "from": 5654,
+      "to": 5669,
+      "name": "Reserved for 3GPP TS 29.128"
+    },
+    {
+      "from": 5672,
+      "to": 5689,
+      "name": "Reserved for 3GPP TS 29.128"
+    },
+    {
+      "from": 5692,
+      "to": 5709,
+      "name": "Reserved for 3GPP TS 29.388"
+    }
+  ]
+}

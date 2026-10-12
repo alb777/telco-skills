@@ -1,0 +1,470 @@
+{
+  "family": "diameter-result",
+  "title": "Diameter Result-Code (AVP 268)",
+  "source": "IANA AAA Parameters, Result-Code AVP Values (registry updated 2026-01-27)",
+  "url": "https://www.iana.org/assignments/aaa-parameters/",
+  "codes": [
+    {
+      "code": 1001,
+      "name": "DIAMETER_MULTI_ROUND_AUTH",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 2001,
+      "name": "DIAMETER_SUCCESS",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 2002,
+      "name": "DIAMETER_LIMITED_SUCCESS",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 2003,
+      "name": "DIAMETER_FIRST_REGISTRATION",
+      "ref": "RFC 4740"
+    },
+    {
+      "code": 2004,
+      "name": "DIAMETER_SUBSEQUENT_REGISTRATION",
+      "ref": "RFC 4740"
+    },
+    {
+      "code": 2005,
+      "name": "DIAMETER_UNREGISTERED_SERVICE",
+      "ref": "RFC 4740"
+    },
+    {
+      "code": 2006,
+      "name": "DIAMETER_SUCCESS_SERVER_NAME_NOT_STORED",
+      "ref": "RFC 4740"
+    },
+    {
+      "code": 2007,
+      "name": "DIAMETER_SERVER_SELECTION",
+      "ref": "RFC 4740"
+    },
+    {
+      "code": 2008,
+      "name": "DIAMETER_SUCCESS_AUTH_SENT_SERVER_NOT_STORED",
+      "ref": "RFC 4740"
+    },
+    {
+      "code": 2009,
+      "name": "DIAMETER_SUCCESS_RELOCATE_HA",
+      "ref": "RFC 5778"
+    },
+    {
+      "code": 3001,
+      "name": "DIAMETER_COMMAND_UNSUPPORTED",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 3002,
+      "name": "DIAMETER_UNABLE_TO_DELIVER",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 3003,
+      "name": "DIAMETER_REALM_NOT_SERVED",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 3004,
+      "name": "DIAMETER_TOO_BUSY",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 3005,
+      "name": "DIAMETER_LOOP_DETECTED",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 3006,
+      "name": "DIAMETER_REDIRECT_INDICATION",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 3007,
+      "name": "DIAMETER_APPLICATION_UNSUPPORTED",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 3008,
+      "name": "DIAMETER_INVALID_HDR_BITS",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 3009,
+      "name": "DIAMETER_INVALID_AVP_BITS",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 3010,
+      "name": "DIAMETER_UNKNOWN_PEER",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 3011,
+      "name": "DIAMETER_REALM_REDIRECT_INDICATION",
+      "ref": "RFC 7075"
+    },
+    {
+      "code": 4001,
+      "name": "DIAMETER_AUTHENTICATION_REJECTED",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 4002,
+      "name": "DIAMETER_OUT_OF_SPACE",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 4003,
+      "name": "ELECTION_LOST",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 4005,
+      "name": "DIAMETER_ERROR_MIP_REPLY_FAILURE",
+      "ref": "RFC 4004"
+    },
+    {
+      "code": 4006,
+      "name": "DIAMETER_ERROR_HA_NOT_AVAILABLE",
+      "ref": "RFC 4004"
+    },
+    {
+      "code": 4007,
+      "name": "DIAMETER_ERROR_BAD_KEY",
+      "ref": "RFC 4004"
+    },
+    {
+      "code": 4008,
+      "name": "DIAMETER_ERROR_MIP_FILTER_NOT_SUPPORTED",
+      "ref": "RFC 4004"
+    },
+    {
+      "code": 4010,
+      "name": "DIAMETER_END_USER_SERVICE_DENIED",
+      "ref": "RFC 8506"
+    },
+    {
+      "code": 4011,
+      "name": "DIAMETER_CREDIT_CONTROL_NOT_APPLICABLE",
+      "ref": "RFC 8506"
+    },
+    {
+      "code": 4012,
+      "name": "DIAMETER_CREDIT_LIMIT_REACHED",
+      "ref": "RFC 8506"
+    },
+    {
+      "code": 4013,
+      "name": "DIAMETER_USER_NAME_REQUIRED",
+      "ref": "RFC 4740"
+    },
+    {
+      "code": 4014,
+      "name": "RESOURCE_FAILURE",
+      "ref": "RFC 6736"
+    },
+    {
+      "code": 5001,
+      "name": "DIAMETER_AVP_UNSUPPORTED",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 5002,
+      "name": "DIAMETER_UNKNOWN_SESSION_ID",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 5003,
+      "name": "DIAMETER_AUTHORIZATION_REJECTED",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 5004,
+      "name": "DIAMETER_INVALID_AVP_VALUE",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 5005,
+      "name": "DIAMETER_MISSING_AVP",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 5006,
+      "name": "DIAMETER_RESOURCES_EXCEEDED",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 5007,
+      "name": "DIAMETER_CONTRADICTING_AVPS",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 5008,
+      "name": "DIAMETER_AVP_NOT_ALLOWED",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 5009,
+      "name": "DIAMETER_AVP_OCCURS_TOO_MANY_TIMES",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 5010,
+      "name": "DIAMETER_NO_COMMON_APPLICATION",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 5011,
+      "name": "DIAMETER_UNSUPPORTED_VERSION",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 5012,
+      "name": "DIAMETER_UNABLE_TO_COMPLY",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 5013,
+      "name": "DIAMETER_INVALID_BIT_IN_HEADER",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 5014,
+      "name": "DIAMETER_INVALID_AVP_LENGTH",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 5015,
+      "name": "DIAMETER_INVALID_MESSAGE_LENGTH",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 5016,
+      "name": "DIAMETER_INVALID_AVP_BIT_COMBO",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 5017,
+      "name": "DIAMETER_NO_COMMON_SECURITY",
+      "ref": "RFC 6733"
+    },
+    {
+      "code": 5018,
+      "name": "DIAMETER_RADIUS_AVP_UNTRANSLATABLE",
+      "ref": "RFC 4849"
+    },
+    {
+      "code": 5024,
+      "name": "DIAMETER_ERROR_NO_FOREIGN_HA_SERVICE",
+      "ref": "RFC 4004"
+    },
+    {
+      "code": 5025,
+      "name": "DIAMETER_ERROR_END_TO_END_MIP_KEY_ENCRYPTION",
+      "ref": "RFC 4004"
+    },
+    {
+      "code": 5030,
+      "name": "DIAMETER_USER_UNKNOWN",
+      "ref": "RFC 8506"
+    },
+    {
+      "code": 5031,
+      "name": "DIAMETER_RATING_FAILED",
+      "ref": "RFC 8506"
+    },
+    {
+      "code": 5032,
+      "name": "DIAMETER_ERROR_USER_UNKNOWN",
+      "ref": "RFC 4740"
+    },
+    {
+      "code": 5033,
+      "name": "DIAMETER_ERROR_IDENTITIES_DONT_MATCH",
+      "ref": "RFC 4740"
+    },
+    {
+      "code": 5034,
+      "name": "DIAMETER_ERROR_IDENTITY_NOT_REGISTERED",
+      "ref": "RFC 4740"
+    },
+    {
+      "code": 5035,
+      "name": "DIAMETER_ERROR_ROAMING_NOT_ALLOWED",
+      "ref": "RFC 4740"
+    },
+    {
+      "code": 5036,
+      "name": "DIAMETER_ERROR_IDENTITY_ALREADY_REGISTERED",
+      "ref": "RFC 4740"
+    },
+    {
+      "code": 5037,
+      "name": "DIAMETER_ERROR_AUTH_SCHEME_NOT_SUPPORTED",
+      "ref": "RFC 4740"
+    },
+    {
+      "code": 5038,
+      "name": "DIAMETER_ERROR_IN_ASSIGNMENT_TYPE",
+      "ref": "RFC 4740"
+    },
+    {
+      "code": 5039,
+      "name": "DIAMETER_ERROR_TOO_MUCH_DATA",
+      "ref": "RFC 4740"
+    },
+    {
+      "code": 5040,
+      "name": "DIAMETER_ERROR_NOT SUPPORTED_USER_DATA",
+      "ref": "RFC 4740"
+    },
+    {
+      "code": 5041,
+      "name": "DIAMETER_ERROR_MIP6_AUTH_MODE",
+      "ref": "RFC 5778"
+    },
+    {
+      "code": 5042,
+      "name": "UNKNOWN_BINDING_TEMPLATE_NAME",
+      "ref": "RFC 6736"
+    },
+    {
+      "code": 5043,
+      "name": "BINDING_FAILURE",
+      "ref": "RFC 6736"
+    },
+    {
+      "code": 5044,
+      "name": "MAX_BINDINGS_SET_FAILURE",
+      "ref": "RFC 6736"
+    },
+    {
+      "code": 5045,
+      "name": "MAXIMUM_BINDINGS_REACHED_FOR_ENDPOINT",
+      "ref": "RFC 6736"
+    },
+    {
+      "code": 5046,
+      "name": "SESSION_EXISTS",
+      "ref": "RFC 6736"
+    },
+    {
+      "code": 5047,
+      "name": "INSUFFICIENT_CLASSIFIERS",
+      "ref": "RFC 6736"
+    },
+    {
+      "code": 5048,
+      "name": "DIAMETER_ERROR_EAP_CODE_UNKNOWN",
+      "ref": "RFC 6942"
+    }
+  ],
+  "ranges": [
+    {
+      "from": 1000,
+      "to": 1000,
+      "name": "Reserved"
+    },
+    {
+      "from": 1000,
+      "to": 1999,
+      "name": "Informational",
+      "class": true
+    },
+    {
+      "from": 1002,
+      "to": 1999,
+      "name": "Unassigned"
+    },
+    {
+      "from": 2000,
+      "to": 2000,
+      "name": "Reserved"
+    },
+    {
+      "from": 2000,
+      "to": 2999,
+      "name": "Success",
+      "class": true
+    },
+    {
+      "from": 2010,
+      "to": 2999,
+      "name": "Unassigned"
+    },
+    {
+      "from": 3000,
+      "to": 3000,
+      "name": "Reserved"
+    },
+    {
+      "from": 3000,
+      "to": 3999,
+      "name": "Protocol Error",
+      "class": true
+    },
+    {
+      "from": 3012,
+      "to": 3999,
+      "name": "Unassigned"
+    },
+    {
+      "from": 4000,
+      "to": 4000,
+      "name": "Reserved"
+    },
+    {
+      "from": 4000,
+      "to": 4999,
+      "name": "Transient Failure",
+      "class": true
+    },
+    {
+      "from": 4004,
+      "to": 4004,
+      "name": "Unassigned"
+    },
+    {
+      "from": 4009,
+      "to": 4009,
+      "name": "Unassigned"
+    },
+    {
+      "from": 4015,
+      "to": 4999,
+      "name": "Unassigned"
+    },
+    {
+      "from": 5000,
+      "to": 5000,
+      "name": "Reserved"
+    },
+    {
+      "from": 5000,
+      "to": 4294967295,
+      "name": "Permanent Failure",
+      "class": true
+    },
+    {
+      "from": 5019,
+      "to": 5023,
+      "name": "Unassigned"
+    },
+    {
+      "from": 5026,
+      "to": 5029,
+      "name": "Unassigned"
+    },
+    {
+      "from": 5049,
+      "to": 4294967295,
+      "name": "Unassigned"
+    }
+  ]
+}

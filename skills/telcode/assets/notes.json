@@ -1,0 +1,52 @@
+{
+  "diameter-result": {
+    "2001": "Plain success. Not the same as 3GPP Experimental-Result-Code 2001 (DIAMETER_FIRST_REGISTRATION, Cx).",
+    "3002": "A relay or proxy could not forward the request: no peer is available for the Destination-Realm and application, or Destination-Host came without Destination-Realm. Check the agent's routing table and peer state, not the final server.",
+    "3003": "The Destination-Realm is not known to the node that answered. Usually a realm missing from an agent's routing table.",
+    "3004": "The server is busy. The sender should retry on an alternate peer (RFC 6733).",
+    "3005": "A relay found its own identity in Route-Record: the request is looping between agents.",
+    "3010": "CEA to a CER from a peer whose identity is not configured or not allowed. The transport connection is then closed.",
+    "4003": "RFC 6733 names it DIAMETER_ELECTION_LOST; the IANA registry lists it without the prefix. Sent when both peers connected to each other at the same time and this connection lost the election (RFC 6733 5.6.4). Harmless if the other connection comes up.",
+    "5001": "Base protocol meaning: an AVP with the M-bit set is not supported by the receiver. The offending AVP is in Failed-AVP. Not the same as 3GPP Experimental-Result-Code 5001 (DIAMETER_ERROR_USER_UNKNOWN).",
+    "5004": "An AVP carries a value the receiver rejects; Failed-AVP holds it. Not the same as 3GPP Experimental-Result-Code 5004 (DIAMETER_ERROR_ROAMING_NOT_ALLOWED).",
+    "5005": "A mandatory AVP is missing. Failed-AVP should contain an example of the missing AVP, including its Vendor-Id.",
+    "5010": "CER/CEA found no common application between the peers. Compare Auth-Application-Id, Acct-Application-Id and Vendor-Specific-Application-Id on both sides. The connection is closed right after the CEA.",
+    "5012": "Generic rejection for a reason no other code covers. Look for Error-Message, Failed-AVP and the answering node's logs.",
+    "5017": "CER/CEA found no common security mechanism (Inband-Security-Id), for example one side requires TLS."
+  },
+  "diameter-experimental-3gpp": {
+    "2001": "Cx (IMS registration). Not the same as base Result-Code 2001 (DIAMETER_SUCCESS).",
+    "2005": "Formerly DIAMETER_SERVER_SELECTION (Cx, TS 29.229), deprecated.",
+    "4181": "S6a/S6d AIR: the HSS could not provide authentication vectors right now. Transient: the MME or SGSN may retry later.",
+    "5001": "Defined for Cx (TS 29.229) and reused by S6a/S6d (TS 29.272), Sh and others: the HSS does not know the user. On S6a ULR or AIR it usually means the IMSI is not provisioned. Not the same as base Result-Code 5001 (DIAMETER_AVP_UNSUPPORTED).",
+    "5004": "Reused by S6a/S6d ULR: the subscriber may not roam into this PLMN or area. Error-Diagnostic may carry an operator determined barring reason. Not the same as base Result-Code 5004 (DIAMETER_INVALID_AVP_VALUE).",
+    "5420": "S6a/S6d ULR: the subscriber exists in the HSS but has no EPS subscription data (no GPRS data for an SGSN). Error-Diagnostic may say whether GPRS data is subscribed.",
+    "5421": "S6a/S6d: the RAT-Type in the request is not allowed for this subscriber.",
+    "5422": "S13 ME Identity Check: the EIR does not know this IMEI."
+  },
+  "map-error": {
+    "1": "The HLR has no record of the IMSI or MSISDN. On UpdateLocation or SendAuthenticationInfo it usually means the SIM is not provisioned.",
+    "5": "The VLR or SGSN holds no data for the subscriber, for example after a purge.",
+    "6": "MT SMS: the subscriber is not reachable (detached, no paging response). The SMSC should keep the message and wait for the alert after the MWD is set.",
+    "8": "UpdateLocation rejected: the subscriber may not roam in this PLMN (no agreement or roaming restriction).",
+    "21": "The remote node or PLMN does not support this operation or feature.",
+    "27": "The subscriber is not reachable for this service (for example IMSI detached). Not the same as Q.850 cause 27 (destination out of order).",
+    "32": "MT SMS delivery failed. SM-DeliveryFailureCause says why, for example memory capacity exceeded or equipment protocol error.",
+    "34": "Generic failure of the remote node or a resource it depends on. The networkResource parameter, when present, names which one.",
+    "35": "A parameter the receiver needs for this operation is missing. Often a MAP version or application context mismatch between the nodes.",
+    "36": "A parameter has a value or encoding the receiver does not accept. Check the MAP application context version on both sides."
+  },
+  "sccp-return-cause": {
+    "0": "Global title translation failed for this kind of address: no GTT rule for its translation type, numbering plan or nature of address.",
+    "1": "GTT rules exist for this kind of address, but none matches these digits. Typical for a number range or partner that was never added to the GTT tables.",
+    "3": "The destination subsystem (for example SSN 6 HLR, 7 VLR, 8 MSC) is marked prohibited.",
+    "4": "The destination node does not have the requested SSN configured.",
+    "5": "MTP could not deliver the message: the destination point code is unavailable.",
+    "6": "Network congestion on the path to the destination."
+  },
+  "q850-cause": {
+    "27": "Not the same as MAP error 27 (absentSubscriber).",
+    "34": "No free circuit or channel on the route, for example a full trunk group.",
+    "127": "The call crossed a network or protocol boundary that could not map the real cause. Look at the logs on the other side of the interworking point."
+  }
+}

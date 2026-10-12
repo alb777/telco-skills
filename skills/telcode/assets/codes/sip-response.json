@@ -1,0 +1,421 @@
+{
+  "family": "sip-response",
+  "title": "SIP response code",
+  "source": "IANA SIP Parameters, Response Codes (registry updated 2026-08-17)",
+  "url": "https://www.iana.org/assignments/sip-parameters/",
+  "codes": [
+    {
+      "code": 100,
+      "name": "Trying",
+      "ref": ""
+    },
+    {
+      "code": 180,
+      "name": "Ringing",
+      "ref": ""
+    },
+    {
+      "code": 181,
+      "name": "Call Is Being Forwarded",
+      "ref": ""
+    },
+    {
+      "code": 182,
+      "name": "Queued",
+      "ref": ""
+    },
+    {
+      "code": 183,
+      "name": "Session Progress",
+      "ref": ""
+    },
+    {
+      "code": 199,
+      "name": "Early Dialog Terminated",
+      "ref": "RFC 6228"
+    },
+    {
+      "code": 200,
+      "name": "OK",
+      "ref": ""
+    },
+    {
+      "code": 202,
+      "name": "Accepted (Deprecated)",
+      "ref": "RFC 6665"
+    },
+    {
+      "code": 204,
+      "name": "No Notification",
+      "ref": "RFC 5839"
+    },
+    {
+      "code": 300,
+      "name": "Multiple Choices",
+      "ref": ""
+    },
+    {
+      "code": 301,
+      "name": "Moved Permanently",
+      "ref": ""
+    },
+    {
+      "code": 302,
+      "name": "Moved Temporarily",
+      "ref": ""
+    },
+    {
+      "code": 305,
+      "name": "Use Proxy",
+      "ref": ""
+    },
+    {
+      "code": 380,
+      "name": "Alternative Service",
+      "ref": ""
+    },
+    {
+      "code": 400,
+      "name": "Bad Request",
+      "ref": ""
+    },
+    {
+      "code": 401,
+      "name": "Unauthorized",
+      "ref": ""
+    },
+    {
+      "code": 402,
+      "name": "Payment Required",
+      "ref": ""
+    },
+    {
+      "code": 403,
+      "name": "Forbidden",
+      "ref": ""
+    },
+    {
+      "code": 404,
+      "name": "Not Found",
+      "ref": ""
+    },
+    {
+      "code": 405,
+      "name": "Method Not Allowed",
+      "ref": ""
+    },
+    {
+      "code": 406,
+      "name": "Not Acceptable",
+      "ref": ""
+    },
+    {
+      "code": 407,
+      "name": "Proxy Authentication Required",
+      "ref": ""
+    },
+    {
+      "code": 408,
+      "name": "Request Timeout",
+      "ref": ""
+    },
+    {
+      "code": 410,
+      "name": "Gone",
+      "ref": ""
+    },
+    {
+      "code": 412,
+      "name": "Conditional Request Failed",
+      "ref": "RFC 3903"
+    },
+    {
+      "code": 413,
+      "name": "Request Entity Too Large",
+      "ref": ""
+    },
+    {
+      "code": 414,
+      "name": "Request-URI Too Long",
+      "ref": ""
+    },
+    {
+      "code": 415,
+      "name": "Unsupported Media Type",
+      "ref": ""
+    },
+    {
+      "code": 416,
+      "name": "Unsupported URI Scheme",
+      "ref": ""
+    },
+    {
+      "code": 417,
+      "name": "Unknown Resource-Priority",
+      "ref": "RFC 4412"
+    },
+    {
+      "code": 420,
+      "name": "Bad Extension",
+      "ref": ""
+    },
+    {
+      "code": 421,
+      "name": "Extension Required",
+      "ref": ""
+    },
+    {
+      "code": 422,
+      "name": "Session Interval Too Small",
+      "ref": "RFC 4028"
+    },
+    {
+      "code": 423,
+      "name": "Interval Too Brief",
+      "ref": ""
+    },
+    {
+      "code": 424,
+      "name": "Bad Location Information",
+      "ref": "RFC 6442"
+    },
+    {
+      "code": 425,
+      "name": "Bad Alert Message",
+      "ref": "RFC 8876"
+    },
+    {
+      "code": 428,
+      "name": "Use Identity Header",
+      "ref": "RFC 8224"
+    },
+    {
+      "code": 429,
+      "name": "Provide Referrer Identity",
+      "ref": "RFC 3892"
+    },
+    {
+      "code": 430,
+      "name": "Flow Failed",
+      "ref": "RFC 5626"
+    },
+    {
+      "code": 433,
+      "name": "Anonymity Disallowed",
+      "ref": "RFC 5079"
+    },
+    {
+      "code": 436,
+      "name": "Bad Identity Info",
+      "ref": "RFC 8224"
+    },
+    {
+      "code": 437,
+      "name": "Unsupported Credential",
+      "ref": "RFC 8224"
+    },
+    {
+      "code": 438,
+      "name": "Invalid Identity Header",
+      "ref": "RFC 8224"
+    },
+    {
+      "code": 439,
+      "name": "First Hop Lacks Outbound Support",
+      "ref": "RFC 5626"
+    },
+    {
+      "code": 440,
+      "name": "Max-Breadth Exceeded",
+      "ref": "RFC 5393"
+    },
+    {
+      "code": 469,
+      "name": "Bad Info Package",
+      "ref": "RFC 6086"
+    },
+    {
+      "code": 470,
+      "name": "Consent Needed",
+      "ref": "RFC 5360"
+    },
+    {
+      "code": 480,
+      "name": "Temporarily Unavailable",
+      "ref": ""
+    },
+    {
+      "code": 481,
+      "name": "Call/Transaction Does Not Exist",
+      "ref": ""
+    },
+    {
+      "code": 482,
+      "name": "Loop Detected",
+      "ref": ""
+    },
+    {
+      "code": 483,
+      "name": "Too Many Hops",
+      "ref": ""
+    },
+    {
+      "code": 484,
+      "name": "Address Incomplete",
+      "ref": ""
+    },
+    {
+      "code": 485,
+      "name": "Ambiguous",
+      "ref": ""
+    },
+    {
+      "code": 486,
+      "name": "Busy Here",
+      "ref": ""
+    },
+    {
+      "code": 487,
+      "name": "Request Terminated",
+      "ref": ""
+    },
+    {
+      "code": 488,
+      "name": "Not Acceptable Here",
+      "ref": ""
+    },
+    {
+      "code": 489,
+      "name": "Bad Event",
+      "ref": "RFC 6665"
+    },
+    {
+      "code": 491,
+      "name": "Request Pending",
+      "ref": ""
+    },
+    {
+      "code": 493,
+      "name": "Undecipherable",
+      "ref": ""
+    },
+    {
+      "code": 494,
+      "name": "Security Agreement Required",
+      "ref": "RFC 3329"
+    },
+    {
+      "code": 500,
+      "name": "Server Internal Error",
+      "ref": ""
+    },
+    {
+      "code": 501,
+      "name": "Not Implemented",
+      "ref": ""
+    },
+    {
+      "code": 502,
+      "name": "Bad Gateway",
+      "ref": ""
+    },
+    {
+      "code": 503,
+      "name": "Service Unavailable",
+      "ref": ""
+    },
+    {
+      "code": 504,
+      "name": "Server Time-out",
+      "ref": ""
+    },
+    {
+      "code": 505,
+      "name": "Version Not Supported",
+      "ref": ""
+    },
+    {
+      "code": 513,
+      "name": "Message Too Large",
+      "ref": ""
+    },
+    {
+      "code": 555,
+      "name": "Push Notification Service Not Supported",
+      "ref": "RFC 8599"
+    },
+    {
+      "code": 580,
+      "name": "Precondition Failure",
+      "ref": "RFC 3312"
+    },
+    {
+      "code": 600,
+      "name": "Busy Everywhere",
+      "ref": ""
+    },
+    {
+      "code": 603,
+      "name": "Decline",
+      "ref": ""
+    },
+    {
+      "code": 604,
+      "name": "Does Not Exist Anywhere",
+      "ref": ""
+    },
+    {
+      "code": 606,
+      "name": "Not Acceptable",
+      "ref": ""
+    },
+    {
+      "code": 607,
+      "name": "Unwanted",
+      "ref": "RFC 8197"
+    },
+    {
+      "code": 608,
+      "name": "Rejected",
+      "ref": "RFC 8688"
+    }
+  ],
+  "ranges": [
+    {
+      "from": 100,
+      "to": 199,
+      "name": "Provisional",
+      "class": true
+    },
+    {
+      "from": 200,
+      "to": 299,
+      "name": "Successful",
+      "class": true
+    },
+    {
+      "from": 300,
+      "to": 399,
+      "name": "Redirection",
+      "class": true
+    },
+    {
+      "from": 400,
+      "to": 499,
+      "name": "Request Failure",
+      "class": true
+    },
+    {
+      "from": 500,
+      "to": 599,
+      "name": "Server Failure",
+      "class": true
+    },
+    {
+      "from": 600,
+      "to": 699,
+      "name": "Global Failure",
+      "class": true
+    }
+  ]
+}

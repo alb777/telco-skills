@@ -1,0 +1,100 @@
+{
+  "family": "sccp-return-cause",
+  "title": "SCCP return cause (UDTS, XUDTS, LUDTS)",
+  "source": "ITU-T Q.713 (03/2001), clause 3.12",
+  "url": "https://www.itu.int/rec/T-REC-Q.713",
+  "codes": [
+    {
+      "code": 0,
+      "name": "no translation for an address of such nature",
+      "ref": "ITU-T Q.713"
+    },
+    {
+      "code": 1,
+      "name": "no translation for this specific address",
+      "ref": "ITU-T Q.713"
+    },
+    {
+      "code": 2,
+      "name": "subsystem congestion",
+      "ref": "ITU-T Q.713"
+    },
+    {
+      "code": 3,
+      "name": "subsystem failure",
+      "ref": "ITU-T Q.713"
+    },
+    {
+      "code": 4,
+      "name": "unequipped user",
+      "ref": "ITU-T Q.713"
+    },
+    {
+      "code": 5,
+      "name": "MTP failure",
+      "ref": "ITU-T Q.713"
+    },
+    {
+      "code": 6,
+      "name": "network congestion",
+      "ref": "ITU-T Q.713"
+    },
+    {
+      "code": 7,
+      "name": "unqualified",
+      "ref": "ITU-T Q.713"
+    },
+    {
+      "code": 8,
+      "name": "error in message transport",
+      "ref": "ITU-T Q.713, XUDT(S) only"
+    },
+    {
+      "code": 9,
+      "name": "error in local processing",
+      "ref": "ITU-T Q.713, XUDT(S) only"
+    },
+    {
+      "code": 10,
+      "name": "destination cannot perform reassembly",
+      "ref": "ITU-T Q.713, XUDT(S) only"
+    },
+    {
+      "code": 11,
+      "name": "SCCP failure",
+      "ref": "ITU-T Q.713"
+    },
+    {
+      "code": 12,
+      "name": "hop counter violation",
+      "ref": "ITU-T Q.713"
+    },
+    {
+      "code": 13,
+      "name": "segmentation not supported",
+      "ref": "ITU-T Q.713"
+    },
+    {
+      "code": 14,
+      "name": "segmentation failure",
+      "ref": "ITU-T Q.713"
+    }
+  ],
+  "ranges": [
+    {
+      "from": 15,
+      "to": 228,
+      "name": "Reserved for international use"
+    },
+    {
+      "from": 229,
+      "to": 254,
+      "name": "Reserved for national networks"
+    },
+    {
+      "from": 255,
+      "to": 255,
+      "name": "Reserved"
+    }
+  ]
+}
