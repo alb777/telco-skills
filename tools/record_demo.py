@@ -30,7 +30,7 @@ COLS, ROWS = 104, 20
 PROMPT = "\x1b[1;32m$\x1b[0m "
 COMMENT = "\x1b[2m"
 RESET = "\x1b[0m"
-QUESTION = "S6a ULA returned Experimental-Result-Code 5420. What does it mean? Keep it short."
+QUESTION = "NB-IoT devices get EMM cause 15 in a new roaming network. What do I check? Max 6 lines."
 
 
 class Cast:
@@ -135,8 +135,8 @@ def main() -> int:
         cast.type("telcode 5001")
         cast.lines(telcode(tmpdir / "bin", "5001"), 0.03)
         cast.clear(5.0)
-        cast.type("telcode search absent")
-        cast.lines(telcode(tmpdir / "bin", "search", "absent"), 0.03)
+        cast.type("telcode 15 --table emm")
+        cast.lines(telcode(tmpdir / "bin", "15", "--table", "emm"), 0.03)
         cast.type("telcode tbcd 62 02 11 32 54 76 98 f0")
         cast.lines(telcode(tmpdir / "bin", "tbcd", "62", "02", "11", "32", "54", "76", "98", "f0"))
         cast.clear(4.0)
