@@ -34,6 +34,18 @@ class DataIntegrity(unittest.TestCase):
                 self.assertTrue(all(c["name"].strip() for c in raw["codes"]), "empty name")
                 self.assertTrue(all(r["from"] <= r["to"] for r in raw["ranges"]), "inverted range")
 
+    def test_sba_causes_are_well_formed(self) -> None:
+        causes = json.loads((telcode.ASSETS / "codes" / "sba-cause.json").read_text(encoding="utf-8"))["causes"]
+        keys = [(c["cause"], c["status"], c["description"].lower(), c["ref"].split(",")[0]) for c in causes]
+        self.assertEqual(len(keys), len(set(keys)), "same cause and wording twice in one spec")
+        for c in causes:
+            with self.subTest(cause=c["cause"], ref=c["ref"]):
+                self.assertRegex(c["cause"], r"^[A-Z][A-Z0-9_ ]*$")
+                self.assertTrue(300 <= c["status"] <= 599)
+                self.assertTrue(c["description"].strip())
+                self.assertNotIn("NOTE", c["description"])
+                self.assertRegex(c["ref"], r"^3GPP TS 29\.5\d\d, \S")
+
     def test_expected_tables_are_present(self) -> None:
         self.assertEqual([t.family for t in telcode.load_tables()], list(telcode.TABLE_ORDER))
 
@@ -126,6 +138,52 @@ class Lookup(unittest.TestCase):
                 self.assertIn("earlier versions", match["ranges"][0])
 
 
+class SbaCause(unittest.TestCase):
+    def test_lookup_ignores_case_and_lists_every_api(self) -> None:
+        code, out, _ = run("user_not_found", "--json")
+        self.assertEqual(code, 0)
+        result = json.loads(out)
+        self.assertEqual(result["code"], "USER_NOT_FOUND")
+        self.assertTrue(result["ambiguous"])
+        self.assertEqual({m["table"] for m in result["matches"]}, {"sba-cause"})
+        self.assertEqual({m["status"] for m in result["matches"]}, {404})
+        refs = " ".join(m["ref"] for m in result["matches"])
+        for api in ("Nudm_SubscriberDataManagement", "Nudr_DataRepository", "Nausf_UEAuthentication"):
+            self.assertIn(api, refs)
+
+    def test_common_and_scp_entries_from_ts_29_500(self) -> None:
+        _, out, _ = run("NF_CONGESTION", "--json")
+        refs = {m["ref"] for m in json.loads(out)["matches"]}
+        self.assertEqual(refs, {"3GPP TS 29.500, any NF", "3GPP TS 29.500, SCP or SEPP"})
+
+    def test_spec_typo_is_found_by_its_wire_spelling(self) -> None:
+        # TS 29.504 writes "DATABASE INCONSISTENCY" with a space.
+        _, out, _ = run("DATABASE_INCONSISTENCY", "--json")
+        match = json.loads(out)["matches"][0]
+        self.assertEqual(match["code"], "DATABASE INCONSISTENCY")
+        self.assertEqual(match["status"], 500)
+
+    def test_unknown_name_exits_1(self) -> None:
+        code, _, err = run("NOT_A_REAL_CAUSE")
+        self.assertEqual(code, 1)
+        self.assertIn("no 5G SBA cause", err)
+
+    def test_oauth_errors_of_the_access_token_api_are_not_causes(self) -> None:
+        code, _, _ = run("invalid_request")
+        self.assertEqual(code, 1)
+
+    def test_numbers_never_match_sba_causes(self) -> None:
+        _, out, _ = run("404", "--json")
+        self.assertEqual({m["table"] for m in json.loads(out)["matches"]}, {"sip-response"})
+
+    def test_search_by_specification(self) -> None:
+        _, out, _ = run("search", "29.518", "--json")
+        matches = json.loads(out)["matches"]
+        self.assertTrue(matches)
+        self.assertTrue(all(m["table"] == "sba-cause" and "29.518" in m["ref"] for m in matches))
+        self.assertIn("Namf_Communication", " ".join(m["ref"] for m in matches))
+
+
 class Readme(unittest.TestCase):
     def test_examples_match_real_output(self) -> None:
         readme = (Path(__file__).resolve().parent.parent / "README.md").read_text(encoding="utf-8")
@@ -146,6 +204,7 @@ class Search(unittest.TestCase):
         self.assertIn(("map-error", 6), found)
         self.assertIn(("map-error", 27), found)
         self.assertIn(("q850-cause", 20), found)
+        self.assertIn(("sba-cause", "ABSENT_SUBSCRIBER_SM"), found)
 
     def test_search_by_specification(self) -> None:
         _, out, _ = run("search", "29.272", "--json")

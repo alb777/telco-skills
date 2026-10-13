@@ -1,0 +1,1816 @@
+{
+  "family": "sba-cause",
+  "title": "5G SBA ProblemDetails cause (AMF, SMF, UDM, UDR, AUSF, PCF, NRF, NSSF, SCP, SEPP)",
+  "source": "3GPP TS 29.500 V20.0.0, 29.502 V20.1.0, 29.503 V20.1.0, 29.504 V20.1.0, 29.507 V20.1.0, 29.509 V20.0.0, 29.510 V20.1.0, 29.512 V20.1.0, 29.514 V20.1.0, 29.518 V20.1.0, 29.531 V20.0.0, application error tables",
+  "url": "https://www.3gpp.org/dynareport/29500.htm",
+  "codes": [],
+  "ranges": [],
+  "causes": [
+    {
+      "cause": "ABSENT_SUBSCRIBER_SM",
+      "status": 404,
+      "description": "The UE is not reachable for MT-SMS (e.g. SMSF registered but not reachable as indicated by SMS message waiting data or by URRP flag)",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement"
+    },
+    {
+      "cause": "ACCESS_NOT_ALLOWED",
+      "status": 403,
+      "description": "Access type not allowed for the user",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement"
+    },
+    {
+      "cause": "ACCESS_TOKEN_CLAIM_MISMATCH",
+      "status": 403,
+      "description": "The request is rejected due to one or more claim(s) (e.g. slice, NSI, etc.) in the OAuth2.0 access token does not match the attributes of the NF service producer (e.g. the NF service producer does not serve any slice indicated in the producerSnssaiList or producerNsiList), as specified in clause 13.4.1.1.2 of TS 33.501",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "ACCESS_TOKEN_CLAIM_MISSING",
+      "status": 401,
+      "description": "The request is rejected due to one or more missing claim(s) in the OAuth2.0 access token",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "ACCESS_TOKEN_DENIED",
+      "status": 403,
+      "description": "The request is rejected due to the Authorization Server rejecting to grant an access token to the SCP. See clause 6.10.3.5",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "ACCURACY_LEVEL_OUT_OF_RANGE",
+      "status": 400,
+      "description": "Accuracy Level of the Expected UE Behaviour Parameter is out or range (e.g. <0.00 or >1.00)",
+      "ref": "3GPP TS 29.503, Nudm_ParameterProvision"
+    },
+    {
+      "cause": "AF_INSTANCE_NOT_ALLOWED",
+      "status": 403,
+      "description": "This AF instance is not authorized",
+      "ref": "3GPP TS 29.503, Nudm_NIDDAuthorization, Nudm_ServiceSpecificAuthorization"
+    },
+    {
+      "cause": "AF_INSTANCE_NOT_ALLOWED",
+      "status": 403,
+      "description": "NIDD authorization for the AF Instance is rejected",
+      "ref": "3GPP TS 29.504, Nudr_DataRepository"
+    },
+    {
+      "cause": "AF_NOT_ALLOWED",
+      "status": 403,
+      "description": "This AF is not allowed to perform external provisioning or 5G VN Group creation",
+      "ref": "3GPP TS 29.503, Nudm_ParameterProvision"
+    },
+    {
+      "cause": "AF_NOT_ALLOWED",
+      "status": 403,
+      "description": "This AF is not allowed to perform the operations",
+      "ref": "3GPP TS 29.503, Nudm_SubscriberDataManagement"
+    },
+    {
+      "cause": "AF_NOT_ALLOWED",
+      "status": 403,
+      "description": "This AF is not allowed to perform monitoring configuration",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement, Nudm_EventExposure"
+    },
+    {
+      "cause": "AN_GW_FAILED",
+      "status": 400,
+      "description": "This error shall be used when SGWRest feature is supported and the received policy decisions (i.e. installation/modification of PCC rules or session rules) cannot be enforced by the SMF because the AN-Gateway has failed",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl (from the notification receiver)"
+    },
+    {
+      "cause": "APPLICATION_SESSION_CONTEXT_NOT_FOUND",
+      "status": 404,
+      "description": "The HTTP request is rejected because the specified Individual Application Session Context does not exist",
+      "ref": "3GPP TS 29.514, Npcf_PolicyAuthorization"
+    },
+    {
+      "cause": "AUTHENTICATION_REJECTED",
+      "status": 403,
+      "description": "The user is cannot be authenticated with this authentication method e.g. only SIM data available",
+      "ref": "3GPP TS 29.503, Nudm_UEAuthentication"
+    },
+    {
+      "cause": "AUTHENTICATION_REJECTED",
+      "status": 403,
+      "description": "The user cannot be authenticated with this authentication method e.g. only SIM data available",
+      "ref": "3GPP TS 29.509, Nausf_UEAuthentication"
+    },
+    {
+      "cause": "AUTHORIZATION_NOT_FOUND",
+      "status": 404,
+      "description": "The authorization for specific service's configuration to be removed does not exist in the UDM",
+      "ref": "3GPP TS 29.503, Nudm_ServiceSpecificAuthorization"
+    },
+    {
+      "cause": "AV_GENERATION_PROBLEM",
+      "status": 500,
+      "description": "The UDM has indicated that it was not able to generate AV",
+      "ref": "3GPP TS 29.509, Nausf_UEAuthentication"
+    },
+    {
+      "cause": "CCA_VERIFICATION_FAILURE",
+      "status": 403,
+      "description": "The request is rejected due to a failure to verify the 3gpp-Sbi-Client-Credentials at the receiving entity (e.g. NRF or NF service producer)",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "CONFIDENCE_LEVEL_OUT_OF_RANGE",
+      "status": 400,
+      "description": "Confidence Level of the Expected UE Behaviour Parameter is out or range (e.g. <0.00 or >1.00)",
+      "ref": "3GPP TS 29.503, Nudm_ParameterProvision"
+    },
+    {
+      "cause": "CONFLICTING_INFORMATION",
+      "status": 403,
+      "description": "Information provided by AF conflicts with information provided previously by a different AF",
+      "ref": "3GPP TS 29.503, Nudm_ParameterProvision"
+    },
+    {
+      "cause": "CONTEXT_NOT_FOUND",
+      "status": 404,
+      "description": "It is used when no context corresponding to the request exists in the SMF",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "CONTEXT_NOT_FOUND",
+      "status": 404,
+      "description": "It is used when no corresponding context exists",
+      "ref": "3GPP TS 29.503, Nudm_SubscriberDataManagement, Nudm_UEContextManagement, Nudm_EventExposure, Nudm_ServiceSpecificAuthorization"
+    },
+    {
+      "cause": "CONTEXT_NOT_FOUND",
+      "status": 404,
+      "description": "The AUSF cannot found the resource corresponding to the URI provided by the NF Service Consumer",
+      "ref": "3GPP TS 29.509, Nausf_UEAuthentication"
+    },
+    {
+      "cause": "CONTEXT_NOT_FOUND",
+      "status": 404,
+      "description": "The requested UE Context does not exist on the AMF",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "CONTEXT_NOT_FOUND",
+      "status": 404,
+      "description": "The requested UE Context does not exist in the AMF",
+      "ref": "3GPP TS 29.518, Namf_Location"
+    },
+    {
+      "cause": "CONTEXT_NOT_FOUND",
+      "status": 404,
+      "description": "The related UE is not found in the NF Service Consumer",
+      "ref": "3GPP TS 29.518, Namf_MT"
+    },
+    {
+      "cause": "COUNTER_WRAP",
+      "status": 503,
+      "description": "The CounterSoR associated with the KAUSF of the UE is about to wrap around. The AUSF suspends the SoR protection service for the UE until a new KAUSF is generated",
+      "ref": "3GPP TS 29.509, Nausf_SoRProtection"
+    },
+    {
+      "cause": "COUNTER_WRAP",
+      "status": 503,
+      "description": "The CounterUPU associated with the KAUSF of the UE is about to wrap around. The AUSF suspends the UPU protection service for the UE until a new KAUSF is generated",
+      "ref": "3GPP TS 29.509, Nausf_UPUProtection"
+    },
+    {
+      "cause": "CREATION_NOT_ALLOWED",
+      "status": 403,
+      "description": "Creation of a 5G VN Group is not allowed",
+      "ref": "3GPP TS 29.503, Nudm_ParameterProvision"
+    },
+    {
+      "cause": "CREATION_NOT_ALLOWED",
+      "status": 403,
+      "description": "Creation of the resource is not allowed",
+      "ref": "3GPP TS 29.504, Nudr_DataRepository"
+    },
+    {
+      "cause": "DATABASE INCONSISTENCY",
+      "status": 500,
+      "description": "Requested data cannot be returned due to database inconsistency",
+      "ref": "3GPP TS 29.504, Nudr_DataRepository"
+    },
+    {
+      "cause": "DATA_NOT_FOUND",
+      "status": 404,
+      "description": "The requested UE data is not found/does not exist",
+      "ref": "3GPP TS 29.503, Nudm_MT"
+    },
+    {
+      "cause": "DATA_NOT_FOUND",
+      "status": 404,
+      "description": "There is no valid authorization data for the UE",
+      "ref": "3GPP TS 29.503, Nudm_NIDDAuthorization"
+    },
+    {
+      "cause": "DATA_NOT_FOUND",
+      "status": 404,
+      "description": "The requested UE subscription data is not found/does not exist. This error is applicable to all Nudm_SDM GET operations",
+      "ref": "3GPP TS 29.503, Nudm_SubscriberDataManagement"
+    },
+    {
+      "cause": "DATA_NOT_FOUND",
+      "status": 404,
+      "description": "Resource corresponding to the authEventId does not exist",
+      "ref": "3GPP TS 29.503, Nudm_UEAuthentication"
+    },
+    {
+      "cause": "DATA_NOT_FOUND",
+      "status": 404,
+      "description": "The requested data associated to the UE or Group does not exist",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement"
+    },
+    {
+      "cause": "DATA_NOT_FOUND",
+      "status": 404,
+      "description": "The data indicated in the HTTP/2 request is unavailable in the UDR",
+      "ref": "3GPP TS 29.504, Nudr_DataRepository"
+    },
+    {
+      "cause": "DATA_NOT_FOUND",
+      "status": 404,
+      "description": "The requested information is not found",
+      "ref": "3GPP TS 29.518, Namf_AIoT"
+    },
+    {
+      "cause": "DEFAULT_EBI_NOT_TRANSFERRED",
+      "status": 403,
+      "description": "It is used during 5GS to EPS mobility if the EBI of the default EPS bearer is included in the notToTransferEbiList attribute",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "DEFAULT_EPS_BEARER_INACTIVE",
+      "status": 403,
+      "description": "It is used during EPS to 5GS mobility if the default EPS bearer context of the PDU session is reported as inactive by the UE in the epsBearerCtxStatus attribute",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "DETACHED_USER",
+      "status": 403,
+      "description": "The user is detached in the Network",
+      "ref": "3GPP TS 29.503, Nudm_ParameterProvision"
+    },
+    {
+      "cause": "DETACHED_USER",
+      "status": 403,
+      "description": "The user is detached (i.e. it is in RM-DEREGISTERED state) in the AMF",
+      "ref": "3GPP TS 29.518, Namf_Location"
+    },
+    {
+      "cause": "DNN_CONGESTION",
+      "status": 503,
+      "description": "The SMF has detected congestion for the requested DNN and performs overload control for that DNN which does not allow the PDU session to be established",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "DNN_DENIED",
+      "status": 403,
+      "description": "The subscriber does not have the necessary subscription to access the DNN",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "DNN_NOT_ALLOWED",
+      "status": 403,
+      "description": "DNN not authorized for the user",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement, Nudm_NIDDAuthorization, Nudm_ServiceSpecificAuthorization"
+    },
+    {
+      "cause": "DNN_NOT_ALLOWED",
+      "status": 403,
+      "description": "NIDD authorization for the DNN is rejected",
+      "ref": "3GPP TS 29.504, Nudr_DataRepository"
+    },
+    {
+      "cause": "DNN_NOT_SUPPORTED",
+      "status": 403,
+      "description": "The DNN is not supported by the SMF",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "DUPLICATED_AF_SESSION",
+      "status": 400,
+      "description": "The HTTP request is rejected because the new Individual Application Session Context relates to an AF session with another related active Individual Application Session Context, e.g. if the AF provided the same AF charging identifier for this new Individual Application Session Context that is already in use for the other ongoing Individual Application Session Context",
+      "ref": "3GPP TS 29.514, Npcf_PolicyAuthorization"
+    },
+    {
+      "cause": "EBI_EXHAUSTED",
+      "status": 403,
+      "description": "The allocation of EPS Bearer ID failed due to exhaustion of EBI as the maximum number of EBIs has already been allocated to the UE",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "EBI_EXHAUSTED",
+      "status": 403,
+      "description": "Allocation of EPS Bearer ID failed due to exhaustion of EBI as the maximum number of EBIs has already been allocated to the UE",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "EBI_REJECTED_LOCAL_POLICY",
+      "status": 403,
+      "description": "The allocation of EPS Bearer ID was rejected due to local policy in the Serving PLMN",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "EBI_REJECTED_LOCAL_POLICY",
+      "status": 403,
+      "description": "Allocation of EPS Bearer ID failed due to local policy at the AMF as specified in clause 4.11.1.4.1 of TS 23.502",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "EBI_REJECTED_NO_N26",
+      "status": 403,
+      "description": "The allocation of EPS Bearer ID was rejected when the AMF is in a serving PLMN that does not support 5GS-EPS interworking procedures with N26 interface",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "EBI_REJECTED_NO_N26",
+      "status": 403,
+      "description": "The allocation of EPS Bearer ID was rejected when the AMF is in a serving PLMN that does not support 5GS-EPS interworking procedures with N26 interface",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "ERROR_CONFLICTING_REQUEST",
+      "status": 403,
+      "description": "The HTTP request is rejected because the PCF cannot accept the UE-initiated resource request as a network-initiated resource allocation is already in progress that has packet filters that cover the packet filters in the received UE-initiated resource request. The NF service consumer shall reject the attempt for UE-initiated resource request",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl"
+    },
+    {
+      "cause": "ERROR_INITIAL_PARAMETERS",
+      "status": 400,
+      "description": "The HTTP request is rejected because the set of session or subscriber information needed by the PCF for rule selection is incomplete or erroneous or not available for the decision to be made. (E.g. QoS, RAT type, subscriber information)",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl"
+    },
+    {
+      "cause": "ERROR_REQUEST_PARAMETERS",
+      "status": 400,
+      "description": "The HTTP request is rejected because the set of information needed by the PCF for AM Policy selection is incomplete or erroneous or not available for the decision to be made",
+      "ref": "3GPP TS 29.507, Npcf_AMPolicyControl"
+    },
+    {
+      "cause": "ERROR_TRAFFIC_MAPPING_INFO_REJECTED",
+      "status": 403,
+      "description": "The HTTP request is rejected because the PCF does not accept one or more of the traffic mapping filters provided by the NF service consumer in a PCC Request",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl"
+    },
+    {
+      "cause": "ERROR_TRIGGER_EVENT",
+      "status": 400,
+      "description": "The HTTP request is rejected because the set of session information sent the message originated due to a trigger been met is incoherent with the previous set of session information for the same session. (E.g. trigger met was RAT changed, and the RAT notified is the same as before)",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl"
+    },
+    {
+      "cause": "EXCEEDED_GROUP_DATA_RATE",
+      "status": 403,
+      "description": "The HTTP request is rejected because the PCF does not accept the NF service consumer request because the authorized group data rate exceeds the consumed data rate for the concerned group",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl"
+    },
+    {
+      "cause": "EXCEEDED_SLICE_DATA_RATE",
+      "status": 403,
+      "description": "The request is rejected due to the maximum bit rate per S-NSSAI is exceeded, when the SMF receives the same application error from the PCF",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "EXCEEDED_SLICE_DATA_RATE",
+      "status": 403,
+      "description": "The HTTP request is rejected because the PCF does not accept the NF service consumer request because the authorized data rate exceeds the consumed data rate for that slice",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl"
+    },
+    {
+      "cause": "EXCEEDED_UE_SLICE_DATA_RATE",
+      "status": 403,
+      "description": "The request is rejected due to the maximum bit rate per S-NSSAI per UE is exceeded, when the SMF receives the same application error from the PCF",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "EXCEEDED_UE_SLICE_DATA_RATE",
+      "status": 403,
+      "description": "The HTTP request is rejected because the PCF does not accept the NF service consumer request because the authorized data rate exceeds the consumed data rate for that UE and network slice",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl"
+    },
+    {
+      "cause": "FILTER_RESTRICTIONS",
+      "status": 400,
+      "description": "The HTTP request is rejected because the IP flow descriptions cannot be handled by the PCF because the restrictions defined in clause 5.3.8 of 3GPP TS 29.214 are not observed",
+      "ref": "3GPP TS 29.514, Npcf_PolicyAuthorization"
+    },
+    {
+      "cause": "GROUP_IDENTIFIER_NOT_FOUND",
+      "status": 404,
+      "description": "The requested Group Identifier does not exist",
+      "ref": "3GPP TS 29.503, Nudm_SubscriberDataManagement"
+    },
+    {
+      "cause": "GROUP_IDENTIFIER_NOT_FOUND",
+      "status": 404,
+      "description": "The group does not exist",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement, Nudm_ParameterProvision"
+    },
+    {
+      "cause": "GROUP_IDENTIFIER_NOT_FOUND",
+      "status": 404,
+      "description": "The group identifier does not exist",
+      "ref": "3GPP TS 29.504, Nudr_DataRepository"
+    },
+    {
+      "cause": "HANDOVER_FAILURE",
+      "status": 403,
+      "description": "Creation of UE context or relocation in the target AMF failed during Handover procedure causing a failure of handover",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "HANDOVER_RESOURCE_ALLOCATION_FAILURE",
+      "status": 403,
+      "description": "It is used during a N2 handover preparation or an EPS to 5GS handover preparation, if no resource is allocated by the target NG-RAN for the PDU session",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "HIGHER_PRIORITY_REQUEST_ONGOING",
+      "status": 409,
+      "description": "The request is rejected temporarily due to procedure for higher priority session in progress",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "HIGHER_PRIORITY_REQUEST_ONGOING",
+      "status": 409,
+      "description": "Paging triggered N1/N2 transfer cannot be initiated since already there is a paging due to a higher priority session ongoing",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "HOME_ROUTED_ROAMING_REQUIRED",
+      "status": 403,
+      "description": "It is used in LBO roaming, if the V-SMF is not able to process some part of the N1 SM information that requires Home Routed Roaming",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "HO_TAU_IN_PROGRESS",
+      "status": 403,
+      "description": "The request is rejected temporarily due to a mobility procedure in progress",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "HO_TO_EPS",
+      "status": 409,
+      "description": "The request is rejected due to a handover from 5GS to EPS",
+      "ref": "3GPP TS 29.518, Namf_Location"
+    },
+    {
+      "cause": "INBOUND_SERVER_ERROR",
+      "status": 502,
+      "description": "The request is rejected due to the receipt of an 5xx error from an inbound server that the NF Service Producer accessed while attempting to fulfil the request (see clause 6.4.2.1)",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "INCORRECT_CONDITIONAL_REQUEST",
+      "status": 412,
+      "description": "One or more conditions given in the request header fields evaluated to false when tested in the UDR",
+      "ref": "3GPP TS 29.504, Nudr_DataRepository"
+    },
+    {
+      "cause": "INCORRECT_LENGTH",
+      "status": 411,
+      "description": "The request is rejected due to incorrect value of a Content-length header field",
+      "ref": "3GPP TS 29.500, any NF, SCP or SEPP"
+    },
+    {
+      "cause": "INSUFFICIENT_RESOURCES",
+      "status": 500,
+      "description": "The request is rejected due to insufficient resources",
+      "ref": "3GPP TS 29.500, any NF, SCP or SEPP"
+    },
+    {
+      "cause": "INSUFFICIENT_RESOURCES_SLICE",
+      "status": 500,
+      "description": "The request cannot be provided due to insufficient resources for the specific slice",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "INSUFFICIENT_RESOURCES_SLICE_DNN",
+      "status": 500,
+      "description": "The request cannot be provided due to insufficient resources for the specific slice and DNN",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "INTEGRITY_CHECK_FAIL",
+      "status": 403,
+      "description": "Integrity check of the complete registration message included in the UE context transfer request failed",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "INTEGRITY_PROTECTED_MDR_NOT_ACCEPTABLE",
+      "status": 403,
+      "description": "The integrity protected maximum data rate value provided by the UE is not acceptable for the PDU session based on local policy at the SMF. This error is applicable when the UP Security Policy for the PDU Session is determined to have Integrity Protection set to \"Required\". An NF service consumer that receives this error cause may use it for maintaining KPIs",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "INTERNAL_GROUP_ID_NOT_UNIQUE",
+      "status": 403,
+      "description": "The internal group ID allocated by the UDM for a newly created 5G VN Group already exists in the UDR",
+      "ref": "3GPP TS 29.504, Nudr_DataRepository"
+    },
+    {
+      "cause": "INVALID_API",
+      "status": 400,
+      "description": "The HTTP request contains an unsupported API name or API version in the URI",
+      "ref": "3GPP TS 29.500, any NF, SCP or SEPP"
+    },
+    {
+      "cause": "INVALID_BDT_POLICY",
+      "status": 403,
+      "description": "The HTTP request is rejected because the PCF does not accept the NF service consumer request because the background data transfer policy is invalid",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl"
+    },
+    {
+      "cause": "INVALID_CLIENT",
+      "status": 400,
+      "description": "It is used when some or all attributes of the NF Service Consumer in query parameters do not match the requester information in, e.g. its public key certificate",
+      "ref": "3GPP TS 29.510, Nnrf_NFDiscovery"
+    },
+    {
+      "cause": "INVALID_CLIENT",
+      "status": 400,
+      "description": "It is used when some or all attributes of the NF Service Consumer presented in the request message do not match the requester information in, e.g. its public key certificate",
+      "ref": "3GPP TS 29.510, Nnrf_NFManagement"
+    },
+    {
+      "cause": "INVALID_DISCOVERY_PARAM",
+      "status": 400,
+      "description": "The request is rejected by the SCP because it contains an unsupported discovery parameter (i.e. unknown 3gpp-Sbi-Discovery-* header) (see clause 6.10.3.2)",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "INVALID_GUAMI",
+      "status": 403,
+      "description": "The AMF is not allowed to modify the registration information stored in the UDM, as it is not the registered AMF",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement"
+    },
+    {
+      "cause": "INVALID_HN_PUBLIC_KEY_IDENTIFIER",
+      "status": 403,
+      "description": "Invalid HN public key identifier received",
+      "ref": "3GPP TS 29.503, Nudm_UEAuthentication, Nudm_UEIdentifier"
+    },
+    {
+      "cause": "INVALID_HN_PUBLIC_KEY_IDENTIFIER",
+      "status": 403,
+      "description": "Invalid HN public key identifier received",
+      "ref": "3GPP TS 29.509, Nausf_UEAuthentication"
+    },
+    {
+      "cause": "INVALID_MSG_FORMAT",
+      "status": 400,
+      "description": "The HTTP request has an invalid format",
+      "ref": "3GPP TS 29.500, any NF, SCP or SEPP"
+    },
+    {
+      "cause": "INVALID_PRU",
+      "status": 403,
+      "description": "The request is rejected because the request is to initiate a positioning procedure towards a PRU and the target UE is not a valid PRU",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "INVALID_QUERY_PARAM",
+      "status": 400,
+      "description": "The HTTP request contains an unsupported query parameter in the URI",
+      "ref": "3GPP TS 29.500, any NF, SCP or SEPP"
+    },
+    {
+      "cause": "INVALID_SCHEME_OUTPUT",
+      "status": 403,
+      "description": "SUCI cannot be decrypted with received data",
+      "ref": "3GPP TS 29.503, Nudm_UEAuthentication, Nudm_UEIdentifier"
+    },
+    {
+      "cause": "INVALID_SCHEME_OUTPUT",
+      "status": 403,
+      "description": "SUCI cannot be decrypted with received data",
+      "ref": "3GPP TS 29.509, Nausf_UEAuthentication"
+    },
+    {
+      "cause": "INVALID_SERVICE_INFORMATION",
+      "status": 400,
+      "description": "The HTTP request is rejected because the service information is invalid or insufficient for the PCF to perform the requested action, e.g. invalid media type or invalid QoS reference",
+      "ref": "3GPP TS 29.514, Npcf_PolicyAuthorization"
+    },
+    {
+      "cause": "INVALID_SIGNALING_PATH",
+      "status": 403,
+      "description": "The PCF rejects the creation of the Individual Application Session Context resource because the NF that invoked the service request is invalid (i.e. the NEF sent the request while the PCF expected the TSCTSF to do so)",
+      "ref": "3GPP TS 29.514, Npcf_PolicyAuthorization"
+    },
+    {
+      "cause": "INVALID_SM_CONTEXT",
+      "status": 403,
+      "description": "The request is rejected because the SM Context is invalid for the PDU session, i.e. active SM Context for the PDU session (with same PDU Session ID) has been created on another SMF",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "KEY_IDENTIFICATION_FAIL",
+      "status": 400,
+      "description": "No key can be identified based on the input information",
+      "ref": "3GPP TS 29.510, Nnrf_AccessToken"
+    },
+    {
+      "cause": "LATE_OVERLAPPING_REQUEST",
+      "status": 403,
+      "description": "The request is rejected because it collides with an existing SM context or PDU session context with a more recent origination timestamp (see clause 5.2.3.3)",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "LATE_OVERLAPPING_REQUEST",
+      "status": 403,
+      "description": "The request is rejected because it collides with and exiting Policy Association with a more recent originating timestamp",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl"
+    },
+    {
+      "cause": "LOCATION_SESSION_UNKNOWN",
+      "status": 403,
+      "description": "The location session is unknown",
+      "ref": "3GPP TS 29.518, Namf_Location"
+    },
+    {
+      "cause": "MANDATORY_IE_INCORRECT",
+      "status": 400,
+      "description": "A mandatory IE (within a variable part of an \"apiSpecificResourceUriPart\" or within an HTTP header), or conditional IE but mandatory required, for an HTTP method was received with a semantically incorrect value",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "MANDATORY_IE_INCORRECT",
+      "status": 400,
+      "description": "A mandatory IE (within the JSON body or within a variable part of an \"apiSpecificResourceUriPart\" or within an HTTP header), or conditional IE but mandatory required, for an HTTP method was received with a semantically incorrect value",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "MANDATORY_IE_MISSING",
+      "status": 400,
+      "description": "A mandatory IE (within the variable part of an \"apiSpecificResourceUriPart\" or within an HTTP header), or conditional IE but mandatory required, for an HTTP method is not included in the request",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "MANDATORY_IE_MISSING",
+      "status": 400,
+      "description": "A mandatory IE (within the JSON body or within the variable part of an \"apiSpecificResourceUriPart\" or within an HTTP header), or conditional IE but mandatory required, for an HTTP method is not included in the request",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "MANDATORY_QUERY_PARAM_INCORRECT",
+      "status": 400,
+      "description": "A mandatory query parameter, or a conditional query parameter but mandatory required, for an HTTP method was received in the URI with semantically incorrect value",
+      "ref": "3GPP TS 29.500, any NF, SCP or SEPP"
+    },
+    {
+      "cause": "MANDATORY_QUERY_PARAM_MISSING",
+      "status": 400,
+      "description": "Query parameter which is defined as mandatory, or as conditional but mandatory required, for an HTTP method is not included in the URI of the request",
+      "ref": "3GPP TS 29.500, any NF, SCP or SEPP"
+    },
+    {
+      "cause": "MAX_ACTIVE_SESSIONS_EXCEEDED",
+      "status": 409,
+      "description": "If the RAT type is NB-IoT, and the UE already has 2 PDU Sessions with active user plane resources",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "MAX_JSON_SIZE_EXCEEDED",
+      "status": 413,
+      "description": "The request is rejected because the JSON payload size exceeds the allowed maximum size (see clause 6.2 of TS 29.501)",
+      "ref": "3GPP TS 29.500, any NF, SCP or SEPP"
+    },
+    {
+      "cause": "MAX_LCS_UPP_CONN_REACHED",
+      "status": 409,
+      "description": "The request from a new LMF to transfer \"UPPCM\" N1 message to the UE is rejected due to the maximum number of LCS-UPP connection of the UE has been reached",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "MAX_SCP_HOPS_REACHED",
+      "status": 502,
+      "description": "The request is rejected due to the maximum number of allowed SCP hops has been reached when relaying the request message to the target NF",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "MBS_SESSION_NOT_FOUND",
+      "status": 404,
+      "description": "Indicates the MBS related N2 Message transfer has failed due to the MBS Session ID being unknown to the AMF",
+      "ref": "3GPP TS 29.518, Namf_MBSCommunication"
+    },
+    {
+      "cause": "MISSING_ACCESS_TOKEN_INFO",
+      "status": 400,
+      "description": "The request is rejected due to missing information in the service request that prevents the SCP from requesting an access token to the Authorization Server. See clause 6.10.3.5",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "MISSING_PARAMETER",
+      "status": 403,
+      "description": "The request is rejected because one or more information elements of the requester required to authorize the requester are missing",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "MODIFICATION_NOT_ALLOWED",
+      "status": 403,
+      "description": "The request is rejected because the contained modification instructions attempt to modify IE which is not allowed to be modified",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "MODIFICATION_NOT_ALLOWED",
+      "status": 403,
+      "description": "The subscriber does not have the necessary subscription for external parameter provisioning",
+      "ref": "3GPP TS 29.503, Nudm_ParameterProvision"
+    },
+    {
+      "cause": "MODIFICATION_NOT_ALLOWED",
+      "status": 403,
+      "description": "Modification of the target resource representation is not permitted",
+      "ref": "3GPP TS 29.504, Nudr_DataRepository"
+    },
+    {
+      "cause": "MONITORING_NOT_ALLOWED",
+      "status": 403,
+      "description": "The subscriber does not have the necessary subscription for monitoring with the requested Event Type",
+      "ref": "3GPP TS 29.503, Nudm_EventExposure"
+    },
+    {
+      "cause": "MPX_MEDIA_NOT_SUPPORTED_IN_UE",
+      "status": 403,
+      "description": "The HTTP request is rejected because the request for differentiated QoS for multiplexed media flows is not supported in the UE",
+      "ref": "3GPP TS 29.514, Npcf_PolicyAuthorization"
+    },
+    {
+      "cause": "MSG_LOOP_DETECTED",
+      "status": 400,
+      "description": "The request is rejected because message loop is detected",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "MTC_PROVIDER_NOT_ALLOWED",
+      "status": 403,
+      "description": "MTC Provider not authorized to perform monitoring configuration",
+      "ref": "3GPP TS 29.503, Nudm_EventExposure"
+    },
+    {
+      "cause": "MTC_PROVIDER_NOT_ALLOWED",
+      "status": 403,
+      "description": "MTC Provider not authorized",
+      "ref": "3GPP TS 29.503, Nudm_NIDDAuthorization, Nudm_ServiceSpecificAuthorization"
+    },
+    {
+      "cause": "MTC_PROVIDER_NOT_ALLOWED",
+      "status": 403,
+      "description": "MTC Provider not authorized to perform external provisioning or 5G VN Group creation",
+      "ref": "3GPP TS 29.503, Nudm_ParameterProvision"
+    },
+    {
+      "cause": "MTC_PROVIDER_NOT_ALLOWED",
+      "status": 403,
+      "description": "MTC Provider not authorized to perform the operations",
+      "ref": "3GPP TS 29.503, Nudm_SubscriberDataManagement"
+    },
+    {
+      "cause": "MTC_PROVIDER_NOT_ALLOWED",
+      "status": 403,
+      "description": "NIDD authorization for the MTC Provider is rejected",
+      "ref": "3GPP TS 29.504, Nudr_DataRepository"
+    },
+    {
+      "cause": "MUTING_EXC_INSTR_NOT_ACCEPTED",
+      "status": 403,
+      "description": "Indicates the remote NF (e.g. AMF) does not accept the received muting exception instructions",
+      "ref": "3GPP TS 29.503, Nudm_EventExposure"
+    },
+    {
+      "cause": "MUTING_EXC_INSTR_NOT_ACCEPTED",
+      "status": 403,
+      "description": "Indicates the AMF does not accept the received muting exception instructions",
+      "ref": "3GPP TS 29.518, Namf_EventExposure"
+    },
+    {
+      "cause": "N1_SM_ERROR",
+      "status": 403,
+      "description": "This indicates that an error, other than those listed in this table, was detected when processing the N1 SM information received in the request, e.g. N1 SM protocol error, or a PDU session establishment is rejected due to Operator Determined Barring",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "N2_SM_ERROR",
+      "status": 403,
+      "description": "This indicates that an error, other than those listed in this table, was detected when processing the N2 SM information received in the request, e.g. N2 SM protocol error",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "N3G_DEV_ID_UNAVAILABLE",
+      "status": 403,
+      "description": "The HTTP request is rejected because one or more Non-3gpp device identifier(s) is not available to the PCF",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl"
+    },
+    {
+      "cause": "NETWORK_FAILURE",
+      "status": 504,
+      "description": "The request is rejected due to a network problem",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "NETWORK_FAILURE",
+      "status": 504,
+      "description": "The request is rejected due to a network problem",
+      "ref": "3GPP TS 29.509, Nausf_UEAuthentication"
+    },
+    {
+      "cause": "NF_CONGESTION",
+      "status": 503,
+      "description": "The SCP or SEPP experiences congestion and performs overload control, which does not allow the request to be processed",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "NF_CONGESTION",
+      "status": 503,
+      "description": "The NF instance experiences congestion and performs overload control, which does not allow the request to be processed",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "NF_CONGESTION_RISK",
+      "status": 429,
+      "description": "The request is rejected due to excessive traffic which, if continued over time, may lead to (or may increase) an overload situation",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "NF_CONGESTION_RISK",
+      "status": 429,
+      "description": "The request is rejected due to excessive traffic which, if continued over time, may lead to (or may increase) an overload situation of the NF instance",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "NF_CONSUMER_REDIRECT_ONE_TXN",
+      "status": 307,
+      "description": "The request has been asked to be redirected to a specified target",
+      "ref": "3GPP TS 29.518, Namf_Communication, Namf_MT"
+    },
+    {
+      "cause": "NF_DISCOVERY_ERROR",
+      "status": 502,
+      "description": "The request is rejected due to the receipt of an 5xx or 429 response from the NRF during an NF Discovery procedure the SCP initiated to fulfil the request",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "NF_DISCOVERY_FAILURE",
+      "status": 400,
+      "description": "The request is rejected by the SCP because no NF Service Producer can be found matching the NF service discovery factors (see clause 6.10.6)",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "NF_FAILOVER",
+      "status": 500,
+      "description": "The request is rejected by the SCP due to the unavailability of the NF, and the requester may trigger an immediate re-selection of an alternative NF based on this information",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "NF_FAILOVER",
+      "status": 500,
+      "description": "The request is rejected due to the unavailability of the NF, and the requester may trigger an immediate re-selection of an alternative NF based on this information",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "NF_SERVICE_CONGESTION",
+      "status": 503,
+      "description": "The NF service instance experiences congestion and performs overload control, which does not allow the request to be processed",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "NF_SERVICE_CONGESTION_RISK",
+      "status": 429,
+      "description": "The request is rejected due to excessive traffic which, if continued over time, may lead to (or may increase) an overload situation of the NF service instance",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "NF_SERVICE_FAILOVER",
+      "status": 500,
+      "description": "The request is rejected by the SCP due to the unavailability of the NF service, and the requester may trigger an immediate re-selection of an alternative NF service based on this information",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "NF_SERVICE_FAILOVER",
+      "status": 500,
+      "description": "The request is rejected due to the unavailability of the NF service, and the requester may trigger an immediate re-selection of an alternative NF service based on this information",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "NF_TYPE_NOT_ALLOWED",
+      "status": 403,
+      "description": "The target data set is not permitted to access for the NF type of the NF consumer",
+      "ref": "3GPP TS 29.504, Nudr_DataRepository"
+    },
+    {
+      "cause": "NOT_AUTHORIZED",
+      "status": 403,
+      "description": "The UE is not authorized to operate as an AIoT reader",
+      "ref": "3GPP TS 29.518, Namf_AIoT"
+    },
+    {
+      "cause": "NOT_AUTHORIZED",
+      "status": 403,
+      "description": "The request is rejected due to the NF service consumer is not authorized to update the NSSAI availability information, or subscribe for the NSSAI availability information notification",
+      "ref": "3GPP TS 29.531, Nnssf_NSSAIAvailability"
+    },
+    {
+      "cause": "NOT_AUTHORIZED",
+      "status": 403,
+      "description": "The request is rejected due to the NF service consumer is not authorized to retrieve the slice selection information",
+      "ref": "3GPP TS 29.531, Nnssf_NSSelection"
+    },
+    {
+      "cause": "NOT_SUPPORTED_WITH_ISMF",
+      "status": 403,
+      "description": "The request is rejected due to a requested functionality that is not supported for a PDU session with an I-SMF/V-SMF",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "NO_DATA_FORWARDING",
+      "status": 403,
+      "description": "The request to setup data forwarding tunnels is rejected because none of the EPS bearer contexts received in the request body contains an F-TEID for DL data forwarding",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "NO_EPS_5GS_CONTINUITY",
+      "status": 403,
+      "description": "It is used during an EPS to 5GS Idle mode mobility or handover, if the PDU session does not support seamless session continuity to 5GS",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "NO_PS_SUBSCRIPTION",
+      "status": 403,
+      "description": "No PS (5GS, EPS, GPRS) subscription is associated with the user",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement"
+    },
+    {
+      "cause": "NRF_NOT_REACHABLE",
+      "status": 504,
+      "description": "The request is not served due to the NRF being unreachable (see clause 6.10.8.2)",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "OPTIONAL_IE_INCORRECT",
+      "status": 400,
+      "description": "An optional IE (within an HTTP header) for an HTTP method was received with a semantically incorrect value that prevents successful processing of the service request",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "OPTIONAL_IE_INCORRECT",
+      "status": 400,
+      "description": "An optional IE (within the JSON body or within an HTTP header) for an HTTP method was received with a semantically incorrect value that prevents successful processing of the service request",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "OPTIONAL_QUERY_PARAM_INCORRECT",
+      "status": 400,
+      "description": "An optional query parameter for an HTTP method was received in the URI with a semantically incorrect value that prevents successful processing of the service request",
+      "ref": "3GPP TS 29.500, any NF, SCP or SEPP"
+    },
+    {
+      "cause": "ORIGINATING_NETWORK_ID_MISMATCH",
+      "status": 403,
+      "description": "The request is rejected because the PLMN ID or the SNPN ID received in the 3gpp-Sbi-Originating-Network-Id header does not match with any of the PLMN IDs that the sending SEPP represents",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "OUT_OF_LADN_SERVICE_AREA",
+      "status": 403,
+      "description": "The PDU session corresponds to a LADN and the UE is outside of the LADN Service Area",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "PCC_QOS_FLOW_EVENT",
+      "status": 400,
+      "description": "The HTTP request is rejected because for some reason all the PCC rules provisioned by the PCF in the request cannot be enforced or modified successfully in a network initiated procedure. It is used to inform the PCF that the request could not be satisfied at the time it was received, but may be able to satisfy the request in the future",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl (from the notification receiver)"
+    },
+    {
+      "cause": "PCC_RULE_EVENT",
+      "status": 400,
+      "description": "The HTTP request is rejected because all the PCC rules provisioned by the PCF in the request cannot be installed/activated. It is used to inform the PCF that the request failed, and should not be attempted again",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl (from the notification receiver)"
+    },
+    {
+      "cause": "PDUTYPE_DENIED",
+      "status": 403,
+      "description": "The subscriber does not have the necessary subscription for the requested PDU session type",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "PDUTYPE_NOT_SUPPORTED",
+      "status": 403,
+      "description": "The requested PDU session type is not supported by the SMF for the PDN corresponding to the DNN",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "PDU_SESSION_ANCHOR_CHANGE",
+      "status": 403,
+      "description": "The SMF decided to change the PDU Session Anchor for the PDU Session",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "PDU_SESSION_NOT_AVAILABLE",
+      "status": 500,
+      "description": "The PCF failed in executing session binding",
+      "ref": "3GPP TS 29.514, Npcf_PolicyAuthorization"
+    },
+    {
+      "cause": "PEER_NOT_RESPONDING",
+      "status": 504,
+      "description": "No response is received from a remote peer, or the remote peer is known to be not reachable, e.g. to indicate that no response has been received from the H-SMF for a HR PDU session or the SMF for a PDU session with I-SMF",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "PEER_NOT_RESPONDING",
+      "status": 504,
+      "description": "No response is received from a remote peer, e.g. from the LMF",
+      "ref": "3GPP TS 29.518, Namf_Location"
+    },
+    {
+      "cause": "PENDING_TRANSACTION",
+      "status": 400,
+      "description": "This error shall be used when the PendingTransaction feature is supported and the PCF receives an incoming request on a policy association while it has an ongoing transaction on the same policy association and cannot handle the request as described in clause 9.2 of 3GPP TS 29.513",
+      "ref": "3GPP TS 29.507, Npcf_AMPolicyControl"
+    },
+    {
+      "cause": "PENDING_TRANSACTION",
+      "status": 400,
+      "description": "This error shall be used when the PendingTransaction feature is supported and the NF service consumer receives an incoming request on a policy association while it has an ongoing transaction on the same policy association and cannot handle the request as described in clause 9.2 of 3GPP TS 29.513",
+      "ref": "3GPP TS 29.507, Npcf_AMPolicyControl (from the notification receiver)"
+    },
+    {
+      "cause": "PENDING_TRANSACTION",
+      "status": 400,
+      "description": "This error shall be used when the PendingTransaction feature is supported and the PCF receives an incoming request on a policy association while it has an ongoing transaction on the same policy association and cannot handle the request as described in clause 9.2 of 3GPP TS 29.513",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl"
+    },
+    {
+      "cause": "PENDING_TRANSACTION",
+      "status": 400,
+      "description": "This error shall be used when the PendingTransaction feature is supported and the NF service consumer receives an incoming request on a policy association while it has an ongoing transaction on the same policy association and cannot handle the request as described in clause 9.2 of 3GPP TS 29.513",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl (from the notification receiver)"
+    },
+    {
+      "cause": "PLMNID_MISMATCH",
+      "status": 403,
+      "description": "The request is rejected by the SEPP due to the PLMN ID in the bearer token carried in the \"Authorization\" header of the reconstructed message does not match the PLMN ID of the N32-f context",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "PLMN_NOT_FOUND",
+      "status": 404,
+      "description": "The 'servingPlmnId' indicated in the HTTP/2 query is unavailable in the UDR. This status code is also used when 'servingPlmnId' path variable contains SNPN ID, see Table 5.2.3.2-1 in TS 29.505",
+      "ref": "3GPP TS 29.504, Nudr_DataRepository"
+    },
+    {
+      "cause": "POLICY_ASSOCIATION_NOT_FOUND",
+      "status": 404,
+      "description": "The HTTP request is rejected because no policy association corresponding to the request exists in the PCF",
+      "ref": "3GPP TS 29.507, Npcf_AMPolicyControl"
+    },
+    {
+      "cause": "POLICY_ASSOCIATION_NOT_FOUND",
+      "status": 404,
+      "description": "The HTTP request is rejected because no policy association corresponding to the request exists in the PCF",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl"
+    },
+    {
+      "cause": "POLICY_CONTEXT_DENIED",
+      "status": 403,
+      "description": "The HTTP request is rejected because the PCF does not accept the NF service consumer request due to operator policies and/or local configuration",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl"
+    },
+    {
+      "cause": "POLICY_CONTEXT_NOT_FOUND",
+      "status": 404,
+      "description": "The HTTP request is rejected because no policy context corresponding to the request exists in the NF Consumer",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl (from the notification receiver)"
+    },
+    {
+      "cause": "POL_DEC_ERROR",
+      "status": 400,
+      "description": "This error shall be used when Ext2PolicyDecisionErrorHandling feature is supported, the PCF provides only SM policy decisions and/or condition data and all the policy decisions and/or conditions in the request cannot be stored in the NF service consumer",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl (from the notification receiver)"
+    },
+    {
+      "cause": "POSITIONING_DENIED",
+      "status": 403,
+      "description": "The positioning procedure was denied",
+      "ref": "3GPP TS 29.518, Namf_Location"
+    },
+    {
+      "cause": "POSITIONING_FAILED",
+      "status": 500,
+      "description": "The positioning procedure failed",
+      "ref": "3GPP TS 29.518, Namf_Location"
+    },
+    {
+      "cause": "PRIORITIZED_SERVICES_ONLY",
+      "status": 403,
+      "description": "The SMF was notified that the UE is reachable only for regulatory prioritized service and the PDU Session to be activated is not for a regulatory prioritized service",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "QOS_MON_UNAVAILABLE_FOR_ONGOING_SDF",
+      "status": 403,
+      "description": "The HTTP request is rejected because the QoS Monitoring is not available for one or more ongoing service data flow(s)",
+      "ref": "3GPP TS 29.514, Npcf_PolicyAuthorization"
+    },
+    {
+      "cause": "RAT_NOT_ALLOWED",
+      "status": 403,
+      "description": "RAT is not allowed for the user",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement"
+    },
+    {
+      "cause": "REAUTHENTICATION_NOT_ALLOWED",
+      "status": 403,
+      "description": "The serving AMF does not allow the UE to be re-authenticated, or the UDM does not allow to trigger a primary authentication procedure",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement"
+    },
+    {
+      "cause": "REAUTHENTICATION_REQUIRED",
+      "status": 403,
+      "description": "Reauthentication is required based on the operator's policy, e.g.if the last authentication is considered obsolete or there is no AUSF instance id stored in the UDM during EPS to 5GS mobility",
+      "ref": "3GPP TS 29.503, Nudm_SubscriberDataManagement"
+    },
+    {
+      "cause": "REAUTHENTICATION_REQUIRED",
+      "status": 403,
+      "description": "Due to operator policies the user needs to be re-authenticated, e.g. if the last authentication is considered obsolete, or there is no AUSF instance id stored in the UDM during EPS to 5GS mobility",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement"
+    },
+    {
+      "cause": "REFLECTIVE_QOS_NOT_SUPPORTED_IN_UE",
+      "status": 403,
+      "description": "The HTTP request is rejected because the request for expedited data transfer with reflective QoS is not supported in the UE",
+      "ref": "3GPP TS 29.514, Npcf_PolicyAuthorization"
+    },
+    {
+      "cause": "REJECTED_BY_UE",
+      "status": 403,
+      "description": "The request is rejected by the UE",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "REJECTED_DUE_VPLMN_POLICY",
+      "status": 403,
+      "description": "The request is rejected due to VPLMN operator policy",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "REJECTION_DUE_TO_PAGING_RESTRICTION",
+      "status": 409,
+      "description": "If Paging Restrictions information restricts the N1N2MessageTransfer request from causing paging as defined in TS 23.501 clause 5.38.5",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "REJECTION_DUE_TO_PAGING_RESTRICTION",
+      "status": 409,
+      "description": "If Paging Restriction Information restrict the EnableUEReachability request from causing paging as defined in TS 23.501 clause 5.38.5 or if the UE rejects the paging as defined in TS 23.501 clause 5.38.4",
+      "ref": "3GPP TS 29.518, Namf_MT"
+    },
+    {
+      "cause": "REQUESTED_LMF_NOT_AVAILABLE",
+      "status": 403,
+      "description": "The request is rejected due to the AMF not being able to access the requested LMF",
+      "ref": "3GPP TS 29.518, Namf_Location"
+    },
+    {
+      "cause": "REQUESTED_PURPOSE_NOT_ALLOWED",
+      "status": 403,
+      "description": "The request is rejected due to requested purpose provided in the HTTP request is not allowed by the policy. See clause 6.14",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "REQUESTED_SERVICE_NOT_AUTHORIZED",
+      "status": 403,
+      "description": "The service information provided in the request is rejected",
+      "ref": "3GPP TS 29.514, Npcf_PolicyAuthorization"
+    },
+    {
+      "cause": "REQUESTED_SERVICE_TEMPORARILY_NOT_AUTHORIZED",
+      "status": 403,
+      "description": "The service information provided in the request is temporarily rejected",
+      "ref": "3GPP TS 29.514, Npcf_PolicyAuthorization"
+    },
+    {
+      "cause": "REQUEST_QOS_NOT_SUPPORTED_IN_PLMN",
+      "status": 403,
+      "description": "The PCF rejects new or modified QoS because the requested QoS are not supported in the current serving PLMN where UE is registered",
+      "ref": "3GPP TS 29.514, Npcf_PolicyAuthorization"
+    },
+    {
+      "cause": "RESOURCE_CONTEXT_NOT_FOUND",
+      "status": 400,
+      "description": "The notification request is rejected because the callback URI still exists in the receiver of the notification, but the specific resource context identified within the notification content is not found in the NF service consumer",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "RESOURCE_CONTEXT_NOT_FOUND",
+      "status": 400,
+      "description": "Indicates that the NF Service Consumer (e.g. AMF) received a notification request from NSSF on an existing callback URI, but the corresponding context does not exist at the NF Service Consumer",
+      "ref": "3GPP TS 29.531, Nnssf_NSSAIAvailability"
+    },
+    {
+      "cause": "RESOURCE_MOVED",
+      "status": 308,
+      "description": "The resource is unavailable in the current target URI but can be permanently found in an alternative URI",
+      "ref": "3GPP TS 29.504, Nudr_DataRepository"
+    },
+    {
+      "cause": "RESOURCE_NOT_FOUND",
+      "status": 404,
+      "description": "The request is rejected due to the NF service consumer is authorized, but the resource related to the NF Id for which the NSSAI availability information is updated or deleted is unavailable",
+      "ref": "3GPP TS 29.531, Nnssf_NSSAIAvailability"
+    },
+    {
+      "cause": "RESOURCE_TEMP_MOVED",
+      "status": 307,
+      "description": "The resource is unavailable in the current target URI but can be temporarily found in an alternative URI",
+      "ref": "3GPP TS 29.504, Nudr_DataRepository"
+    },
+    {
+      "cause": "RESOURCE_URI_STRUCTURE_NOT_FOUND",
+      "status": 404,
+      "description": "The request is rejected because a path segmentof an \"apiSpecificResourceUriPart\" (as defined in clause 4.4.1 of TS 29.501) neither matches the format of an expected known variable part nor matches the name of an expected fixed part, and therefore is not found in the NF",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "RESOURCE_URI_STRUCTURE_NOT_FOUND",
+      "status": 404,
+      "description": "Indicates that the NF Service Consumer (e.g. AMF) received a notification request from NSSF on a callback URI that is not known to the NF Service Consumer",
+      "ref": "3GPP TS 29.531, Nnssf_NSSAIAvailability"
+    },
+    {
+      "cause": "ROAMING_NOT_ALLOWED",
+      "status": 403,
+      "description": "The subscriber is not allowed to roam within that PLMN",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement"
+    },
+    {
+      "cause": "RULE_PERMANENT_ERROR",
+      "status": 400,
+      "description": "The HTTP request is rejected because all the PCC rules and/or session rules provisioned by the PCF in the request cannot be installed/activated. It is used to inform the PCF that the request failed, and should not be attempted again. Applicable only to functionality introduced with the SessionRuleErrorHandling feature as described in clause 5.8",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl (from the notification receiver)"
+    },
+    {
+      "cause": "RULE_TEMPORARY_ERROR",
+      "status": 400,
+      "description": "The HTTP request is rejected because for some reason all the PCC rules and/or session rules provisioned by the PCF in the request cannot be enforced or modified successfully in a network initiated procedure. It is used to inform the PCF that the request could not be satisfied at the time it was received, but may be able to satisfy the request in the future. Applicable only to functionality introduced with the SessionRuleErrorHandling feature as described in clause 5.8",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl (from the notification receiver)"
+    },
+    {
+      "cause": "SERVICE_NOT_ALLOWED",
+      "status": 403,
+      "description": "The request is related to a service that is not allowed for the user in the 5GS subscription data (e.g. MT-SMS is barred)",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement"
+    },
+    {
+      "cause": "SERVICE_NOT_AUTHORIZED_BY_NEXT_HOP",
+      "status": 403,
+      "description": "The SMF is not authorized to access service provided by next hop NF producer, e.g. H-SMF or SMF or old I-SMF or old V-SMF",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "SERVICE_NOT_PROVISIONED",
+      "status": 403,
+      "description": "The request is related to a service that is not provisioned for the user in the 5GS subscription data (e.g. MT-SMS not provisioned)",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement"
+    },
+    {
+      "cause": "SERVICE_TYPE_NOT_ALLOWED",
+      "status": 403,
+      "description": "This serviceType is not authorized to this user",
+      "ref": "3GPP TS 29.503, Nudm_ServiceSpecificAuthorization"
+    },
+    {
+      "cause": "SERVING_NETWORK_NOT_AUTHORIZED",
+      "status": 403,
+      "description": "The serving network is not authorized, e.g. serving PLMN",
+      "ref": "3GPP TS 29.509, Nausf_UEAuthentication"
+    },
+    {
+      "cause": "SHARED_DATA_ID_UNKNOWN",
+      "status": 400,
+      "description": "It is used when the NFProfile contains Shared Data IDs for which Shared Data have not yet been registered. NFs receiving this application error may register the shared data to the NRF before retrying to register the NFProfile that contains the Shared Data ID",
+      "ref": "3GPP TS 29.510, Nnrf_NFManagement"
+    },
+    {
+      "cause": "SHARED_DATA_NOT_CONFIGURED",
+      "status": 400,
+      "description": "It is used when the NFProfile contains a Shared Data ID for which Shared Data have not been configured at the NRF. In this case the NFProfile registration fails due to network misconfiguration unless the NF is able to fall back to non-support of the Shared-Data-Registration feature",
+      "ref": "3GPP TS 29.510, Nnrf_NFManagement"
+    },
+    {
+      "cause": "SHARED_DATA_WRITE_NOT_ALLOWED",
+      "status": 403,
+      "description": "It is used when the requesting NF is not authorized with write access to a particular shared data, e.g. the shared data is only writeable within one specific NF Set",
+      "ref": "3GPP TS 29.510, Nnrf_NFManagement"
+    },
+    {
+      "cause": "SM_CONTEXT_RELOCATION_REQUIRED",
+      "status": 403,
+      "description": "The request is rejected because the SM Context should be relocated to another SMF, e.g. when AMF detects that an I-SMF or V-SMF insertion, change or removal is needed, as specified in clause 4.23 of TS 23.502",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "SNPN_NOT_ALLOWED",
+      "status": 403,
+      "description": "The user is not authorized to access an SNPN, when the registration to the SNPN is performed by using credentials from the Credentials Holder",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement"
+    },
+    {
+      "cause": "SNSSAI_DENIED",
+      "status": 403,
+      "description": "The subscriber does not have the necessary subscription to access the S-NSSAI",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "SNSSAI_NOT_ALLOWED",
+      "status": 403,
+      "description": "This SNSSAI is not authorized to this user",
+      "ref": "3GPP TS 29.503, Nudm_NIDDAuthorization, Nudm_ServiceSpecificAuthorization"
+    },
+    {
+      "cause": "SNSSAI_NOT_ALLOWED",
+      "status": 403,
+      "description": "NIDD authorization for the SNSSAI is rejected",
+      "ref": "3GPP TS 29.504, Nudr_DataRepository"
+    },
+    {
+      "cause": "SNSSAI_NOT_SUPPORTED",
+      "status": 403,
+      "description": "The request is rejected due to the SNSSAI provided in the request is not supported in the PLMN",
+      "ref": "3GPP TS 29.531, Nnssf_NSSAIAvailability"
+    },
+    {
+      "cause": "SNSSAI_NOT_SUPPORTED",
+      "status": 403,
+      "description": "This cause value shall be set when the requested slice selection information is for SNSSAI(s) not supported",
+      "ref": "3GPP TS 29.531, Nnssf_NSSelection"
+    },
+    {
+      "cause": "SOURCE_NF_CCA_VERIFICATION_FAILURE",
+      "status": 403,
+      "description": "The request is rejected due to a failure to verify the 3gpp-Sbi-Source-NF-Client-Credentials at the receiving entity (e.g. NRF or NF service producer)",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "SSC_DENIED",
+      "status": 403,
+      "description": "The subscriber does not have the necessary subscription for the requested SSC mode",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "SSC_NOT_SUPPORTED",
+      "status": 403,
+      "description": "The requested SSC mode is not supported by the SMF for the PDN corresponding to the DNN",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "SUBSCRIPTION_DENIED",
+      "status": 403,
+      "description": "This indicates an error, other than those listed in this table, due to lack of necessary subscription to serve the UE request",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "SUBSCRIPTION_NOT_ALLOWED",
+      "status": 403,
+      "description": "It is used when the validation of the authorization parameters in the subscription request has falied",
+      "ref": "3GPP TS 29.510, Nnrf_NFManagement"
+    },
+    {
+      "cause": "SUBSCRIPTION_NOT_FOUND",
+      "status": 404,
+      "description": "The request for modification or deletion of a subscription, or the notification request, is rejected because the subscription is not found in the NF",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "SUBSCRIPTION_NOT_FOUND",
+      "status": 404,
+      "description": "The subscription does not exist",
+      "ref": "3GPP TS 29.503, Nudm_SubscriberDataManagement"
+    },
+    {
+      "cause": "SUBSCRIPTION_NOT_FOUND",
+      "status": 404,
+      "description": "Indicates the modification of subscription has failed due to an application error when the subscription is not found in the AMF",
+      "ref": "3GPP TS 29.518, Namf_EventExposure"
+    },
+    {
+      "cause": "SUBSCRIPTION_NOT_FOUND",
+      "status": 404,
+      "description": "Indicates the modification of subscription has failed due to an application error when the subscription is not found in the NSSF",
+      "ref": "3GPP TS 29.531, Nnssf_NSSAIAvailability"
+    },
+    {
+      "cause": "SUPI_OR_PEI_UNKNOWN",
+      "status": 403,
+      "description": "The SUPI or PEI included in the message is unknown",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "SYSTEM_FAILURE",
+      "status": 500,
+      "description": "The request is rejected due to generic error condition in the SCP or SEPP",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "SYSTEM_FAILURE",
+      "status": 500,
+      "description": "The request is rejected due to generic error condition in the NF",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "S_NSSAI_CONGESTION",
+      "status": 503,
+      "description": "During PDU session establishment, the SMF has detected congestion for the requested S-NSSAI (including the congestion due to NSAC failure) and performs overload control for that S-NSSAI which does not allow the PDU session to be established. During handover between 3GPP access and non-3GPP access, the SMF has detected congestion for the requested S-NSSAI on the target access (e.g., due to NSAC) and performs overload control for that S-NSSAI on the target access which does not allow the PDU session to be handover to the target access",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "S_NSSAI_UNAVAILABLE_DUE_TO_NSAC",
+      "status": 403,
+      "description": "The NSACF has returned error for the requested S-NSSAI and hence the PDU Session cannot be transferred from non-3GPP to 3GPP",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "TARGET_MME_CAPABILITY",
+      "status": 403,
+      "description": "A request to retrieve an SM context is rejected due to the target MME not capable to support the PDU session",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "TARGET_NF_NOT_REACHABLE",
+      "status": 504,
+      "description": "The request is not served as the target NF is not reachable (see clause 6.10.8.2)",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "TARGET_NF_NOT_REACHABLE",
+      "status": 504,
+      "description": "The request is not served as the target NF is not reachable",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "TARGET_PLMN_NOT_REACHABLE",
+      "status": 504,
+      "description": "The request is not delivered due to issues on interconnect with another PLMN (e.g. issues on N32 connection including contractual reasons)",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "TEMPORARY_NETWORK_FAILURE",
+      "status": 403,
+      "description": "The PCF rejects new or modified service information because there is a temporary failure in the access network (e.g. the SGW has failed)",
+      "ref": "3GPP TS 29.514, Npcf_PolicyAuthorization"
+    },
+    {
+      "cause": "TEMPORARY_REJECT_HANDOVER_ONGOING",
+      "status": 409,
+      "description": "The request cannot be processed due to an ongoing N2 handover procedure",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement"
+    },
+    {
+      "cause": "TEMPORARY_REJECT_HANDOVER_ONGOING",
+      "status": 409,
+      "description": "N1/N2 message transfer towards UE / AN cannot be initiated due to an ongoing Xn, N2 or 5GS to EPS handover procedure, or the EBI assignment fails due to an ongoing Xn, N2, or 5GS to EPS handover procedure",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "TEMPORARY_REJECT_REGISTRATION_ONGOING",
+      "status": 409,
+      "description": "The request cannot be processed due to an ongoing registration procedure",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement"
+    },
+    {
+      "cause": "TEMPORARY_REJECT_REGISTRATION_ONGOING",
+      "status": 409,
+      "description": "N1/N2 message transfer towards UE / AN cannot be initiated or the EBI assignment fails due to an ongoing registration procedure",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "TEMPORARY_REJECT_REGISTRATION_ONGOING",
+      "status": 409,
+      "description": "The request fails due to an on-going registration procedure",
+      "ref": "3GPP TS 29.518, Namf_MT"
+    },
+    {
+      "cause": "TEMPORARY_REJECT_SR_ONGOING",
+      "status": 409,
+      "description": "A N1/N2 Message Transfer Request including a PDU Session Resource Setup Request Transfer IE towards UE / AN cannot be initiated due to an ongoing Service Request procedure for the same PDU session",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "TIMED_OUT_REQUEST",
+      "status": 504,
+      "description": "The request is rejected due a request that has timed out at the HTTP client (see clause 6.11.2)",
+      "ref": "3GPP TS 29.500, any NF, SCP or SEPP"
+    },
+    {
+      "cause": "TOKEN_CCA_MISMATCH",
+      "status": 403,
+      "description": "The request is rejected due to a mismatch between the subject claim in the access token and subject claim in the 3gpp-Sbi-Client-Credentials ",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "TOKEN_SOURCE_NF_CCA_MISMATCH",
+      "status": 403,
+      "description": "The request is rejected due to a mismatch between the sourceNfInstanceId claim in the access token and subject claim in the 3gpp-Sbi-Source-NF-Client-Credentials",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "UE_DEREGISTERED",
+      "status": 403,
+      "description": "The user is in RM-DEREGISTERED state in the AMF",
+      "ref": "3GPP TS 29.518, Namf_MT"
+    },
+    {
+      "cause": "UE_IN_CM_IDLE_STATE",
+      "status": 409,
+      "description": "The request is rejected due to the UE being in CM-IDLE state for the PDU session associated to non-3GPP access",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "UE_IN_CM_IDLE_STATE",
+      "status": 409,
+      "description": "N2 message transfer towards 5G-AN cannot be initiated due to the UE being in CM-IDLE state for the Access Network Type associated to the PDU session",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "UE_IN_NON_ALLOWED_AREA",
+      "status": 403,
+      "description": "UE is currently in a non-allowed area hence the N1/N2 message transfer cannot be completed because the request is not associated with a regulatory prioritized service",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "UE_IN_NON_ALLOWED_AREA",
+      "status": 403,
+      "description": "UE is currently in a non-allowed area and the service request is not for a regulatory prioritized service",
+      "ref": "3GPP TS 29.518, Namf_MT"
+    },
+    {
+      "cause": "UE_NOT_REACHABLE",
+      "status": 504,
+      "description": "The UE is not reachable for service",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "UE_NOT_REACHABLE",
+      "status": 504,
+      "description": "The UE is not reachable for paging",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "UE_NOT_REACHABLE",
+      "status": 504,
+      "description": "The UE is not reachable for paging, e.g., when UE is in MICO mode or the UE has entered the UE has entered Extended DRX in CM-IDLE or Extended DRX for RRC-INACTIVE state",
+      "ref": "3GPP TS 29.518, Namf_MT"
+    },
+    {
+      "cause": "UE_NOT_RESPONDING",
+      "status": 403,
+      "description": "The UE did not respond to the request initiated by the network, e.g. paging",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "UE_NOT_RESPONDING",
+      "status": 504,
+      "description": "The UE is not responding for paging",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "UE_NOT_RESPONDING",
+      "status": 504,
+      "description": "UE is not responding to the request initiated by the network, e.g. Paging",
+      "ref": "3GPP TS 29.518, Namf_MT"
+    },
+    {
+      "cause": "UE_NOT_SERVED_BY_AMF",
+      "status": 403,
+      "description": "Indicates the creation of a subscription targeting a specific UE has failed due to an application error when the UE is not served by the AMF (i.e. it is not known to the AMF)",
+      "ref": "3GPP TS 29.518, Namf_EventExposure"
+    },
+    {
+      "cause": "UE_STATUS_SUSPEND",
+      "status": 400,
+      "description": "The HTTP request is rejected because the UE's status is suspended and the policy decisions received from the PCF cannot be enforced by the NF service consumer. Applicable only to functionality introduced with the PolicyUpdateWhenUESuspends feature as described in clause 5.8",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl (from the notification receiver)"
+    },
+    {
+      "cause": "UE_WITHOUT_N1_LPP_SUPPORT",
+      "status": 403,
+      "description": "UE does not support LPP in N1 mode hence the N1 LPP message cannot be sent to the UE",
+      "ref": "3GPP TS 29.518, Namf_Communication"
+    },
+    {
+      "cause": "UNABLE_TO_PAGE_UE",
+      "status": 403,
+      "description": "The request is rejected due to a temporarily inability to page the UE",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "UNABLE_TO_PAGE_UE",
+      "status": 403,
+      "description": "AMF is unable page the UE, temporarily",
+      "ref": "3GPP TS 29.518, Namf_MT"
+    },
+    {
+      "cause": "UNAUTHORIZED_NON_EMERGENCY_SESSION",
+      "status": 403,
+      "description": "The PCF rejects a new AF session context setup because the session binding function associated a non-Emergency IMS session to a PDU session established to an Emergency DNN",
+      "ref": "3GPP TS 29.514, Npcf_PolicyAuthorization"
+    },
+    {
+      "cause": "UNAUTHORIZED_SPONSORED_DATA_CONNECTIVITY",
+      "status": 403,
+      "description": "The request for sponsored data connectivity is not authorized",
+      "ref": "3GPP TS 29.514, Npcf_PolicyAuthorization"
+    },
+    {
+      "cause": "UNKNOWN_5GS_SUBSCRIPTION",
+      "status": 403,
+      "description": "No 5GS subscription is associated with the user",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement"
+    },
+    {
+      "cause": "UNKNOWN_ISSUER",
+      "status": 404,
+      "description": "The indicated issuer is unknown",
+      "ref": "3GPP TS 29.510, Nnrf_AccessToken"
+    },
+    {
+      "cause": "UNPROCESSABLE_REQUEST",
+      "status": 422,
+      "description": "The request cannot be processed due to semantic errors when trying to process a patch method",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement"
+    },
+    {
+      "cause": "UNPROCESSABLE_REQUEST",
+      "status": 422,
+      "description": "The request cannot be processed due to semantic errors when trying to process a patch method",
+      "ref": "3GPP TS 29.504, Nudr_DataRepository"
+    },
+    {
+      "cause": "UNREACHABLE_USER",
+      "status": 504,
+      "description": "The user could not be reached in order to perform positioning procedure",
+      "ref": "3GPP TS 29.518, Namf_Location"
+    },
+    {
+      "cause": "UNSPECIFIED",
+      "status": 403,
+      "description": "The request is rejected due to unspecified reasons",
+      "ref": "3GPP TS 29.518, Namf_Communication, Namf_EventExposure, Namf_MT, Namf_Location"
+    },
+    {
+      "cause": "UNSPECIFIED_MSG_FAILURE",
+      "status": 400,
+      "description": "The request is rejected due to unspecified client error",
+      "ref": "3GPP TS 29.500, any NF, SCP or SEPP"
+    },
+    {
+      "cause": "UNSPECIFIED_NF_FAILURE",
+      "status": 500,
+      "description": "The request is rejected due to unspecified reason at the SCP or SEPP",
+      "ref": "3GPP TS 29.500, SCP or SEPP"
+    },
+    {
+      "cause": "UNSPECIFIED_NF_FAILURE",
+      "status": 500,
+      "description": "The request is rejected due to unspecified reason at the NF",
+      "ref": "3GPP TS 29.500, any NF"
+    },
+    {
+      "cause": "UNSUPPORTED_AUTHENTICATION_METHOD",
+      "status": 501,
+      "description": "The requested authenti-cation method is not supported",
+      "ref": "3GPP TS 29.503, Nudm_UEAuthentication"
+    },
+    {
+      "cause": "UNSUPPORTED_EVENT_TYPE",
+      "status": 501,
+      "description": "Indicates that the request for creation or modification of a subscription is rejected, because none of the requested events are supported by the AMF",
+      "ref": "3GPP TS 29.518, Namf_EventExposure"
+    },
+    {
+      "cause": "UNSUPPORTED_EVENT_TYPE",
+      "status": 501,
+      "description": "The request for creation of a subscription is rejected because none of the events is supported by the NSSF",
+      "ref": "3GPP TS 29.531, Nnssf_NSSAIAvailability"
+    },
+    {
+      "cause": "UNSUPPORTED_MONITORED_URI",
+      "status": 501,
+      "description": "The subscribe service operation is not able to be implemented due to invalid resource URI to be monitored)",
+      "ref": "3GPP TS 29.504, Nudr_DataRepository"
+    },
+    {
+      "cause": "UNSUPPORTED_MONITORING_EVENT_TYPE",
+      "status": 501,
+      "description": "The monitoring configuration contains unsupported event type",
+      "ref": "3GPP TS 29.503, Nudm_EventExposure"
+    },
+    {
+      "cause": "UNSUPPORTED_MONITORING_REPORT_OPTIONS",
+      "status": 501,
+      "description": "The monitoring configuration contains unsupported report options",
+      "ref": "3GPP TS 29.503, Nudm_EventExposure"
+    },
+    {
+      "cause": "UNSUPPORTED_PROTECTION_SCHEME",
+      "status": 501,
+      "description": "The received protection scheme is not supported by HPLMN",
+      "ref": "3GPP TS 29.503, Nudm_UEAuthentication, Nudm_UEIdentifier"
+    },
+    {
+      "cause": "UNSUPPORTED_PROTECTION_SCHEME",
+      "status": 501,
+      "description": "The received protection scheme is not supported by HPLMN",
+      "ref": "3GPP TS 29.509, Nausf_UEAuthentication"
+    },
+    {
+      "cause": "UNSUPPORTED_RESOURCE_URI",
+      "status": 501,
+      "description": "The SDM Subscription contains unsupported resource URI to be monitored",
+      "ref": "3GPP TS 29.503, Nudm_SubscriberDataManagement"
+    },
+    {
+      "cause": "UPF_NOT_RESPONDING",
+      "status": 504,
+      "description": "The request is rejected due to no response received from the UPF",
+      "ref": "3GPP TS 29.502, Nsmf_PDUSession"
+    },
+    {
+      "cause": "UPSTREAM_SERVER_ERROR",
+      "status": 504,
+      "description": "No response is received from a remote peer, e.g. from the UDM",
+      "ref": "3GPP TS 29.509, Nausf_UEAuthentication"
+    },
+    {
+      "cause": "USER_NOT_FOUND",
+      "status": 404,
+      "description": "The user does not exist",
+      "ref": "3GPP TS 29.503, Nudm_EventExposure, Nudm_ParameterProvision, Nudm_MT"
+    },
+    {
+      "cause": "USER_NOT_FOUND",
+      "status": 404,
+      "description": "The provided subscriber identifier is not found",
+      "ref": "3GPP TS 29.503, Nudm_ReportSMDeliveryStatus"
+    },
+    {
+      "cause": "USER_NOT_FOUND",
+      "status": 404,
+      "description": "The user does not exist. This error is applicable to all Nudm_SDM GET operations",
+      "ref": "3GPP TS 29.503, Nudm_SubscriberDataManagement"
+    },
+    {
+      "cause": "USER_NOT_FOUND",
+      "status": 404,
+      "description": "The user does not exist in the HPLMN",
+      "ref": "3GPP TS 29.503, Nudm_UEContextManagement, Nudm_UEAuthentication, Nudm_NIDDAuthorization, Nudm_ServiceSpecificAuthorization, Nudm_UEIdentifier"
+    },
+    {
+      "cause": "USER_NOT_FOUND",
+      "status": 404,
+      "description": "The user indicated in the HTTP/2 request does not exist in the UDR",
+      "ref": "3GPP TS 29.504, Nudr_DataRepository"
+    },
+    {
+      "cause": "USER_NOT_FOUND",
+      "status": 404,
+      "description": "The user does not exist in the HPLMN",
+      "ref": "3GPP TS 29.504, Nudr_GroupIDmap"
+    },
+    {
+      "cause": "USER_NOT_FOUND",
+      "status": 404,
+      "description": "The user does not exist in the HPLMN",
+      "ref": "3GPP TS 29.509, Nausf_UEAuthentication"
+    },
+    {
+      "cause": "USER_UNKNOWN",
+      "status": 400,
+      "description": "The HTTP request is rejected because the end user specified in the request is unknown to the PCF",
+      "ref": "3GPP TS 29.507, Npcf_AMPolicyControl"
+    },
+    {
+      "cause": "USER_UNKNOWN",
+      "status": 400,
+      "description": "The HTTP request is rejected because the end user specified in the request is unknown to the PCF",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl"
+    },
+    {
+      "cause": "USER_UNKNOWN",
+      "status": 403,
+      "description": "The user is unknown",
+      "ref": "3GPP TS 29.518, Namf_Location"
+    },
+    {
+      "cause": "VALIDATION_CONDITION_NOT_MET",
+      "status": 403,
+      "description": "The HTTP request is rejected because the PCF does not accept the NF service consumer request because the validation condition of background data transfer policy is not met",
+      "ref": "3GPP TS 29.512, Npcf_SMPolicyControl"
+    }
+  ]
+}

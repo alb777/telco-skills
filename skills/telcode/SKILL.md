@@ -1,9 +1,9 @@
 ---
 name: telcode
-description: Offline lookup of mobile core signalling codes with spec references. Covers Diameter Result-Code and 3GPP Experimental-Result-Code (S6a/S6d, Cx, Sh, Gx, Rx, SWx, S13 and more), 5G and 4G NAS causes (5GMM, 5GSM, EMM, ESM), GTPv2-C and PFCP causes, GSM MAP error codes, SCCP return causes, ITU-T Q.850 cause values and SIP response codes, plus the official S6a to NAS reject mapping. Also splits IMSIs into MCC/MNC/MSIN and decodes TBCD octets from traces. Use when the user pastes a Diameter, NAS (attach, registration, PDN or PDU session reject), GTP, PFCP, SS7/SIGTRAN (MAP, TCAP, SCCP), ISUP or SIP error code, cause value, log line or pcap excerpt and asks what it means or what to check, including IoT devices (LTE-M, NB-IoT) that fail to attach or register, or needs an IMSI or TBCD-encoded number decoded.
+description: Offline lookup of mobile core signalling codes with spec references. Covers Diameter Result-Code and 3GPP Experimental-Result-Code (S6a/S6d, Cx, Sh, Gx, Rx, SWx, S13 and more), 5G and 4G NAS causes (5GMM, 5GSM, EMM, ESM), 5G SBA ProblemDetails causes (AMF, SMF, UDM, UDR, AUSF, PCF, NRF, NSSF, SCP, SEPP), GTPv2-C and PFCP causes, GSM MAP error codes, SCCP return causes, ITU-T Q.850 cause values and SIP response codes, plus the official S6a to NAS reject mapping. Also splits IMSIs into MCC/MNC/MSIN and decodes TBCD octets from traces. Use when the user pastes a Diameter, NAS (attach, registration, PDN or PDU session reject), 5G SBI (HTTP/2 ProblemDetails), GTP, PFCP, SS7/SIGTRAN (MAP, TCAP, SCCP), ISUP or SIP error code, cause value, log line or pcap excerpt and asks what it means or what to check, including IoT devices (LTE-M, NB-IoT) that fail to attach or register, or needs an IMSI or TBCD-encoded number decoded.
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
 ---
 
 # telcode
@@ -17,6 +17,7 @@ Call the script by its path inside this skill's directory, without `cd`, so a `p
 ```bash
 python3 scripts/telcode.py 5001 --json                 # every table that defines 5001
 python3 scripts/telcode.py 27 --table map --json        # one table, by prefix (see below)
+python3 scripts/telcode.py USER_NOT_FOUND --json        # 5G SBA cause, by name, any case
 python3 scripts/telcode.py search absent subscriber --json
 python3 scripts/telcode.py search 29.272 --json         # all codes specified in a TS
 python3 scripts/telcode.py imsi 262011234567890 --json  # add --mnc-len 2|3 when known
@@ -40,6 +41,7 @@ The same number means different things in different tables. Work out where the n
 | 4G NAS PDN connectivity or bearer reject (ESM cause IE) | `esm-cause` |
 | GTPv2-C Cause IE on S11, S4, S5/S8 or S10 | `gtpv2c-cause` |
 | PFCP Cause IE on N4 or Sxa/Sxb/Sxc | `pfcp-cause` |
+| `cause` in the ProblemDetails body of a 5G SBI (HTTP/2) error response | `sba-cause` |
 | TCAP ReturnError `errorCode` localValue in a MAP dialogue | `map-error` |
 | SCCP UDTS, XUDTS or LUDTS return cause | `sccp-return-cause` |
 | ISUP REL cause, DSS1 cause, SIP `Reason: Q.850;cause=N` | `q850-cause` |
@@ -56,7 +58,8 @@ If the context does not say, run without `--table`, show every match and say whi
 5. Failures in the CER/CEA exchange (3010, 4003, 5010, 5017) are peer configuration problems: compare Origin-Host, Origin-Realm, application ids and security settings on both peers. The transport connection closes right after the CEA.
 6. For an IMSI, never assume the MNC length: the IMSI does not encode it. Show both splits, or ask, unless the user gave it.
 7. TBCD (TS 29.002) is how MAP, GTP and the Diameter MSISDN AVP carry IMSI, MSISDN and similar numbers: two digits per octet, low nibble first, `f` as filler. Decode with `tbcd` instead of by hand. SCCP global title digits use the same nibble order, but an odd/even indicator replaces the `f`: when it says odd, drop the trailing `0`.
+8. A 5G SBA cause means what the NF and service API that sent it say, so match the entry's `ref` to the API in the request path (`/nudm-sdm/`, `/namf-comm/`) and check that the HTTP status agrees. TS 29.500 entries marked `SCP or SEPP` come from the proxy in the path, not from the target NF. For 400 errors such as MANDATORY_IE_INCORRECT, `invalidParams` in the ProblemDetails names the offending IE. An `error` field such as `invalid_client` in an Nnrf_AccessToken answer is an OAuth 2.0 error (RFC 6749), not a ProblemDetails cause.
 
 ## Not covered
 
-5G SBA ProblemDetails causes (for example USER_NOT_FOUND), NGAP and S1AP causes, GTPv1 causes, AVP codes, Diameter command codes and application ids, MAP operation codes, TCAP Reject problem codes, vendor specific Experimental-Result codes, and MCC/MNC to country or operator names. Say that the tool does not cover them instead of answering from memory as if it did.
+5G SBA causes of NFs not listed by `tables` (for example NEF, CHF, SMSF), the OAuth 2.0 errors of Nnrf_AccessToken, NGAP and S1AP causes, GTPv1 causes, AVP codes, Diameter command codes and application ids, MAP operation codes, TCAP Reject problem codes, vendor specific Experimental-Result codes, and MCC/MNC to country or operator names. Say that the tool does not cover them instead of answering from memory as if it did.

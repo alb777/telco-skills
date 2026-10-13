@@ -2,9 +2,10 @@
 """telcode: offline lookup for mobile core signalling codes.
 
 Looks up Diameter Result-Code and 3GPP Experimental-Result-Code values, 5G and
-4G NAS causes (5GMM, 5GSM, EMM, ESM), GTPv2-C and PFCP causes, GSM MAP errors,
-SCCP return causes, Q.850 cause values and SIP response codes. Also splits IMSIs
-and decodes TBCD. Standard library only, Python 3.10+.
+4G NAS causes (5GMM, 5GSM, EMM, ESM), 5G SBA ProblemDetails causes, GTPv2-C and
+PFCP causes, GSM MAP errors, SCCP return causes, Q.850 cause values and SIP
+response codes. Also splits IMSIs and decodes TBCD. Standard library only,
+Python 3.10+.
 """
 
 from __future__ import annotations
@@ -29,6 +30,7 @@ TABLE_ORDER = (
     "esm-cause",
     "gtpv2c-cause",
     "pfcp-cause",
+    "sba-cause",
     "map-error",
     "sccp-return-cause",
     "q850-cause",
@@ -44,6 +46,7 @@ EXAMPLES = """\
 examples:
   telcode 5001                    every table that defines 5001
   telcode 27 --table map          only the GSM MAP errors
+  telcode USER_NOT_FOUND          a 5G SBA cause from an SBI error response
   telcode search absent           codes whose name contains "absent"
   telcode search 29.272           codes specified in TS 29.272 (S6a/S6d)
   telcode imsi 262011234567890    MCC, MNC and MSIN
@@ -72,6 +75,16 @@ class Range:
 
 
 @dataclass(frozen=True)
+class Cause:
+    """A 5G SBA cause name is only unique within one service API, so a table holds one entry per wording."""
+
+    cause: str
+    status: int
+    description: str
+    ref: str
+
+
+@dataclass(frozen=True)
 class Table:
     family: str
     title: str
@@ -80,6 +93,7 @@ class Table:
     codes: dict[int, Code]
     ranges: tuple[Range, ...]
     notes: dict[int, str]
+    causes: tuple[Cause, ...]
 
     def class_of(self, code: int) -> str | None:
         return next((r.name for r in self.ranges if r.is_class and r.low <= code <= r.high), None)
@@ -111,6 +125,23 @@ class Match:
         }
 
 
+@dataclass(frozen=True)
+class CauseMatch:
+    table: Table
+    entry: Cause
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "table": self.table.family,
+            "title": self.table.title,
+            "code": self.entry.cause,
+            "status": self.entry.status,
+            "description": self.entry.description,
+            "ref": self.entry.ref,
+            "source": self.table.source,
+        }
+
+
 def load_tables(assets: Path = ASSETS) -> list[Table]:
     notes = json.loads((assets / "notes.json").read_text(encoding="utf-8"))
     tables = []
@@ -126,6 +157,7 @@ def load_tables(assets: Path = ASSETS) -> list[Table]:
                 codes={c["code"]: Code(c["code"], c["name"], c["ref"]) for c in raw["codes"]},
                 ranges=tuple(Range(r["from"], r["to"], r["name"], r.get("class", False)) for r in raw["ranges"]),
                 notes={int(k): v for k, v in notes.get(family, {}).items()},
+                causes=tuple(Cause(c["cause"], c["status"], c["description"], c["ref"]) for c in raw.get("causes", [])),
             )
         )
     order = {name: i for i, name in enumerate(TABLE_ORDER)}
@@ -157,20 +189,33 @@ def lookup(tables: list[Table], code: int) -> list[Match]:
     return [Match(t, code, None) for t in tables if t.covers(code)]
 
 
+def cause_key(text: str) -> str:
+    """'user_not_found' and the TS 29.504 spelling 'DATABASE INCONSISTENCY' compare like the values on the wire."""
+    return re.sub(r"[\s_-]+", "_", text.strip()).upper()
+
+
+def lookup_cause(tables: list[Table], text: str) -> list[CauseMatch]:
+    key = cause_key(text)
+    return [CauseMatch(t, c) for t in tables for c in t.causes if cause_key(c.cause) == key]
+
+
 def normalize(text: str) -> str:
     """'absentSubscriberSM' and 'DIAMETER_ERROR_ABSENT_USER' become space separated lower case words."""
     text = re.sub(r"(?<=[a-z])(?=[A-Z])", " ", text)
     return re.sub(r"[\s_-]+", " ", text).lower()
 
 
-def search(tables: list[Table], words: list[str]) -> list[Match]:
+def search(tables: list[Table], words: list[str]) -> list[Match | CauseMatch]:
     terms = normalize(" ".join(words)).split()
-    return [
-        Match(t, entry.code, entry)
-        for t in tables
-        for entry in sorted(t.codes.values(), key=lambda e: e.code)
-        if all(term in normalize(f"{entry.name} {entry.ref}") for term in terms)
-    ]
+    found: list[Match | CauseMatch] = []
+    for t in tables:
+        found += [
+            Match(t, entry.code, entry)
+            for entry in sorted(t.codes.values(), key=lambda e: e.code)
+            if all(term in normalize(f"{entry.name} {entry.ref}") for term in terms)
+        ]
+        found += [CauseMatch(t, c) for c in t.causes if all(term in normalize(f"{c.cause} {c.ref}") for term in terms)]
+    return found
 
 
 def split_imsi(imsi: str, mnc_len: int | None) -> list[dict[str, str]]:
@@ -226,6 +271,8 @@ def render_match(m: Match, show_note: bool = True) -> list[str]:
 
 
 def cmd_code(args: argparse.Namespace, tables: list[Table]) -> int:
+    if args.code[:1].isalpha():
+        return cmd_cause(args, tables)
     code = parse_code(args.code)
     matches = lookup(select_tables(tables, args.table), code)
     ambiguous = len(matches) > 1
@@ -251,6 +298,35 @@ def cmd_code(args: argparse.Namespace, tables: list[Table]) -> int:
     return 0
 
 
+def cmd_cause(args: argparse.Namespace, tables: list[Table]) -> int:
+    cause = cause_key(args.code)
+    matches = lookup_cause(select_tables(tables, args.table), cause)
+    ambiguous = len(matches) > 1
+    if args.json:
+        print(json.dumps({"code": cause, "ambiguous": ambiguous, "matches": [m.to_dict() for m in matches]}, indent=2))
+        return 0 if matches else 1
+    if not matches:
+        print(f"{args.code}: not a number, and no 5G SBA cause has that name", file=sys.stderr)
+        return 1
+    print(cause)
+    title = None
+    for m in matches:
+        if m.table.title != title:
+            title = m.table.title
+            print(f"  {title}")
+        print(wrap(f"HTTP {m.entry.status} | ref: ", m.entry.ref))
+        print(wrap("", m.entry.description, indent=6))
+    if ambiguous:
+        print(
+            wrap(
+                "",
+                f"More than one entry defines {cause}: the NF or service API that answered decides which one applies.",
+                indent=0,
+            )
+        )
+    return 0
+
+
 def cmd_search(args: argparse.Namespace, tables: list[Table]) -> int:
     matches = search(select_tables(tables, args.table), args.words)
     if args.json:
@@ -264,6 +340,9 @@ def cmd_search(args: argparse.Namespace, tables: list[Table]) -> int:
         if m.table.title != title:
             title = m.table.title
             print(title)
+        if isinstance(m, CauseMatch):
+            print(f"  {m.entry.status:>5}  {m.entry.cause}  ({m.entry.ref})")
+            continue
         ref = f"  ({m.entry.ref})" if m.entry and m.entry.ref else ""
         print(f"  {m.code:>5}  {m.entry.name if m.entry else ''}{ref}")
     return 0
@@ -293,14 +372,21 @@ def cmd_tbcd(args: argparse.Namespace, _tables: list[Table]) -> int:
 
 
 def cmd_tables(args: argparse.Namespace, tables: list[Table]) -> int:
-    rows = [
-        {"table": t.family, "title": t.title, "codes": len(t.codes), "source": t.source, "url": t.url} for t in tables
+    rows: list[dict[str, Any]] = [
+        {
+            "table": t.family,
+            "title": t.title,
+            "codes": len(t.codes) + len({c.cause for c in t.causes}),
+            "source": t.source,
+            "url": t.url,
+        }
+        for t in tables
     ]
     if args.json:
         print(json.dumps(rows, indent=2))
         return 0
     for r in rows:
-        print(f"{r['table']}  ({r['codes']} codes)\n  {r['title']}\n  {r['source']}\n  {r['url']}")
+        print(f"{r['table']}  ({r['codes']} codes)\n  {r['title']}\n{wrap('', r['source'], indent=2)}\n  {r['url']}")
     return 0
 
 
@@ -315,13 +401,16 @@ def build_parser() -> argparse.ArgumentParser:
     )
     sub = parser.add_subparsers(dest="command", required=True)
     p = sub.add_parser(
-        "code", parents=[common], help="look up a code (the default when the first argument is a number)"
+        "code",
+        parents=[common],
+        help="look up a code or 5G SBA cause (the default when the first argument is not a command)",
     )
-    p.add_argument("code", help="decimal, or hex with a 0x prefix")
+    p.add_argument("code", help="decimal, hex with a 0x prefix, or a 5G SBA cause name such as USER_NOT_FOUND")
     p.add_argument(
         "-t",
         "--table",
-        help="only tables whose name starts with this: diameter, 5gmm, 5gsm, emm, esm, gtp, pfcp, map, sccp, q850, sip",
+        help="only tables whose name starts with this: diameter, 5gmm, 5gsm, emm, esm, gtp, pfcp, sba, map, sccp, "
+        "q850, sip",
     )
     p.set_defaults(handler=cmd_code)
     p = sub.add_parser("search", parents=[common], help="find codes by name or specification")

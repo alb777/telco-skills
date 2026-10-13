@@ -49,7 +49,8 @@ def write_family(name: str, family: dict[str, Any]) -> None:
     family["ranges"].sort(key=lambda r: (r["from"], r["to"]))
     path = CODES / f"{name}.json"
     path.write_text(json.dumps(family, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"{path.name}: {len(family['codes'])} codes, {len(family['ranges'])} ranges")
+    sizes = ", ".join(f"{len(family[key])} {key}" for key in ("codes", "ranges", "causes") if family.get(key))
+    print(f"{path.name}: {sizes}")
 
 
 # IANA
@@ -183,21 +184,23 @@ def cells(row: ET.Element) -> list[str]:
     return [text_of(cell) for cell in row.findall(f"{W_NS}tc")]
 
 
-def table_rows(bodies: list[ET.Element], caption: str) -> list[list[str]]:
-    """Rows of the first table whose caption starts with `caption`, one string per cell.
+def rows_of(table: ET.Element, sep: str = " ") -> list[list[str]]:
+    """One string per cell. Paragraphs in a cell are joined with a space, so wrapped names keep their word breaks."""
+    return [
+        [sep.join(filter(None, (text_of(p) for p in cell.iter(f"{W_NS}p")))) for cell in row]
+        for row in (r.findall(f"{W_NS}tc") for r in table.findall(f"{W_NS}tr"))
+    ]
 
-    Paragraphs inside a cell are joined with a space, so wrapped names keep their word breaks.
-    """
+
+def table_rows(bodies: list[ET.Element], caption: str) -> list[list[str]]:
+    """Rows of the first table whose caption starts with `caption`."""
     for body in bodies:
         last = ""
         for element in body:
             if element.tag == f"{W_NS}p":
                 last = text_of(element) or last
             elif element.tag == f"{W_NS}tbl" and last.startswith(caption):
-                return [
-                    [" ".join(filter(None, (text_of(p) for p in cell.iter(f"{W_NS}p")))) for cell in row]
-                    for row in (r.findall(f"{W_NS}tc") for r in element.findall(f"{W_NS}tr"))
-                ]
+                return rows_of(element)
     raise SystemExit(f"table {caption!r} not found, the document layout changed")
 
 
@@ -364,6 +367,104 @@ def response_cause(family: str, title: str, spec: str, table: str) -> None:
     )
 
 
+SBA_SPECS = (
+    "29.500",
+    "29.502",
+    "29.503",
+    "29.504",
+    "29.507",
+    "29.509",
+    "29.510",
+    "29.512",
+    "29.514",
+    "29.518",
+    "29.531",
+)
+# TS 29.500 has no service API of its own: its two tables hold the causes any NF, or an SCP or SEPP, may send.
+SBA_COMMON_TABLES = {"5.2.7.2-1": "any NF", "5.2.7.4-1": "SCP or SEPP"}
+
+
+def sba_cause() -> None:
+    """ProblemDetails causes from the application error tables of the SBI specs.
+
+    A cause name is only unique within one service API, so an entry is a cause, HTTP status and description as one
+    spec writes them, with the APIs that share that wording.
+    """
+    entries: dict[tuple[str, int, str, str], Entry] = {}
+    versions = []
+    for spec in SBA_SPECS:
+        bodies, version = latest_3gpp_docs(spec)
+        versions.append(f"{spec} V{version}")
+        apis: dict[str, str] = {}
+        caption = ""
+        for element in (e for body in bodies for e in body):
+            if element.tag == f"{W_NS}p":
+                text = text_of(element)
+                # Headings lose their tab ("6.1Nudm_SubscriberDataManagement Service API"); TOC lines end in a page.
+                heading = re.fullmatch(r"(\d+(?:\.\d+)?)\s*(N[a-z]+_\w+) (?:Service )?API", text)
+                if heading:
+                    apis[heading[1]] = heading[2]
+                caption = text or caption
+                continue
+            table = re.match(r"Table (([\d.]+)-\d+): (?:Protocol and a|A)pplication errors", caption, re.I)
+            if element.tag != f"{W_NS}tbl" or not table:
+                continue
+            section = table[2].split(".")
+            label = apis.get(".".join(section[:2])) or apis.get(section[0]) or SBA_COMMON_TABLES.get(table[1])
+            if not label:
+                raise SystemExit(f"TS {spec} table {table[1]}: no service API heading above it")
+            if "notification" in caption:
+                label += " (from the notification receiver)"
+            rows = rows_of(element, sep="\n")
+            if rows[0][0].lower() not in ("application error", "protocol or application error"):
+                raise SystemExit(f"TS {spec} table {table[1]}: unexpected header {rows[0]!r}")
+            for row in rows[1:]:
+                if len(row) < 3 or not row[0]:
+                    continue  # the notes row under the table, or an empty row
+                cause, status_cell, description = row[:3]
+                if cause.islower():
+                    continue  # the OAuth 2.0 errors (RFC 6749) Nnrf_AccessToken lists are not ProblemDetails causes
+                status = re.match(r"(\d{3}) [A-Za-z ]+$", status_cell)
+                # The spec spelling is kept, typos included: TS 29.504 writes "DATABASE INCONSISTENCY".
+                if not status or not re.fullmatch(r"[A-Z][A-Z0-9_ ]*", cause):
+                    raise SystemExit(f"TS {spec} table {table[1]}: unexpected row {row[:2]!r}")
+                # A paragraph without a full stop followed by a new sentence: "The user does not exist" "This error...".
+                description = re.sub(r"(?<=\w)\n(?=[A-Z])", ". ", description).replace("\n", " ")
+                description = re.sub(r"\s*\(NOTE(?: \d+)?\)|\s*\[\d+\]", "", description)
+                description = re.sub(r"\s+", " ", description).strip().rstrip(".")
+                # Specs now and then differ in case only ("The User does not exist"): that does not split an entry.
+                entry = entries.setdefault(
+                    (cause, int(status[1]), description.lower(), spec),
+                    {"cause": cause, "status": int(status[1]), "description": description, "spec": spec, "apis": []},
+                )
+                if label not in entry["apis"]:
+                    entry["apis"].append(label)
+    causes = [
+        {
+            "cause": e["cause"],
+            "status": e["status"],
+            "description": e["description"],
+            "ref": f"3GPP TS {e['spec']}, " + ", ".join(e["apis"]),
+        }
+        for e in entries.values()
+    ]
+    causes.sort(key=lambda c: (c["cause"], c["ref"]))
+    if len({c["cause"] for c in causes}) < 150:
+        raise SystemExit(f"SBI specs: expected 150+ distinct causes, parsed {len(causes)} entries")
+    write_family(
+        "sba-cause",
+        {
+            "family": "sba-cause",
+            "title": "5G SBA ProblemDetails cause (AMF, SMF, UDM, UDR, AUSF, PCF, NRF, NSSF, SCP, SEPP)",
+            "source": f"3GPP TS {', '.join(versions)}, application error tables",
+            "url": "https://www.3gpp.org/dynareport/29500.htm",
+            "codes": [],
+            "ranges": [],
+            "causes": causes,
+        },
+    )
+
+
 def main() -> int:
     CODES.mkdir(parents=True, exist_ok=True)
     diameter_result()
@@ -406,6 +507,7 @@ def main() -> int:
     )
     response_cause("gtpv2c-cause", "GTPv2-C cause (S11, S4, S5/S8, S10)", "29.274", "Table 8.4-1")
     response_cause("pfcp-cause", "PFCP cause (N4, Sxa, Sxb, Sxc)", "29.244", "Table 8.2.1-1")
+    sba_cause()
     return 0
 
 
