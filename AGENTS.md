@@ -10,6 +10,7 @@ Public repo of Agent Skills for mobile core signalling troubleshooting, at v0.3.
 4. `tests/test_telcode.py` loads the script by path and calls `main()`. Plain unittest, no pytest.
 5. `tools/update_data.py` regenerates the IANA and 3GPP tables. `tools/record_demo.py` records `docs/demo.gif` from real runs.
 6. `.claude-plugin/marketplace.json` makes the repo a Claude Code plugin marketplace. CI (`.github/workflows/ci.yml`) runs the tests on Python 3.10 and 3.14 plus a lint job.
+7. This repo is public and intentionally has no autonomous agent team: no ops role, no scheduled run, no agent workflow. Code work here is by hand or from a manual run someone starts on purpose.
 
 ## Commands
 
